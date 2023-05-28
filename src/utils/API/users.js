@@ -14,7 +14,7 @@ const userAPI = {
       });
       console.log(" f data:", data.json())
       if (data.ok) {
-        return data.json;
+        return data;
       }
     } catch (error) {
       console.log("error:", error);
@@ -25,8 +25,8 @@ const userAPI = {
   createUser: async (name, passsord) => {
     try {
       const newUser = {
-        username: name,
-        passsord: passsord,
+        userName: name,
+        password: passsord,
       };
       const data = fetch(`${URL_PREFIX}/api/users`, {
         method: "POST",
