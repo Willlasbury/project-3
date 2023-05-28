@@ -35,9 +35,9 @@ const userAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log("api data:", data)
+
       if (data.ok) {
-        return data;
+        return data.json();
       }
     } catch (error) {
       console.log("error:", error);
