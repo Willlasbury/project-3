@@ -28,16 +28,16 @@ const userAPI = {
         userName: name,
         password: passsord,
       };
-      const data = fetch(`${URL_PREFIX}/api/users`, {
+      const data = await fetch(`${URL_PREFIX}/api/users`, {
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {
           "Content-Type": "application/json",
         },
       });
-
+      console.log("api data:", data)
       if (data.ok) {
-        return data.json;
+        return data;
       }
     } catch (error) {
       console.log("error:", error);
