@@ -1,8 +1,16 @@
 import React from "react";
 import "./style.css";
-import userAPI from "../../utils/API/users";
 
-export default function Home () {
-   userAPI.createUser('mike', 'password').then(data => console.log("data:", data))
+import ChatForm from "../../components/Chat";
+
+import sayHi from "../../utils/socket/sayhi";
+
+export default function Home ({socket}) {
+
+   // This code was used to check that the socket connection worked and run a test emit
+   sayHi(socket)
+
+
+   return <ChatForm />
 
 }
