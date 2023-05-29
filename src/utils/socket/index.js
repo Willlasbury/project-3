@@ -10,7 +10,8 @@ export default function socketConnect  ()  {
   });
   console.log("socket:", socket)
 
-  socket.emit('test', "world")
+  const rooms = {}
+  
   sayHi(socket)
 
   return socket
