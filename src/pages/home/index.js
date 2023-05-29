@@ -1,14 +1,16 @@
 import React from "react";
 import "./style.css";
 
-import socketConnect from "../../utils/socket";
 import ChatForm from "../../components/Chat";
 
+import sayHi from "../../utils/socket/sayhi";
 
-export default function Home (props) {
-   // This code was used to check connection to the backend
-   // socketConnect()
-   // console.log("props.socket:", props.socket.id)
+export default function Home ({socket}) {
+
+   // This code was used to check that the socket connection worked and run a test emit
+   sayHi(socket)
+
+
    return <ChatForm />
 
 }
