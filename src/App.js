@@ -6,10 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
+import socketConnect from "./utils/socket";
 
 
 
-export default function App() {
+export default function App () {
+  
+  socketConnect()
+
   return (
     <BrowserRouter>
     <NavBar />

@@ -7,7 +7,7 @@ import socketConnect from '../../utils/socket'
 export default function ChatForm () {
     const [chat, setChat] = useState();
 
-    const connection = socketConnect()
+    // const connection = socketConnect()
 
 
     return (
