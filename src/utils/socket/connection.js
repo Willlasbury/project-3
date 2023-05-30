@@ -4,7 +4,11 @@ import {io} from 'socket.io-client'
 export default function socketConnect  ()  {
 
   // change this to match your server location
-  const SERVER = "http://localhost:3000"
+  // local server
+  // const SERVER = "http://localhost:3000"
+  
+  // deployed server
+  const SERVER = "https://git.heroku.com/traderz-post.git"
 
   // get socket
   const socket = io(SERVER);
