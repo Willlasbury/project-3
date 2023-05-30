@@ -1,5 +1,4 @@
 import {io} from 'socket.io-client'
-import sayHi from './sayhi';
 
 // create connection to socket at server 
 export default function socketConnect  ()  {
