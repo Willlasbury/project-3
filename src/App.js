@@ -6,6 +6,10 @@ import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup"
+import Category from "./pages/Category";
+import FreeItem from "./pages/FreeItem"
+import LookingFor from "./pages/LookingFor";
+import PostItem from "./pages/PostItem"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
@@ -23,6 +27,10 @@ export default function App () {
         <Route path="/" element={<Home socket={socket}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/freeitem" element={<FreeItem />} />
+        <Route path="/lookingfor" element={<LookingFor />} />
+        <Route path="/postitem" element={<PostItem />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
