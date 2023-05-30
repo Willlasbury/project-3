@@ -8,8 +8,10 @@ export default function NavBar() {
     <nav>
         <ul>
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/login'>Login</NavLink>
-            <NavLink to='/signup'>Sign up</NavLink>
+            <NavLink to='/category'>Category</NavLink>
+            <NavLink to='/freeitem'>FreeItem</NavLink>
+            <NavLink to='/lookingfor'>LookingFor</NavLink>
+            <NavLink to='/postitem'>PostItem</NavLink>
         </ul>
     </nav>
   );
