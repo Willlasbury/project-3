@@ -7,33 +7,69 @@ import "./style.css";
 export default function Signup () {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
-    // function handleSubmit () {
-        
-    // }
+    
     
     function handleSubmit(event) {
-
         event.preventDefault();
-    
+      
         if (!email || !email.match(/^(.*)@(.*)\.(.*)/)) {
-          alert("email not valid");
+          alert("Email not valid");
+        } else if (!name) {
+          alert("Name is required");
+        } else if (!password || password !== confirmPassword) {
+          alert("Passwords do not match");
         } else {
-            alert('thank you for your submission')
+          alert("Thank you for your submission");
+          setEmail("");
+          setName("");
+          setPassword("");
+          setConfirmPassword("");
         }
-        setEmail("");
-        setName("");
-        setPassword("");
+      }
+      
+      return (
+        <form>
+          <input
+            name="name"
+            placeholder="Name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <input
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <input
+            name="confirm-password"
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+          />
+          <button onClick={handleSubmit}>Signup</button>
+        </form>
+      );
       }
 
-   return (
+//    return (
    
-    <form>
-        <input name='name' placeholder="name" value={name} onChange={(event)=>setName(event.target.value)}/>
-        <input name='email' placeholder="email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
-        <input name='password' placeholder="password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
-        <input name='password' placeholder="re-enter password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
-        <button onClick={handleSubmit}>Signup</button>
-    </form>
-   )
-}
+//     <form>
+//         <input name='name' placeholder="name" value={name} onChange={(event)=>setName(event.target.value)}/>
+//         <input name='email' placeholder="email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+//         <input name='password' type="password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+//         <input name='confirm-password' type="password" value={confirm-password} onChange={(event)=>setPassword(event.target.value)}/>
+//         <button onClick={handleSubmit}>Signup</button>
+//     </form>
+//    )
+// }
