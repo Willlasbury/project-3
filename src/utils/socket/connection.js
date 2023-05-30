@@ -5,7 +5,7 @@ export default function socketConnect  ()  {
 
   // change this to match your server location
   // local server
-  // const SERVER = "http://localhost:3000"
+  // const SERVER = "http://localhost:3001"
   
   // deployed server
   const SERVER = "https://traderz-post.herokuapp.com"
