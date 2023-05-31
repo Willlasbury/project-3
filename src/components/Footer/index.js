@@ -3,6 +3,6 @@ import './style.css';
 
 export default function Footer () {
     return(
-        <footer>feet</footer>
+        <footer>ripe smelly feet</footer>
     )
 }
