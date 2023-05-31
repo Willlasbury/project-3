@@ -13,7 +13,9 @@ import PostItem from "./pages/PostItem"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
+import Chat from "./pages/Chat"
 import Search from "./pages/Search";
+
 
 export default function App () {
   
@@ -32,6 +34,7 @@ export default function App () {
         <Route path="/freeitem" element={<FreeItem />} />
         <Route path="/lookingfor" element={<LookingFor />} />
         <Route path="/postitem" element={<PostItem />} />
+        <Route path="/chat" element={<Chat socket={socket}/>} />
         <Route path="/search" element={<Search />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
