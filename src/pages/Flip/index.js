@@ -1,16 +1,18 @@
 import React from "react";
 
+
+
 class Flip extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       result: "",
-      nader: "nader"
+      flip: "flip"
     };
     this.coinToss = this.coinToss.bind(this);
   }
   coinToss() {
-    this.setState({ nader: "" }, () => {
+    this.setState({ flip: "" }, () => {
       if (Math.random() < 0.5) {
         this.setState({ result: "heads" });
         console.log("heads");
