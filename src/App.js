@@ -14,6 +14,7 @@ import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import Search from "./pages/Search";
+import Flip from "./pages/Flip";
 
 export default function App () {
   
@@ -33,6 +34,7 @@ export default function App () {
         <Route path="/lookingfor" element={<LookingFor />} />
         <Route path="/postitem" element={<PostItem />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/flip" element={<Flip />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
