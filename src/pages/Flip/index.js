@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.css";
 
 
 class Flip extends React.Component {
@@ -28,10 +28,10 @@ class Flip extends React.Component {
       <div className="Flip">
         <div id="coin" className={this.state.result} key={+new Date()}>
           <div class="side-a">
-            <h2>TAIL</h2>
+            <h2>TAILS</h2>
           </div>
           <div className="side-b">
-            <h2>HEAD</h2>
+            <h2>HEADS</h2>
           </div>
         </div>
         <h1>Flip a coin</h1>

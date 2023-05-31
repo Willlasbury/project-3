@@ -14,7 +14,7 @@ const userAPI = {
       });
       console.log(" f data:", data.json())
       if (data.ok) {
-        return data;
+        return await data.json();
       }
     } catch (error) {
       console.log("error:", error);
