@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import Chat from "./pages/Chat"
 import Search from "./pages/Search";
+import Flip from "./pages/Flip";
 
 
 export default function App () {
@@ -36,6 +37,7 @@ export default function App () {
         <Route path="/postitem" element={<PostItem />} />
         <Route path="/chat" element={<Chat socket={socket}/>} />
         <Route path="/search" element={<Search />} />
+        <Route path="/flip" element={<Flip />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
