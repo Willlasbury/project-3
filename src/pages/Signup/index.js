@@ -61,15 +61,3 @@ export default function Signup () {
         </form>
       );
       }
-
-//    return (
-   
-//     <form>
-//         <input name='name' placeholder="name" value={name} onChange={(event)=>setName(event.target.value)}/>
-//         <input name='email' placeholder="email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
-//         <input name='password' type="password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
-//         <input name='confirm-password' type="password" value={confirm-password} onChange={(event)=>setPassword(event.target.value)}/>
-//         <button onClick={handleSubmit}>Signup</button>
-//     </form>
-//    )
-// }

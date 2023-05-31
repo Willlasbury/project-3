@@ -2,13 +2,14 @@ import React from "react";
 import "./style.css";
 import { Image } from "cloudinary-react";
 
-import ChatForm from "../../components/Chat";
+import ChatForm from "../../components/Chat/ChatBody";
 
 import sayHi from "../../utils/socket/sayhi";
 
 export default function Home({ socket }) {
   // This code was used to check that the socket connection worked and run a test emit
-  sayHi(socket);
+  
+
 
   function doMath(socket) {
     socket.emit("do-math");
@@ -27,4 +28,7 @@ export default function Home({ socket }) {
       <ChatForm />
     </>
   );
+
+  return<p>home</p>
+
 }

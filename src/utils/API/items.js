@@ -1,12 +1,11 @@
-// url for working in the local host
 const URL_PREFIX = "http://localhost:3000";
 
 // TODO: add deployed url option
 
-const userAPI = {
-  getUsers: async () => {
+const itemsAPI = {
+  getItems: async () => {
     try {
-      const data = await fetch(`${URL_PREFIX}/api/users`, {
+      const data = await fetch(`${URL_PREFIX}/api/items`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -22,16 +21,19 @@ const userAPI = {
     }
   },
 
-  createUser: async (name, password, email) => {
+  createItems: async (title, category, minimum_trade, photo,condition, sold_status) => {
     try {
-      const newUser = {
-        userName: name,
-        password: password,
-        email: email
+      const newItem = {
+        title: title,
+        minimum_trade: minimum_trade,
+        category: category,
+        photo: photo,
+        condition: condition,
+        sold_status: sold_status
       };
-      const data = await fetch(`${URL_PREFIX}/api/users`, {
+      const data = await fetch(`${URL_PREFIX}/api/items`, {
         method: "POST",
-        body: JSON.stringify(newUser),
+        body: JSON.stringify(newItem),
         headers: {
           "Content-Type": "application/json",
         },
@@ -47,4 +49,4 @@ const userAPI = {
   },
 };
 
-export default userAPI;
+export default itemsAPI;
