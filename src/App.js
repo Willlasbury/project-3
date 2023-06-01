@@ -41,11 +41,8 @@ export default function App () {
         <Route path="/postitem" element={<PostItem />} />
         <Route path="/chat" element={<Chat socket={socket}/>} />
         <Route path="/search" element={<Search />} />
-<<<<<<< HEAD
         <Route path="/item" element={<Item />} />
-=======
         <Route path="/items" element={<Items />} />
->>>>>>> dev
         <Route path="/flip" element={<Flip />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
