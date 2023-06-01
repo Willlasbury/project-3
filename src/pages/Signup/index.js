@@ -5,10 +5,10 @@ import usersAPI from "../../utils/API/users";
 import "./style.css";
 
 export default function Signup() {
-  const [name, setName] = useState("will");
-  const [email, setEmail] = useState("will@will.will");
-  const [password, setPassword] = useState("password");
-  const [confirmPassword, setConfirmPassword] = useState("password");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
