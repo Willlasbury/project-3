@@ -28,7 +28,7 @@ export default function App () {
     <BrowserRouter>
     <NavBar />
       <Routes>
-        <Route path="/" element={<Home socket={socket}/>} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/category" element={<Category />} />

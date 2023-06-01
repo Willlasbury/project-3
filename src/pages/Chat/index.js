@@ -1,23 +1,28 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 
-import ChatBody from '../../components/Chat/ChatBody';
-import ChatFooter from '../../components/Chat/ChatFooter';
+import ChatBody from "../../components/Chat/ChatBody";
+import ChatFooter from "../../components/Chat/ChatFooter";
+import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 
 const ChatPage = ({ socket }) => {
+  const [messages, setMessages] = useState([]);
+  
+  useEffect(() => {
+    socket.on("messageResponse", (data) => {
+      setMessages([...messages, data]);
+    });
+  }, [socket, messages]);
 
-    const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    socket.emit("join-room", { id: "id", username:'hello', room: "room" });
+  }, []);
 
-    useEffect(() => {
-        socket.on('messageResponse', (data) => setMessages([...messages, data]));
-      }, [socket, messages]);
-    
+  socket.on('joined', (data) => {console.log("joined data:", data)})
   return (
     <>
-    
-        <ChatBody messages={messages}/>
-        <ChatFooter socket={socket}/>
-      
+      <ChatBody messages={messages} />
+      <ChatFooter socket={socket} />
     </>
   );
 };
