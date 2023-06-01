@@ -1,49 +1,79 @@
-import React from "react";
+import  React from "react";
+import { useEffect, useState } from "react";
 import socketConnect from "./utils/socket/connection";
+import userAPI from "./utils/API/users";
 
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup"
+import Signup from "./pages/Signup";
 import Category from "./pages/Category";
-import FreeItem from "./pages/FreeItem"
+import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
-import PostItem from "./pages/PostItem"
-import Items from "./pages/Items"
+import PostItem from "./pages/PostItem";
+import Items from "./pages/Items";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
-import Chat from "./pages/Chat"
+import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 
-
-export default function App () {
-  
+export default function App() {
   // create socket connection at root level and pass it to all pages
-    // you will call functions from utils/socket in pages to use the socket prop
-  const socket = socketConnect()
+  // you will call functions from utils/socket in pages to use the socket prop
+  const socket = socketConnect();
+
+  const [userId, setUserId] = useState(-1);
+  const [username, setUsername] = useState("");
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    try {
+      const storedToken = localStorage.getItem("token");
+      const data = userAPI.verifyToken(storedToken);
+
+      setToken(storedToken);
+      setUserId(data.id);
+      setUsername(data.username);
+    } catch (err) {
+      console.log("oh noes");
+      console.log(err);
+      //  logout();
+    }
+  }, []);
 
   return (
     <section>
-    <BrowserRouter>
-    <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/freeitem" element={<FreeItem />} />
-        <Route path="/lookingfor" element={<LookingFor />} />
-        <Route path="/postitem" element={<PostItem />} />
-        <Route path="/chat" element={<Chat socket={socket}/>} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/items" element={<Items />} />
-        <Route path="/flip" element={<Flip />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+      <BrowserRouter>
+        <NavBar username={username}/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                setUserId={setUserId}
+                setUsername={setUsername}
+                setToken={setToken}
+                userId={userId}
+                username={username}
+              />
+            }
+          />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/freeitem" element={<FreeItem />} />
+          <Route path="/lookingfor" element={<LookingFor />} />
+          <Route path="/postitem" element={<PostItem />} />
+          <Route path="/chat" element={<Chat socket={socket} />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/flip" element={<Flip />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </section>
-  )
+  );
 }

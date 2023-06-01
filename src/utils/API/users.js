@@ -12,7 +12,7 @@ const userAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data.json())
+      console.log(" f data:", data.json());
       if (data.ok) {
         return await data.json();
       }
@@ -28,7 +28,7 @@ const userAPI = {
       const newUser = {
         userName: name,
         password: password,
-        email: email
+        email: email,
       };
       const res = await fetch(`${URL_PREFIX}/api/users`, {
         method: "POST",
@@ -38,13 +38,43 @@ const userAPI = {
         },
       });
 
-    return res.json()
+      return res.json();
     } catch (error) {
       throw new Error(error);
     }
   },
+  login: async (userName, password) => {
+    const user = {
+      userName: userName,
+      password: password,
+    };
+
+    const res = await fetch(`${URL_PREFIX}/api/users/login`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error("falied login");
+    }
+  },
+  // verifyToken: async (token) => {
+  //   const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //     },
+  //   });
+  //   if (res.ok) {
+  //     return res.json();
+  //   } else {
+  //     throw new Error("falied signup");
+  //   }
+  // },
 };
-
-
 
 export default userAPI;
