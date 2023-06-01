@@ -1,5 +1,5 @@
 import React from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import socketConnect from "./utils/socket/connection";
 
 import Home from "./pages/home";
@@ -10,6 +10,7 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem"
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem"
+import Items from "./pages/Items"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,7 @@ export default function App () {
   const socket = socketConnect()
 
   return (
+    <section>
     <BrowserRouter>
     <NavBar />
       <Routes>
@@ -37,10 +39,12 @@ export default function App () {
         <Route path="/postitem" element={<PostItem />} />
         <Route path="/chat" element={<Chat socket={socket}/>} />
         <Route path="/search" element={<Search />} />
+        <Route path="/items" element={<Items />} />
         <Route path="/flip" element={<Flip />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
+    </section>
   )
 }

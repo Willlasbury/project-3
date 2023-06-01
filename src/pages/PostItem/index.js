@@ -6,7 +6,8 @@ import UploadWidget from "../../components/UploadWidget";
 
 import "./style.css";
 
-export default function NotFound() {
+
+export default function PostItem() {
   return (
     <>
       <h1>Post Item</h1>;
@@ -14,3 +15,4 @@ export default function NotFound() {
     </>
   );
 }
+
