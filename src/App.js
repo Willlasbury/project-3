@@ -9,6 +9,8 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem"
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem"
+import Item from "./pages/Item"
+import Browse from "./pages/Browse"
 import Items from "./pages/Items"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -33,12 +35,17 @@ export default function App () {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/category" element={<Category />} />
+        <Route path="/browse" element={<Browse />} />
         <Route path="/freeitem" element={<FreeItem />} />
         <Route path="/lookingfor" element={<LookingFor />} />
         <Route path="/postitem" element={<PostItem />} />
         <Route path="/chat" element={<Chat socket={socket}/>} />
         <Route path="/search" element={<Search />} />
+<<<<<<< HEAD
+        <Route path="/item" element={<Item />} />
+=======
         <Route path="/items" element={<Items />} />
+>>>>>>> dev
         <Route path="/flip" element={<Flip />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
