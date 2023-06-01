@@ -1,5 +1,5 @@
 // url for working in the local host
-const URL_PREFIX = "http://localhost:3000";
+const URL_PREFIX = "http://localhost:3001";
 
 // TODO: add deployed url option
 
@@ -12,7 +12,7 @@ const userAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data.json())
+      console.log(" f data:", data.json());
       if (data.ok) {
         return await data.json();
       }
@@ -22,14 +22,15 @@ const userAPI = {
     }
   },
 
-  createUser: async (name, password, email) => {
+  // signup
+  signUp: async (name, password, email) => {
     try {
       const newUser = {
         userName: name,
         password: password,
-        email: email
+        email: email,
       };
-      const data = await fetch(`${URL_PREFIX}/api/users`, {
+      const res = await fetch(`${URL_PREFIX}/api/users`, {
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {
@@ -37,14 +38,43 @@ const userAPI = {
         },
       });
 
-      if (data.ok) {
-        return data.json();
-      }
+      return res.json();
     } catch (error) {
-      console.log("error:", error);
       throw new Error(error);
     }
   },
+  login: async (userName, password) => {
+    const user = {
+      userName: userName,
+      password: password,
+    };
+
+    const res = await fetch(`${URL_PREFIX}/api/users/login`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error("falied login");
+    }
+  },
+  // verifyToken: async (token) => {
+  //   const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //     },
+  //   });
+  //   if (res.ok) {
+  //     return res.json();
+  //   } else {
+  //     throw new Error("falied signup");
+  //   }
+  // },
 };
 
 export default userAPI;
