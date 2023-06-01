@@ -1,5 +1,5 @@
 // url for working in the local host
-const URL_PREFIX = "http://localhost:3000";
+const URL_PREFIX = "http://localhost:3001";
 
 // TODO: add deployed url option
 
@@ -22,14 +22,15 @@ const userAPI = {
     }
   },
 
-  createUser: async (name, password, email) => {
+  // signup
+  signUp: async (name, password, email) => {
     try {
       const newUser = {
         userName: name,
         password: password,
         email: email
       };
-      const data = await fetch(`${URL_PREFIX}/api/users`, {
+      const res = await fetch(`${URL_PREFIX}/api/users`, {
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {
@@ -37,14 +38,13 @@ const userAPI = {
         },
       });
 
-      if (data.ok) {
-        return data.json();
-      }
+    return res.json()
     } catch (error) {
-      console.log("error:", error);
       throw new Error(error);
     }
   },
 };
+
+
 
 export default userAPI;
