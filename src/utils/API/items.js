@@ -1,4 +1,4 @@
-const URL_PREFIX = "http://localhost:3000";
+const URL_PREFIX = "http://localhost:3001";
 
 // TODO: add deployed url option
 
@@ -11,7 +11,7 @@ const itemsAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data.json())
+      console.log(" f data:", data.json());
       if (data.ok) {
         return await data.json();
       }
@@ -21,7 +21,14 @@ const itemsAPI = {
     }
   },
 
-  createItems: async (title, category, minimum_trade, photo,condition, sold_status) => {
+  createItems: async (
+    title,
+    category,
+    minimum_trade,
+    photo,
+    condition,
+    sold_status
+  ) => {
     try {
       const newItem = {
         title: title,
@@ -29,7 +36,7 @@ const itemsAPI = {
         category: category,
         photo: photo,
         condition: condition,
-        sold_status: sold_status
+        sold_status: sold_status,
       };
       const data = await fetch(`${URL_PREFIX}/api/items`, {
         method: "POST",
