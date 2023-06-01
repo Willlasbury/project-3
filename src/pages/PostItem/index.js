@@ -3,7 +3,7 @@ import React from "react";
 
 import "./style.css";
 
-export default function NotFound () {
+export default function PostItem () {
     return (
         <h1>Post Item</h1>
     )
