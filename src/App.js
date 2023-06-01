@@ -1,5 +1,4 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import socketConnect from "./utils/socket/connection";
 
 import Home from "./pages/home";
