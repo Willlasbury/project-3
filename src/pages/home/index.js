@@ -20,7 +20,4 @@ export default function Home({ socket }) {
       />
     </>
   );
-
-  return<p>home</p>
-
 }
