@@ -10,15 +10,10 @@ import Signup from "./pages/Signup";
 import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
-<<<<<<< HEAD
-import PostItem from "./pages/PostItem";
-import Items from "./pages/Items";
-=======
 import PostItem from "./pages/PostItem"
 import Item from "./pages/Item"
 import Browse from "./pages/Browse"
 import Items from "./pages/Items"
->>>>>>> dev
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
