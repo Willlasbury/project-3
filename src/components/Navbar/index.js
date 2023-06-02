@@ -12,6 +12,7 @@ export default function NavBar() {
             <NavLink to='/freeitem'>FreeItem</NavLink>
             <NavLink to='/lookingfor'>LookingFor</NavLink>
             <NavLink to='/postitem'>PostItem</NavLink>
+            <NavLink to='/browse'>Browse</NavLink>
             <NavLink to='/search'>Search</NavLink>
         </ul>
     </nav>

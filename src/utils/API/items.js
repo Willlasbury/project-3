@@ -5,21 +5,26 @@ const URL_PREFIX = "http://localhost:3001";
 const itemsAPI = {
   getItems: async () => {
     try {
-      const data = await fetch(`${URL_PREFIX}/api/items`, {
+      const response = await fetch(`${URL_PREFIX}/api/items`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data.json());
-      if (data.ok) {
-        return await data.json();
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched data:", data);
+        return data;
+      } else {
+        throw new Error(`Error fetching items: ${response.status} ${response.statusText}`);
       }
     } catch (error) {
-      console.log("error:", error);
-      throw new Error(error);
+      console.log("Error:", error);
+      throw new Error(`Error fetching items: ${error.message}`);
     }
   },
+  
 
   createItems: async (
     title,

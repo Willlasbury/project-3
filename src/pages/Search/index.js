@@ -7,7 +7,7 @@ export default function Search () {
     return (
         <form>
             <div>
-                <label htmlfor="search">Search:</label>
+                <label htmlFor="search">Search:</label>
                 <input 
                 name="search"
                 type="text"
