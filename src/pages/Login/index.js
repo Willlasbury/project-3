@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import userAPI from "../../utils/API/users";
 
 import "./style.css";
 
 export default function Login(props) {
+  const navigate = useNavigate()
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,6 +19,7 @@ export default function Login(props) {
       props.setUsername(res.user.username);
       props.setToken(res.token);
       localStorage.setItem("token", res.token);
+      navigate('/')
     } catch (err) {
       console.log(err);
       localStorage.removeItem("token");

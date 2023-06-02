@@ -49,7 +49,7 @@ export default function Signup(props) {
       setName("");
       setPassword("");
       setConfirmPassword("");
-      location
+  
     }
   };
 
