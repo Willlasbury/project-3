@@ -6,6 +6,7 @@ export default function Browse() {
   const [items, setItems] = useState([]);
 
   // Fetch items data and update the items state
+  //TODO:add token user id once that is up and running
   useEffect(() => {
     usersApi.getUserId("1").then((data) => {
       console.log("data:", data);
