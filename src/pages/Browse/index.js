@@ -10,6 +10,7 @@ export default function Browse() {
     const fetchItems = async () => {
       try {
         const fetchedItems = await itemsAPI.getItems();
+        console.log("Fetched items:", fetchedItems);
         setItems(fetchedItems);
       } catch (error) {
         console.log("Error fetching items:", error);
