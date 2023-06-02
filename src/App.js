@@ -1,4 +1,4 @@
-import  React from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
@@ -10,10 +10,10 @@ import Signup from "./pages/Signup";
 import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
-import PostItem from "./pages/PostItem"
-import Item from "./pages/Item"
-import Browse from "./pages/Browse"
-import Items from "./pages/Items"
+import PostItem from "./pages/PostItem";
+import Item from "./pages/Item";
+import Browse from "./pages/Browse";
+import Items from "./pages/Items";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
@@ -33,11 +33,13 @@ export default function App() {
   useEffect(() => {
     try {
       const storedToken = localStorage.getItem("token");
-      const data = userAPI.verifyToken(storedToken);
-
-      setToken(storedToken);
-      setUserId(data.id);
-      setUsername(data.username);
+      console.log("storedToken:", storedToken)
+      userAPI.verifyToken(storedToken).then((data) => {
+        console.log("data:", data);
+        setToken(storedToken);
+        setUserId(data.id);
+        setUsername(data.username);
+      });
     } catch (err) {
       console.log("oh noes");
       console.log(err);
@@ -48,7 +50,7 @@ export default function App() {
   return (
     <section>
       <BrowserRouter>
-        <NavBar username={username}/>
+        <NavBar username={username} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -63,7 +65,11 @@ export default function App() {
               />
             }
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup setUserId={setUserId}
+                setUsername={setUsername}
+                setToken={setToken}
+                userId={userId}
+                username={username}/>} />
           <Route path="/category" element={<Category />} />
           <Route path="/freeitem" element={<FreeItem />} />
           <Route path="/lookingfor" element={<LookingFor />} />

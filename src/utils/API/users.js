@@ -1,3 +1,4 @@
+import React from "react";
 // url for working in the local host
 const URL_PREFIX = "http://localhost:3001";
 
@@ -63,18 +64,17 @@ const userAPI = {
       throw new Error("falied login");
     }
   },
-  // verifyToken: async (token) => {
-  //   const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
-  //     headers: {
-  //       authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   if (res.ok) {
-  //     return res.json();
-  //   } else {
-  //     throw new Error("falied signup");
-  //   }
-  // },
+  verifyToken: async (token) => {
+    const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data =  await res.json();
+    // console.log("res:", res)
+   return data
+  },
 };
 
 export default userAPI;

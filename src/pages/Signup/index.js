@@ -4,13 +4,28 @@ import usersAPI from "../../utils/API/users";
 
 import "./style.css";
 
-export default function Signup() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+export default function Signup(props) {
+  const [name, setName] = useState("wiFDSAll");
+  const [email, setEmail] = useState("will@wiFDSAll.will");
+  const [password, setPassword] = useState("password");
+  const [confirmPassword, setConfirmPassword] = useState("password");
 
-  async function handleSubmit(event) {
+  // const handleSubmit = async (event) => {
+  //   try {
+  //     event.preventDefault();
+  //     const res = await userAPI.login(name, password);
+  //     console.log(res);
+  // props.setUserId(res.user.id);
+  // props.setUsername(res.user.username);
+  // props.setToken(res.token);
+  // localStorage.setItem("token", res.token);
+  //   } catch (err) {
+  //     console.log(err);
+  //     localStorage.removeItem("token");
+  //   }
+  // };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!email.match(/^(.*)@(.*)\.(.*)/)) {
@@ -25,14 +40,18 @@ export default function Signup() {
         alert("Error: " + res.msg);
       } else {
         alert("Thank you for your submission");
-        console.log("res:", res)
+        props.setUserId(res.user.id);
+        props.setUsername(res.user.username);
+        props.setToken(res.token);
+        localStorage.setItem("token", res.token);
       }
       setEmail("");
       setName("");
       setPassword("");
       setConfirmPassword("");
+      location
     }
-  }
+  };
 
   return (
     <form>
