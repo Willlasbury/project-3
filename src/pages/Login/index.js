@@ -17,6 +17,7 @@ export default function Login(props) {
       props.setUsername(res.user.username);
       props.setToken(res.token);
       localStorage.setItem("token", res.token);
+      localStorage.setItem("tokenId", res.user.id);
     } catch (err) {
       console.log(err);
       localStorage.removeItem("token");
