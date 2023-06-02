@@ -8,7 +8,9 @@ export default function Browse() {
   // Fetch items data and update the items state
   //TODO:add token user id once that is up and running
   useEffect(() => {
-    usersApi.getUserId("1").then((data) => {
+    const userId = localStorage.getItem("tokenId");
+    console.log("userId:", userId);
+    usersApi.getUserId(`${userId}`).then((data) => {
       console.log("data:", data);
       console.log("data.seller:", data.Seller);
       setItems(data.Seller);
