@@ -7,6 +7,7 @@ export default function NavBar({ username }) {
     <nav>
       <ul>
         <NavLink to="/">Home</NavLink>
+        <NavLink to="/YourItems">Your Items</NavLink>
         <NavLink to="/category">Category</NavLink>
         <NavLink to="/freeitem">FreeItem</NavLink>
         <NavLink to="/lookingfor">LookingFor</NavLink>
