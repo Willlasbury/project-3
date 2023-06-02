@@ -22,6 +22,23 @@ const userAPI = {
       throw new Error(error);
     }
   },
+  getUserId: async (userId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/users/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(" f data:", data);
+      if (data.ok) {
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
+    }
+  },
 
   // signup
   signUp: async (name, password, email) => {

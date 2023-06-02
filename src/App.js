@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound";
 import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Flip from "./pages/Flip";
+import YourItems from "./pages/YourItems";
 
 export default function App() {
   // create socket connection at root level and pass it to all pages
@@ -65,11 +66,8 @@ export default function App() {
               />
             }
           />
-          <Route path="/signup" element={<Signup setUserId={setUserId}
-                setUsername={setUsername}
-                setToken={setToken}
-                userId={userId}
-                username={username}/>} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/yourItems" element={<YourItems />} />
           <Route path="/category" element={<Category />} />
           <Route path="/freeitem" element={<FreeItem />} />
           <Route path="/lookingfor" element={<LookingFor />} />
