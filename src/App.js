@@ -68,6 +68,8 @@ export default function App() {
           <Route path="/freeitem" element={<FreeItem />} />
           <Route path="/lookingfor" element={<LookingFor />} />
           <Route path="/postitem" element={<PostItem />} />
+          <Route path="/browse" element={<Browse />} />
+          <Route path="/item" element={<Item />} />
           <Route path="/chat" element={<Chat socket={socket} />} />
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />

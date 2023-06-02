@@ -1,46 +1,40 @@
-import React from "react";
+
+import React, { useState } from "react";
 import "./style.css";
 
+const Flip = () => {
+  const [result, setResult] = useState("");
+  const [flip, setFlip] = useState("flip");
 
-class Flip extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      result: "",
-      flip: "flip"
-    };
-    this.coinToss = this.coinToss.bind(this);
-  }
-  coinToss() {
-    this.setState({ flip: "" }, () => {
-      if (Math.random() < 0.5) {
-        this.setState({ result: "heads" });
-        console.log("heads");
-      } else {
-        this.setState({ result: "tails" });
-        console.log("tails");
-      }
-    });
-  }
+  const coinToss = () => {
+    setFlip("");
+    if (Math.random() < 0.5) {
+      setResult("heads");
+      console.log("heads");
+    } else {
+      setResult("tails");
+      console.log("tails");
+    }
+  };
 
-  render() {
-    return (
-      <div className="Flip">
-        <div id="coin" className={this.state.result} key={+new Date()}>
-          <div class="side-a">
-            <h2>TAILS</h2>
-          </div>
-          <div className="side-b">
-            <h2>HEADS</h2>
-          </div>
+  return (
+    <div className="Flip">
+      <div id="coin" className={result} key={+new Date()}>
+        <div className="side-a">
+          <h2>{result}</h2>
         </div>
-        <h1>Flip a coin</h1>
-        <button id="btn" onClick={this.coinToss}>
-          Coin Toss
-        </button>
+        <div className="side-b">
+          <h2>{result}</h2>
+        </div>
       </div>
-    );
-  }
-}
+      <h1>Flip a coin</h1>
+      <button id="btn" onClick={coinToss}>
+        Coin Toss
+      </button>
+    </div>
+  );
+};
 
 export default Flip;
+
+
