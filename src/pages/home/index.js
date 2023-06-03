@@ -8,7 +8,7 @@ import { Image } from "cloudinary-react";
 
 export default function Home({ socket, token }) {
   const navigate = useNavigate()
-
+  
   useEffect(()=>{
     if (!token){
       navigate('/login')
