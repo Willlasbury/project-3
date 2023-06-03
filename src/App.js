@@ -34,11 +34,13 @@ export default function App() {
   useEffect(() => {
     try {
       const storedToken = localStorage.getItem("token");
-      const data = userAPI.verifyToken(storedToken);
-
-      setToken(storedToken);
-      setUserId(data.id);
-      setUsername(data.username);
+      console.log("storedToken:", storedToken)
+      userAPI.verifyToken(storedToken).then((data) => {
+        console.log("data:", data);
+        setToken(storedToken);
+        setUserId(data.id);
+        setUsername(data.username);
+      });
     } catch (err) {
       console.log("oh noes");
       console.log(err);
@@ -64,7 +66,11 @@ export default function App() {
               />
             }
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup setUserId={setUserId}
+                setUsername={setUsername}
+                setToken={setToken}
+                userId={userId}
+                username={username}/>} />
           <Route path="/yourItems" element={<YourItems />} />
           <Route path="/category" element={<Category />} />
           <Route path="/freeitem" element={<FreeItem />} />

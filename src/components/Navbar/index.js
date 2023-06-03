@@ -13,6 +13,8 @@ export default function NavBar({ username }) {
         <NavLink to="/lookingfor">LookingFor</NavLink>
         <NavLink to="/postitem">PostItem</NavLink>
         <NavLink to="/search">Search</NavLink>
+        <NavLink to="/login">login</NavLink>
+        <NavLink to="/signup">signup</NavLink>
       </ul>
 
       <h3>Hello: {username}</h3>
