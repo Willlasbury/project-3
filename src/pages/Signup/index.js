@@ -1,29 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import usersAPI from "../../utils/API/users";
 
 import "./style.css";
 
 export default function Signup(props) {
+  const navigate = useNavigate()
   const [name, setName] = useState("wiFDSAll");
   const [email, setEmail] = useState("will@wiFDSAll.will");
   const [password, setPassword] = useState("password");
   const [confirmPassword, setConfirmPassword] = useState("password");
 
-  // const handleSubmit = async (event) => {
-  //   try {
-  //     event.preventDefault();
-  //     const res = await userAPI.login(name, password);
-  //     console.log(res);
-  // props.setUserId(res.user.id);
-  // props.setUsername(res.user.username);
-  // props.setToken(res.token);
-  // localStorage.setItem("token", res.token);
-  //   } catch (err) {
-  //     console.log(err);
-  //     localStorage.removeItem("token");
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,7 +32,13 @@ export default function Signup(props) {
         props.setUsername(res.user.username);
         props.setToken(res.token);
         localStorage.setItem("token", res.token);
+        setEmail("");
+        setName("");
+        setPassword("");
+        setConfirmPassword("");
+        navigate('/')
       }
+
       setEmail("");
       setName("");
       setPassword("");

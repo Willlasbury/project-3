@@ -66,7 +66,11 @@ export default function App() {
               />
             }
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup setUserId={setUserId}
+                setUsername={setUsername}
+                setToken={setToken}
+                userId={userId}
+                username={username}/>} />
           <Route path="/yourItems" element={<YourItems />} />
           <Route path="/category" element={<Category />} />
           <Route path="/freeitem" element={<FreeItem />} />

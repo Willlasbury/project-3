@@ -14,7 +14,6 @@ export default function Login(props) {
     try {
       event.preventDefault();
       const res = await userAPI.login(name, password);
-      console.log(res);
       props.setUserId(res.user.id);
       props.setUsername(res.user.username);
       props.setToken(res.token);
