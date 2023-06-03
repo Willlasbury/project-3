@@ -1,6 +1,8 @@
 
 import React, { useState } from "react";
 import "./style.css";
+import headsImage from "./heads.jpg";
+import tailsImage from "./tails.jpg";
 
 const Flip = () => {
   const [result, setResult] = useState("");
@@ -19,18 +21,18 @@ const Flip = () => {
 
   return (
     <div className="Flip">
+        <button id="btn" onClick={coinToss}>
+        Flip For It</button>
       <div id="coin" className={result} key={+new Date()}>
         <div className="side-a">
-          <h2>{result}</h2>
+          <img src={result === "heads" ? headsImage : tailsImage} alt={result} />
         </div>
         <div className="side-b">
-          <h2>{result}</h2>
+          <img src={result === "heads" ? headsImage : tailsImage} alt={result} />
         </div>
       </div>
-      <h1>Flip a coin</h1>
-      <button id="btn" onClick={coinToss}>
-        Coin Toss
-      </button>
+      
+    
     </div>
   );
 };
