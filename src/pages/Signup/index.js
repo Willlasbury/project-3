@@ -38,6 +38,12 @@ export default function Signup(props) {
         setConfirmPassword("");
         navigate('/')
       }
+
+      setEmail("");
+      setName("");
+      setPassword("");
+      setConfirmPassword("");
+  
     }
   };
 
