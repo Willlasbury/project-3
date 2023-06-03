@@ -1,7 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
+
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
+
 
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -29,18 +31,17 @@ export default function App() {
 
   const [userId, setUserId] = useState(-1);
   const [username, setUsername] = useState("");
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  console.log("token:", token)
 
   useEffect(() => {
     try {
-      const storedToken = localStorage.getItem("token");
-      console.log("storedToken:", storedToken)
-      userAPI.verifyToken(storedToken).then((data) => {
-        console.log("data:", data);
-        setToken(storedToken);
-        setUserId(data.id);
-        setUsername(data.username);
-      });
+      if (token) {
+        userAPI.verifyToken(token).then((data) => {
+          setUserId(data.id);
+          setUsername(data.username);
+        });
+      }
     } catch (err) {
       console.log("oh noes");
       console.log(err);
@@ -53,7 +54,7 @@ export default function App() {
       <BrowserRouter>
         <NavBar username={username} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home token={token}/>} />
           <Route
             path="/login"
             element={

@@ -1,14 +1,19 @@
 import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./style.css";
 import { Image } from "cloudinary-react";
 
-import ChatForm from "../../components/Chat/ChatBody";
 
-import sayHi from "../../utils/socket/sayhi";
-
-export default function Home({ socket }) {
-  // This code was used to check that the socket connection worked and run a test emit
+export default function Home({ socket, token }) {
+  const navigate = useNavigate()
   
+  useEffect(()=>{
+    if (!token){
+      navigate('/login')
+    }
+  },[])
 
   return (
     <>
