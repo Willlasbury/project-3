@@ -82,15 +82,19 @@ const userAPI = {
     }
   },
   verifyToken: async (token) => {
-    const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-
-    const data =  await res.json();
-    // console.log("res:", res)
-   return data
+    try{
+      const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+   
+      const data =  await res.json();
+      return data
+    } catch (error) {
+      console.log("error:", error)
+      return new Error(error)
+    }
   },
 };
 

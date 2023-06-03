@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
 
-
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
@@ -32,14 +31,17 @@ export default function App() {
   const [userId, setUserId] = useState(-1);
   const [username, setUsername] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
-  console.log("token:", token)
+  console.log("token:", token);
 
   useEffect(() => {
     try {
       if (token) {
         userAPI.verifyToken(token).then((data) => {
-          setUserId(data.id);
-          setUsername(data.username);
+          if (data) {
+            console.log("data:", data)
+            setUserId(data.id);
+            setUsername(data.username);
+          }
         });
       }
     } catch (err) {
@@ -54,7 +56,7 @@ export default function App() {
       <BrowserRouter>
         <NavBar username={username} />
         <Routes>
-          <Route path="/" element={<Home token={token}/>} />
+          <Route path="/" element={<Home token={token} />} />
           <Route
             path="/login"
             element={
@@ -67,11 +69,18 @@ export default function App() {
               />
             }
           />
-          <Route path="/signup" element={<Signup setUserId={setUserId}
+          <Route
+            path="/signup"
+            element={
+              <Signup
+                setUserId={setUserId}
                 setUsername={setUsername}
                 setToken={setToken}
                 userId={userId}
-                username={username}/>} />
+                username={username}
+              />
+            }
+          />
           <Route path="/yourItems" element={<YourItems />} />
           <Route path="/category" element={<Category />} />
           <Route path="/freeitem" element={<FreeItem />} />
