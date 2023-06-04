@@ -12,7 +12,7 @@ export default function Browse() {
     console.log("userId:", userId);
     usersApi.getUserId(`${userId}`).then((data) => {
       console.log("data:", data);
-      console.log("data.seller:", data.Seller);
+      // console.log("data.seller:", data.Seller);
       setItems(data.Seller);
     });
   }, []);
