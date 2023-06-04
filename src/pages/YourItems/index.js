@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Item from "../Item";
+import Item from "../Item prop";
 import usersApi from "../../utils/API/users";
 
 export default function Browse() {
