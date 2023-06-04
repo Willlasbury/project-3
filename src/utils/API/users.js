@@ -89,8 +89,7 @@ const userAPI = {
     });
 
     const data =  await res.json();
-    // console.log("res:", res)
-   return data
+    return data
   },
 };
 
