@@ -12,7 +12,7 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
-import Item from "./pages/Item";
+import Item from "./pages/Item prop";
 import Browse from "./pages/Browse";
 import Items from "./pages/Items";
 import NavBar from "./components/Navbar";
@@ -96,7 +96,7 @@ export default function App() {
           <Route path="/lookingfor" element={<LookingFor />} />
           <Route path="/postitem" element={<PostItem />} />
           <Route path="/browse" element={<Browse />} />
-          <Route path="/item" element={<Item />} />
+          <Route path="/item" element={<Items />} />
           <Route path="/chat" element={<Chat socket={socket} />} />
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />
