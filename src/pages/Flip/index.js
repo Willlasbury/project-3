@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import "./style.css";
+// import "./style.css";
 import headsImage from "./heads.jpg";
 import tailsImage from "./tails.jpg";
 
@@ -21,22 +20,25 @@ const Flip = () => {
 
   return (
     <div className="Flip">
-        <button id="btn" onClick={coinToss}>
-        Flip For It</button>
+      <button id="btn" onClick={coinToss}>
+        Flip For It
+      </button>
       <div id="coin" className={result} key={+new Date()}>
         <div className="side-a">
-          <img src={result === "heads" ? headsImage : tailsImage} alt={result} />
+          <img
+            src={result === "heads" ? headsImage : tailsImage}
+            alt={result}
+          />
         </div>
         <div className="side-b">
-          <img src={result === "heads" ? headsImage : tailsImage} alt={result} />
+          <img
+            src={result === "heads" ? headsImage : tailsImage}
+            alt={result}
+          />
         </div>
       </div>
-      
-    
     </div>
   );
 };
 
 export default Flip;
-
-

@@ -3,11 +3,11 @@ import "./style.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function NavBar({ username, logout }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  function handleLogout  () {
-    logout()
-    navigate('/login')
+  function handleLogout() {
+    logout();
+    navigate("/login");
   }
 
   return (
@@ -17,7 +17,7 @@ export default function NavBar({ username, logout }) {
         <NavLink to="/YourItems">Your Items</NavLink>
         <NavLink to="/category">Category</NavLink>
         <NavLink to="/freeitem">FreeItem</NavLink>
-        <NavLink to="/lookingfor">LookingFor</NavLink>
+        <NavLink to="/browse">Browse</NavLink>
         <NavLink to="/postitem">PostItem</NavLink>
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/login">login</NavLink>

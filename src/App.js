@@ -22,6 +22,7 @@ import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
+import "./index.css";
 
 export default function App() {
   // create socket connection at root level and pass it to all pages
@@ -51,7 +52,7 @@ export default function App() {
       //  logout();
     }
   }, [userId]);
-  
+
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
