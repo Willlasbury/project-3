@@ -37,7 +37,7 @@ export default function App() {
       if (token) {
         userAPI.verifyToken(token).then((data) => {
           if (data.msg === "bad token") {
-            localStorage.setItem("token", "");
+            localStorage.removeItem("token");
             setToken(null);
           } else {
             setUserId(data.id);
@@ -50,12 +50,19 @@ export default function App() {
       console.log(err);
       //  logout();
     }
-  }, []);
+  }, [userId]);
+  
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+    setUsername(null);
+    setUserId(0);
+  };
 
   return (
     <section>
       <BrowserRouter>
-        <NavBar username={username} />
+        <NavBar username={username} logout={logout} />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route

@@ -88,8 +88,8 @@ const userAPI = {
       },
     });
 
-    const data =  await res.json();
-    return data
+    const data = await res.json();
+    return data;
   },
 };
 

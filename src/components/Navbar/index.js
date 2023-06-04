@@ -1,8 +1,15 @@
 import React from "react";
 import "./style.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-export default function NavBar({ username }) {
+export default function NavBar({ username, logout }) {
+  const navigate = useNavigate()
+
+  function handleLogout  () {
+    logout()
+    navigate('/login')
+  }
+
   return (
     <nav>
       <ul>
@@ -15,6 +22,7 @@ export default function NavBar({ username }) {
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/login">login</NavLink>
         <NavLink to="/signup">signup</NavLink>
+        <button onClick={handleLogout}>Logout</button>
       </ul>
 
       <h3>Hello: {username}</h3>
