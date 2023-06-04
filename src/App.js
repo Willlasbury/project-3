@@ -61,7 +61,7 @@ export default function App() {
   };
 
   return (
-    <section>
+    <section className="flex flex-col h-screen">
       <BrowserRouter>
         <NavBar username={username} logout={logout} />
         <Routes>
