@@ -3,16 +3,11 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Item({ id, picture, title, category, condition }) {
-  console.log("picture Individual:", picture[0]);
-
   return (
     <div className="item-card">
-      <img src={picture.url} alt={title} className="item-image" />
-      <img
-        src={picture.map((url) => picture.url)}
-        alt={title}
-        className="item-image"
-      />
+      {picture.map((photo, index) => (
+        <img key={index} src={photo.url} />
+      ))}
       <h3 className="item-title">{title}</h3>
       <p className="item-category">Category: {category}</p>
       <p className="item-condition">Condition: {condition}</p>

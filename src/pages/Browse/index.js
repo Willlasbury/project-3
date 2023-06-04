@@ -24,7 +24,7 @@ export default function Browse() {
 
   return (
     <div className="browse">
-      <h1 className="underline">Browse Items</h1>
+      <h1 className="bg-red-500">Browse Items</h1>
       <ul className="item-list">
         {items.map((item) => (
           <li key={item.id}>
