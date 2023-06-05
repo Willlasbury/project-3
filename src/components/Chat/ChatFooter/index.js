@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import sendMessage from '../../../utils/socket/sendMessage';
-const ChatFooter = ({socket, token}) => {
-  const [message, setMessage] = useState('');
+import React, { useState } from "react";
+import sendMessage from "../../../utils/socket/sendMessage";
+const ChatFooter = ({ socket, token }) => {
+  const [message, setMessage] = useState("");
 
-  console.log("token:", token)
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
@@ -11,7 +10,7 @@ const ChatFooter = ({socket, token}) => {
         text: message,
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
-        token: token
+        token: token,
       });
     }
     setMessage("");
