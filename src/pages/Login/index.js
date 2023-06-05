@@ -44,7 +44,7 @@ export default function Login(props) {
         onChange={(event) => setPassword(event.target.value)}
       />
     </div> 
-      <button onClick={handleSubmit} className="px-3 border-4 border-gray-700 rounded-lg shadow-lg bg-grey-300 hover:font-bold hover:bg-blue-400 text-xl font-medium hover:text-2xl">Login</button>
+      <button onClick={handleSubmit} className="px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium">Login</button>
       {/* <input
         name="name"
         placeholder="name"
