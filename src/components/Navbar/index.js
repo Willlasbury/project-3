@@ -11,7 +11,7 @@ export default function NavBar({ username, logout }) {
   }
 
   return (
-    <nav className="bg-blue-500 dark:bg-blue-300 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+    <nav className="bg-blue-500 dark:bg-blue-300 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div
           className="items-center justify-between w-full md:flex md:w-auto md:order-1"
