@@ -66,6 +66,8 @@ export default function App() {
 
   return (
     <section className="flex flex-col min-h-screen mt-20 mb-12">
+       {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
+      
       <BrowserRouter>
         <NavBar username={username} logout={logout} messages={messages} />
         <Routes>
