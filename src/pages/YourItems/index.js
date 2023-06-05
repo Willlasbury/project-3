@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "../ItemProp";
 import usersApi from "../../utils/API/users";
-
+import "../../index.css";
 export default function Browse() {
   const [items, setItems] = useState([]);
 
