@@ -29,30 +29,23 @@ export default function Login(props) {
   return (
     <form className="flex flex-col items-center">
       <div className="mb-3">
-        <label
-          for="Name"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Name
-        </label>
-        <input
-          type="text"
-          id="default-input"
-          className="px-3 border-4 border-gray-700 rounded-lg shadow-lg bg-grey-300 "
+        <label for="Name"className="block mb-2 text-sm font-medium text-gray-900 
+        dark:text-white">Name</label>
+        <input type="text"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="name"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
       </div>
-      <div class="mb-3">
-        <label for="Password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-        <input type="text" id="default-input" class="px-3 border-4 border-gray-700 rounded-lg shadow-lg bg-grey-300 "
+      <div className="mb-3">
+        <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+        <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
         placeholder="password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
     </div> 
-      <button onClick={handleSubmit} className="px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium">Login</button>
+      <button onClick={handleSubmit} className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">Login</button>
     
     </form>
   );
