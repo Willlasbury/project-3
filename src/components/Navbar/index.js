@@ -14,7 +14,6 @@ export default function NavBar({ username, logout, messages }) {
   return (
     
 <nav className="fixed w-full top-0 z-30 bg-orange-900 border-b border-stone-400 ">
-  {/* <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"> */}
   <div className="items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul className="nav nav-tabs flex flex-grow justify-center m-4 ">
       <li className='nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium'>
