@@ -33,6 +33,8 @@ export default function App() {
   const [username, setUsername] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
+  const [socket, setSocket] = useState()
+
   
   useEffect(() => {
     try {
@@ -64,7 +66,6 @@ export default function App() {
     setUserId(0);
   };
   
-  const [socket, setSocket] = useState()
 
   useEffect(()=>{
     const socket = socketConnect(token);
