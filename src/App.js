@@ -97,7 +97,7 @@ export default function App() {
           <Route path="/postitem" element={<PostItem />} />
           <Route path="/browse" element={<Browse />} />
           <Route path="/item" element={<Items />} />
-          <Route path="/chat" element={<Chat socket={socket} />} />
+          <Route path="/chat" element={<Chat socket={socket} token={token} />} />
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />
           <Route path="/flip" element={<Flip />} />
