@@ -61,7 +61,8 @@ export default function App() {
   };
 
   return (
-    <section className="flex flex-col h-screen">
+    <section className="flex flex-col min-h-screen mt-20 mb-12">
+      
       <BrowserRouter>
         <NavBar username={username} logout={logout} />
         <Routes>

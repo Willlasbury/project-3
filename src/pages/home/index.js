@@ -18,7 +18,10 @@ export default function Home({ socket, token }) {
 
   return (
     <>
+      
       <h1>Testing</h1>
+      
+      
       <Image
         cloud_name="dlnloe77d"
         publicId="https://res.cloudinary.com/dlnloe77d/image/upload/v1685566909/do8i3sflcvyhd655u2mt.png"
