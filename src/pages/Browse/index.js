@@ -24,20 +24,23 @@ export default function Browse() {
 
   return (
     <div className="flex flex-col items-center">
-    <h1 className="">Browse Items</h1>
-    <ul className="item-list">
-      {items.map((item) => (
-        <li key={item.id}>
-          <Item
-            id={item.id}
-            picture={item.Photos}
-            title={item.title}
-            category={item.category}
-            condition={item.condition}
-          />
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+      <h1 className="text-3xl border-3 border-4 border-gray-700 rounded-lg shadow-lg bg-grey-300 hover:font-bold hover:bg-blue-400 text-xl font-medium hover:text-2xl">
+        Browse Items
+      </h1>
+      <ul className="item-list">
+        {items.map((item) => (
+          <li key={item.id}>
+            <Item
+              id={item.id}
+              picture={item.Photos}
+              title={item.title}
+              category={item.category}
+              condition={item.condition}
+              description={item.description}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

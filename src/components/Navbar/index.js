@@ -69,4 +69,5 @@ export default function NavBar({ username, logout }) {
       </ul>
 
       <h3>Hello: {username}</h3>
-    </nav> */}
+    </nav> */
+}
