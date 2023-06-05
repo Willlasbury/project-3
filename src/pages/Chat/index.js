@@ -5,7 +5,7 @@ import ChatBody from "../../components/Chat/ChatBody";
 import ChatFooter from "../../components/Chat/ChatFooter";
 import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 
-const ChatPage = ({ socket }) => {
+const ChatPage = ({ socket, token }) => {
   const [messages, setMessages] = useState([]);
   
   useEffect(() => {
@@ -22,7 +22,7 @@ const ChatPage = ({ socket }) => {
   return (
     <>
       <ChatBody messages={messages} />
-      <ChatFooter socket={socket} />
+      <ChatFooter socket={socket} token={token}/>
     </>
   );
 };
