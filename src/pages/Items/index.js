@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLocation } from "react";
 import itemsAPI from "../../utils/API/items";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
-export default function Item({ id }) {
-  const [items, setItems] = useState([]);
+export default function Item() {
+  // console.log("id:", id);
+  const [items, setItems] = useState({
+    Photos: [{}],
+  });
+
+  // console.log(
+  //   "window.location.pathname:",
+  //   window.location.pathname.replace("/item/", "")
+
+  const itemId = window.location.pathname.replace("/item/", "");
+  console.log("itemId:", itemId);
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const fetchedItems = await itemsAPI.getItemId(1);
+        const fetchedItems = await itemsAPI.getItemId(itemId);
         console.log("Fetched items:", fetchedItems);
         console.log("fetchedItems.title:", fetchedItems.title);
         console.log("fetchedItems.Photos:", fetchedItems.Photos);

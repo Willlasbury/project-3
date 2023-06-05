@@ -25,16 +25,18 @@ import YourItems from "./pages/YourItems";
 import Offer from "./pages/Offer";
 import "./index.css";
 
+// const socket = socketConnect();
+
 export default function App() {
   // create socket connection at root level and pass it to all pages
   // you will call functions from utils/socket in pages to use the socket prop
-  const socket = socketConnect();
-
   const [userId, setUserId] = useState(-1);
   const [username, setUsername] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
+  const [socket, setSocket] = useState()
 
+  
   useEffect(() => {
     try {
       if (token) {
@@ -57,13 +59,20 @@ export default function App() {
       logout();
     }
   }, [userId]);
-
+  
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
     setUsername(null);
     setUserId(0);
   };
+
+  
+
+  useEffect(()=>{
+    const socket = socketConnect(token);
+     setSocket(socket)
+  },[])
 
   return (
     <section className="flex flex-col min-h-screen mt-20 mb-12 bg-cover bg-center h-screen"
@@ -104,7 +113,7 @@ export default function App() {
           <Route path="/lookingfor" element={<LookingFor />} />
           <Route path="/postitem" element={<PostItem />} />
           <Route path="/browse" element={<Browse />} />
-          <Route path="/item" element={<Items />} />
+          <Route path="/item/:id" element={<Items />} />
           <Route
             path="/chat"
             element={<Chat socket={socket} token={token} />}
