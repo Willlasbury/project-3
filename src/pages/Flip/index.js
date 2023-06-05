@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "./style.css";
+
 import headsImage from "./heads.jpg";
 import tailsImage from "./tails.jpg";
 
@@ -19,22 +19,24 @@ const Flip = () => {
   };
 
   return (
-    <div className="Flip">
-      <button id="btn" onClick={coinToss}>
+    <div className="flex flex-col items-center font-sans">
+      <button
+        id="flip-btn"
+        className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium"
+        onClick={coinToss}
+      >
         Flip For It
       </button>
-      <div id="coin" className={result} key={+new Date()}>
-        <div className="side-a">
-          <img
-            src={result === "heads" ? headsImage : tailsImage}
-            alt={result}
-          />
-        </div>
-        <div className="side-b">
-          <img
-            src={result === "heads" ? headsImage : tailsImage}
-            alt={result}
-          />
+      <div className="coin-container">
+        <div
+          id="coin"
+          className={`${
+            result === "heads" ? "animate-flipHeads" : "animate-flipTails"
+          } transition-transform duration-5000 ease-in-out`}
+        >
+          <div className="side">
+            <img src={result === "heads" ? headsImage : tailsImage} alt={result} />
+          </div>
         </div>
       </div>
     </div>
@@ -42,3 +44,27 @@ const Flip = () => {
 };
 
 export default Flip;
+//   return (
+//     <div className="Flip">
+//       <button id="flip-btn" onClick={coinToss}>
+//         Flip For It
+//       </button>
+//       <div id="coin" className={result} key={+new Date()}>
+//         <div className="side-a">
+//           <img
+//             src={result === "heads" ? headsImage : tailsImage}
+//             alt={result}
+//           />
+//         </div>
+//         <div className="side-b">
+//           <img
+//             src={result === "heads" ? headsImage : tailsImage}
+//             alt={result}
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Flip;

@@ -23,7 +23,7 @@ export default function Item({ id }) {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       <h1>Individual Item</h1>
       <AliceCarousel>
         {items.Photos.map((photo, index) => (
@@ -33,6 +33,6 @@ export default function Item({ id }) {
       <h2>Title:{items.title}</h2>
       <h2>Condition:{items.condition}</h2>
       <h2>minimum_trade:{items.minimum_trade}</h2>
-    </>
+    </div>
   );
 }
