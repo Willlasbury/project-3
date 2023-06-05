@@ -12,7 +12,7 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
-import Item from "./pages/Item prop";
+import Item from "./pages/ItemProp";
 import Browse from "./pages/Browse";
 import Items from "./pages/Items";
 import NavBar from "./components/Navbar";
@@ -22,18 +22,21 @@ import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
+import Offer from "./pages/Offer";
 import "./index.css";
+
+// const socket = socketConnect();
 
 export default function App() {
   // create socket connection at root level and pass it to all pages
   // you will call functions from utils/socket in pages to use the socket prop
-  const socket = socketConnect();
-
   const [userId, setUserId] = useState(-1);
   const [username, setUsername] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
+  const [socket, setSocket] = useState()
 
+  
   useEffect(() => {
     try {
       if (token) {
@@ -56,28 +59,20 @@ export default function App() {
       logout();
     }
   }, [userId]);
-
+  
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
     setUsername(null);
     setUserId(0);
   };
-  //fecting all item data to pass in as props for the item route
-  // const [items, setItems] = useState([]);
-  //   const fetchItems = async () => {
-  //     try {
-  //       const fetchedItems = await itemsAPI.getItems();
-  //       console.log("Fetched items:", fetchedItems);
-  //       console.log("picture:", fetchedItems[0].Photos[0].url);
-  //       setItems(fetchedItems);
-  //     } catch (error) {
-  //       console.log("Error fetching items:", error);
-  //     }
-  //   };
 
-  //   fetchItems();
-  // }, [];
+  
+
+  useEffect(()=>{
+    const socket = socketConnect(token);
+     setSocket(socket)
+  },[])
 
   return (
     <section className="flex flex-col min-h-screen mt-20 mb-12">
@@ -122,6 +117,7 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
+          <Route path = "/offer" element = {<Offer/>}/>
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />
           <Route path="/flip" element={<Flip />} />
