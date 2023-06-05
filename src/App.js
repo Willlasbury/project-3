@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
-import itemsAPI from "./utils/API/items";
+import backgroundImage from "./utils/images/background.jpg";
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
@@ -75,9 +75,10 @@ export default function App() {
   },[])
 
   return (
-    <section className="flex flex-col min-h-screen mt-20 mb-12">
-      {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
-
+    <section className="flex flex-col min-h-screen mt-20 mb-12 bg-cover bg-center h-screen"
+    style={{ backgroundImage: `url(${backgroundImage})` }}>
+       {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
+      
       <BrowserRouter>
         <NavBar username={username} logout={logout} messages={messages} />
         <Routes>

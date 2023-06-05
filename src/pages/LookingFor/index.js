@@ -1,7 +1,7 @@
 import React from "react";
 // import { useState } from "react";
 
-import "./style.css";
+import "../../index.css";
 
 export default function LookingFor () {
     return (
