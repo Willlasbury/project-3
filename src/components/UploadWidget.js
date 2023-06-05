@@ -80,24 +80,22 @@ const UploadWidget = () => {
   };
 
   return (
-    <>
-      <p>Post Item</p>
+    <div className="flex flex-col items-center">
+      
       <form className="form">
-        <input
+        <input type="text"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={title}
           name="title"
           onChange={handleInputChange}
-          type="text"
           placeholder="Item"
         />
-        <input
+        <input type="number"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={minimum_trade}
           name="minimum_trade"
           onChange={handleInputChange}
-          type="number"
           placeholder="Minimum trade value"
         />
-        <select name="category" onChange={handleInputChange}>
+        <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"name="category" onChange={handleInputChange}>
           <option value="" disabled selected>
             Select a category
           </option>
@@ -106,7 +104,7 @@ const UploadWidget = () => {
           <option value="Home Appliances">Home Appliances</option>
           <option value="Food">Food</option>
         </select>
-        <select name="condition" onChange={handleInputChange}>
+        <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" name="condition" onChange={handleInputChange}>
           <option value="" disabled selected>
             Select a Condition
           </option>
@@ -116,7 +114,7 @@ const UploadWidget = () => {
           <option value="Decent">Decent</option>
           <option value="Rough">Rough</option>
         </select>
-        <button
+        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium"
           onClick={(e) => {
             e.preventDefault();
             widgetRef.current.open();
@@ -124,9 +122,9 @@ const UploadWidget = () => {
         >
           Upload
         </button>
-        <button onClick={handleFormSubmit}>Create Posting</button>
+        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium" onClick={handleFormSubmit}>Create Posting</button>
       </form>
-    </>
+    </div>
   );
 };
 
