@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
-
+import itemsAPI from "./utils/API/items";
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
@@ -66,6 +66,7 @@ export default function App() {
     setUsername(null);
     setUserId(0);
   };
+
   
 
   useEffect(()=>{
@@ -75,8 +76,8 @@ export default function App() {
 
   return (
     <section className="flex flex-col min-h-screen mt-20 mb-12">
-       {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
-      
+      {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
+
       <BrowserRouter>
         <NavBar username={username} logout={logout} messages={messages} />
         <Routes>
@@ -111,7 +112,7 @@ export default function App() {
           <Route path="/lookingfor" element={<LookingFor />} />
           <Route path="/postitem" element={<PostItem />} />
           <Route path="/browse" element={<Browse />} />
-          <Route path="/item" element={<Items />} />
+          <Route path="/item/:id" element={<Items />} />
           <Route
             path="/chat"
             element={<Chat socket={socket} token={token} />}
