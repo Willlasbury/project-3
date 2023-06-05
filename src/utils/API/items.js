@@ -49,18 +49,20 @@ const itemsAPI = {
     title,
     category,
     minimum_trade,
-    photo,
+    imageArr,
     condition,
-    sold_status
+    sold_status,
+    token
   ) => {
     try {
       const newItem = {
         title: title,
         minimum_trade: minimum_trade,
         category: category,
-        photo: photo,
+        url: imageArr,
         condition: condition,
         sold_status: sold_status,
+        token: token,
       };
       const data = await fetch(`${URL_PREFIX}/api/items`, {
         method: "POST",
@@ -71,6 +73,7 @@ const itemsAPI = {
       });
 
       if (data.ok) {
+        console.log("data:", data);
         return data.json();
       }
     } catch (error) {
