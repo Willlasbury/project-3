@@ -9,7 +9,7 @@ export default function Item({ id }) {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const fetchedItems = await itemsAPI.getItemId({ id });
+        const fetchedItems = await itemsAPI.getItemId(1);
         console.log("Fetched items:", fetchedItems);
         console.log("fetchedItems.title:", fetchedItems.title);
         console.log("fetchedItems.Photos:", fetchedItems.Photos);

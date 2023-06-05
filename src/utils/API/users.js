@@ -91,6 +91,10 @@ const userAPI = {
     const data = await res.json();
     return data;
   },
+  getMessages: async (token) => {
+    const res = await fetch(`${URL_PREFIX}/api/messages/${token}`);
+    return res.json();
+  },
 };
 
 export default userAPI;

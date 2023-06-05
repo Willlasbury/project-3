@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import sendMessage from '../../../utils/socket/sendMessage';
-const ChatFooter = ({socket}) => {
-  const [message, setMessage] = useState('');
+import React, { useState } from "react";
+import sendMessage from "../../../utils/socket/sendMessage";
+const ChatFooter = ({ socket, token }) => {
+  const [message, setMessage] = useState("");
 
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
       socket.emit("message", {
         text: message,
-        name: localStorage.getItem("userName"),
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
+        token: token,
       });
     }
     setMessage("");

@@ -32,6 +32,7 @@ export default function App() {
   const [userId, setUserId] = useState(-1);
   const [username, setUsername] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const [messages, setMessages] = useState();
 
   useEffect(() => {
     try {
@@ -43,13 +44,16 @@ export default function App() {
           } else {
             setUserId(data.id);
             setUsername(data.username);
+            userAPI.getMessages(token).then((data) => {
+              setMessages(data.length);
+            });
           }
         });
       }
     } catch (err) {
       console.log("oh noes");
       console.log(err);
-      //  logout();
+      logout();
     }
   }, [userId]);
 
@@ -65,7 +69,7 @@ export default function App() {
        {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
       
       <BrowserRouter>
-        <NavBar username={username} logout={logout} />
+        <NavBar username={username} logout={logout} messages={messages} />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route
@@ -99,7 +103,10 @@ export default function App() {
           <Route path="/postitem" element={<PostItem />} />
           <Route path="/browse" element={<Browse />} />
           <Route path="/item" element={<Items />} />
-          <Route path="/chat" element={<Chat socket={socket} />} />
+          <Route
+            path="/chat"
+            element={<Chat socket={socket} token={token} />}
+          />
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />
           <Route path="/flip" element={<Flip />} />
