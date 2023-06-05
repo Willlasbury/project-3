@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import itemsAPI from "../utils/API/items";
 
 const UploadWidget = () => {
+  let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
   const [category, setCategory] = useState("");
@@ -39,15 +40,16 @@ const UploadWidget = () => {
       cloudName: "dlnloe77d",
       uploadPreset: "zoosknbg",
     },
-    function(error, result) {
+    function (error, result) {
       if (result.event === "success") {
         console.log("result secure url?:", result.info.secure_url);
-        uploadedImage = result.info.secure_url;
+        imageArr.push(result.info.secure_url);
+        console.log("result:", result);
+        // uploadedImage = result.info.secure_url;
         //TODO: add post route here
-        return uploadedImage;
-        {
-        }
       }
+      // return uploadedImage;
+      // return imageArr;
     }
   );
   // }, []);
@@ -56,8 +58,8 @@ const UploadWidget = () => {
     e.preventDefault();
     console.log("title:", title);
     console.log("minimum_trade:", minimum_trade);
-    console.log("uploadedImage:", uploadedImage);
-    console.log(typeof parseInt(minimum_trade));
+    // console.log("uploadedImage:", uploadedImage);
+    console.log("imageArr:", imageArr);
     console.log("category:", category);
     console.log("condition:", condition);
 
@@ -65,9 +67,11 @@ const UploadWidget = () => {
       title,
       category,
       minimum_trade,
-      uploadedImage,
+      // uploadedImage,
+      imageArr,
       condition,
-      false
+      false,
+      localStorage.getItem("token")
     );
     setTitle("");
     setMinimum_trade("");

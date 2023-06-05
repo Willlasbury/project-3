@@ -9,7 +9,7 @@ export default function Search () {
             <div>
                 <label htmlFor="search">Search:</label>
                 <input 
-                name="search"
+                className="search"
                 type="text"
                 placeholder="Search for items"
                 />

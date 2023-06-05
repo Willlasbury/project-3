@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function Items({ id, picture, title, category, condition }) {
   console.log("title", title);
+  const itemId = id;
+  console.log("id:", id);
   return (
     <>
       <h1>Items page</h1>
@@ -18,7 +20,7 @@ export default function Items({ id, picture, title, category, condition }) {
       <h3 className="item-title text-black">{title}</h3>
       <p className="item-category text-black"> Category: {category}</p>
       <p className="text-black">Condition: {condition}</p>
-      <Link to={`/item`} className="item-link text-black" id={id}>
+      <Link to={`/item/${id}`} className="item-link text-black">
         View Item
       </Link>
     </>
