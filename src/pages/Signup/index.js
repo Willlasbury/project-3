@@ -49,10 +49,10 @@ export default function Signup(props) {
 
   return (
     <form className="flex flex-col items-center">
-      <div class="mb-3">
+      {/* <div class="mb-3">
     <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Default input</label>
     <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-</div>
+</div> */}
 <div class="mb-3">
     <label for="Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
     <input type="text" id="default-input" class="px-3 border-4 border-gray-700 rounded-lg shadow-lg bg-grey-300 "
@@ -86,7 +86,7 @@ export default function Signup(props) {
     />
 </div>
       
-      <button onClick={handleSubmit} className="px-3 border-4 border-gray-700 rounded-lg shadow-lg bg-grey-300 hover:font-bold hover:bg-blue-400 text-xl font-medium hover:text-2xl">Signup</button>
+      <button onClick={handleSubmit} className="px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium">Signup</button>
       
     </form>
   );

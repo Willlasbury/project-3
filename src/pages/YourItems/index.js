@@ -12,14 +12,13 @@ export default function Browse() {
     console.log("userId:", userId);
     usersApi.getUserId(`${userId}`).then((data) => {
       console.log("data:", data);
-      // console.log("data.seller:", data.Seller);
-      setItems(data.Seller);
+      // setItems(data.Seller);
     });
   }, []);
 
   return (
     <div className="browse">
-      <h1>Browse Items</h1>
+      <h1>Your Items</h1>
       <ul className="item-list">
         {items.map((item) => (
           <li key={item.id}>
