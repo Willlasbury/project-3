@@ -28,7 +28,7 @@ export default function Login(props) {
 
   return (
     <form className="flex flex-col items-center">
-      <div class="mb-3">
+      <div className="mb-3">
         <label
           for="Name"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
