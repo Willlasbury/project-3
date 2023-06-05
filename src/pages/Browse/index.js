@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Item from "../Item prop";
+import Item from "../ItemProp";
 import itemsAPI from "../../utils/API/items";
 import "../../index.css";
 

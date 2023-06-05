@@ -12,7 +12,7 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
-import Item from "./pages/Item prop";
+import Item from "./pages/ItemProp";
 import Browse from "./pages/Browse";
 import Items from "./pages/Items";
 import NavBar from "./components/Navbar";
@@ -22,6 +22,7 @@ import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
+import Offer from "./pages/Offer";
 import "./index.css";
 
 export default function App() {
@@ -105,6 +106,7 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
+          <Route path = "/offer" element = {<Offer/>}/>
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />
           <Route path="/flip" element={<Flip />} />

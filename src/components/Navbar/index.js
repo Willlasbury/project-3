@@ -44,6 +44,9 @@ export default function NavBar({ username, logout, messages }) {
       <li className='nav-item px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium'>
       <NavLink to="/search">Search</NavLink>
       </li>
+      <li className='nav-item px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium'>
+      <NavLink to="/offer">Offer</NavLink>
+      </li>
       <button className='nav-item px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium' onClick={handleLogout}>Logout</button>
       <h3>Notifications: {messages}</h3>
     </ul>
