@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 export default function Items({ id, picture, title, category, condition }) {
   console.log("title", title);
   return (
-    <>
-      <h1>Items page</h1>
+    <div className="flex flex-col items-center">
+      {/* <h1 className="text-1xl border-2 border-2 border-blue-950 rounded-lg shadow-lg bg-amber-100">Items page</h1> */}
       <AliceCarousel>
         {picture.map((photo, index) => (
           <img key={index} src={photo.url} className="sliderimg" />
@@ -21,6 +21,6 @@ export default function Items({ id, picture, title, category, condition }) {
       <Link to={`/item`} className="item-link text-black" id={id}>
         View Item
       </Link>
-    </>
+    </div>
   );
 }

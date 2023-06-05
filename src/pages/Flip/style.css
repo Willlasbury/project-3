@@ -1,20 +1,25 @@
-.Flip {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
+.rotate-heads {
+  transform: rotateY(360deg);
+}
+
+.rotate-tails {
+  transform: rotateY(-360deg);
+}
+
+.coin-container {
+  perspective: 1000px;
+  width: 100px;
+  height: 100px;
 }
 
 #coin {
   position: relative;
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-  transition: transform 1s ease-in;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
 }
 
-#coin div {
+.side {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -23,67 +28,3 @@
     0 12px 20px -10px rgba(0, 0, 0, 0.4);
   backface-visibility: hidden;
 }
-
-.side-a {
-  background-image: url("/heads.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* other styles */
-}
-
-.side-b {
-  background-image: url("/tails.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transform: rotateY(-180deg);
-  /* other styles */
-}
-
-#coin.heads {
-  animation: flipHeads 2s ease-out forwards;
-}
-
-#coin.tails {
-  animation: flipTails 2s ease-out forwards;
-}
-
-@keyframes flipHeads {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(540deg);
-  }
-}
-
-@keyframes flipTails {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(720deg);
-  }
-}
- 
-
-
-#btn {
-  position: relative;
-  z-index: 0;
-}
-
-
-/* .side-a {
-  background-color: #bb0000;
-  color: white;
-  text-align: center;
-}
-
-.side-b {
-  background-color: rgb(50, 66, 66);
-  color: white;
-  text-align: center;
-  transform: rotateY(-180deg);
-} */
