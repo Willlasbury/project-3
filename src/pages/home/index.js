@@ -1,19 +1,33 @@
 import React from "react";
-import "./style.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import ChatForm from "../../components/Chat";
 
-import sayHi from "../../utils/socket/sayhi";
+import "../../index.css";
+import { Image } from "cloudinary-react";
 
-export default function Home({ socket }) {
-  // This code was used to check that the socket connection worked and run a test emit
-  sayHi(socket);
 
-  function doMath(socket) {
-    socket.emit("do-math");
-  }
+export default function Home({ socket, token }) {
+  const navigate = useNavigate()
+  
+  useEffect(()=>{
+    if (!token){
+      navigate('/login')
+    }
 
-  doMath(socket);
+  },[])
 
-  return <ChatForm />;
+  return (
+    <div>
+      
+      <h1>Testing</h1>
+      
+      
+      <Image
+        cloud_name="dlnloe77d"
+        publicId="https://res.cloudinary.com/dlnloe77d/image/upload/v1685566909/do8i3sflcvyhd655u2mt.png"
+        width="200"
+      />
+    </div>
+  );
 }

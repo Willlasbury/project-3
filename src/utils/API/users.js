@@ -1,5 +1,6 @@
+import React from "react";
 // url for working in the local host
-const URL_PREFIX = "http://localhost:3000";
+const URL_PREFIX = "http://localhost:3001";
 
 // TODO: add deployed url option
 
@@ -12,23 +13,42 @@ const userAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data.json())
+      console.log(" f data:", data.json());
       if (data.ok) {
-        return data;
+        return await data.json();
       }
     } catch (error) {
       console.log("error:", error);
       throw new Error(error);
     }
   },
+  getUserId: async (userId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/users/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(" f data:", data);
+      if (data.ok) {
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
+    }
+  },
 
-  createUser: async (name, passsord) => {
+  // signup
+  signUp: async (name, password, email) => {
     try {
       const newUser = {
         userName: name,
-        password: passsord,
+        password: password,
+        email: email,
       };
-      const data = await fetch(`${URL_PREFIX}/api/users`, {
+      const res = await fetch(`${URL_PREFIX}/api/users`, {
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {
@@ -36,13 +56,44 @@ const userAPI = {
         },
       });
 
-      if (data.ok) {
-        return data.json();
-      }
+      return res.json();
     } catch (error) {
-      console.log("error:", error);
       throw new Error(error);
     }
+  },
+  login: async (userName, password) => {
+    const user = {
+      userName: userName,
+      password: password,
+    };
+
+    const res = await fetch(`${URL_PREFIX}/api/users/login`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error("falied login");
+    }
+  },
+  verifyToken: async (token) => {
+    const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data = await res.json();
+    return data;
+  },
+  getMessages: async (token) => {
+    const res = await fetch(`${URL_PREFIX}/api/messages/${token}`);
+    return res.json();
   },
 };
 
