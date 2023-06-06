@@ -50,7 +50,7 @@ export default function NavBar({
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -62,7 +62,7 @@ export default function NavBar({
               to="/login"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -74,7 +74,7 @@ export default function NavBar({
               to="/signup"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -86,7 +86,7 @@ export default function NavBar({
               to="/YourItems"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -98,7 +98,7 @@ export default function NavBar({
               to="/category"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -110,7 +110,7 @@ export default function NavBar({
               to="/freeItem"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -122,7 +122,7 @@ export default function NavBar({
               to="/browse"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -134,7 +134,7 @@ export default function NavBar({
               to="/postItem"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -146,7 +146,7 @@ export default function NavBar({
               to="/search"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
@@ -158,7 +158,7 @@ export default function NavBar({
               to="/offer"
               className={({ isActive }) =>
                 isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-bold"
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                   : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
               }
             >
