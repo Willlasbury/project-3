@@ -66,6 +66,7 @@ export default function App() {
     setToken(null);
     setUsername(null);
     setUserId(0);
+    setOffers(0)
   };
 
   useEffect(()=>{
