@@ -53,7 +53,7 @@ export default function Login(props) {
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         ></label>
         <input
-          type="text"
+          type="password"
           id="default-input"
           className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="password"
