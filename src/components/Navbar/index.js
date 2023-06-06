@@ -36,90 +36,151 @@ export default function NavBar({
   // userAPI.getOffers(token)
 
   return (
-
     // not active: hover:font-bold hover:bg-amber-500 hover:text-stone-900
     // active: nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium
-    
-<nav className="fixed w-full top-0 z-30 bg-orange-900 border-b border-stone-400 ">
-  <div className="items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-    <ul className="nav nav-tabs flex flex-grow justify-center m-4">
-      <li className='m-1'>
-      <NavLink to="/" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Home</NavLink>
-                  </li>
-      <li className='m-1'>
-      <NavLink to="/login" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Login</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/signup" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Signup</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/YourItems" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Your Items</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/category" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Category</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/freeItem" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Free Items</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/browse" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Browse</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/postItem" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Post Item</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/search" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Search</NavLink>
-      </li>
-      <li className='m-1'>
-      <NavLink to="/offer" className={({ isActive }) =>
-                    isActive
-                      ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 bg-amber-500 text-stone-900 text-xl font-medium"
-                      : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
-                  }>Offer</NavLink>
-      </li>
-      <button className='nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium' onClick={handleLogout}>Logout</button>
-      <h3 className='nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium'>Notifications: {offers}</h3>
-    </ul>
-  </div>
-  {/* </div> */}
-</nav>
 
+    <nav className="fixed w-full top-0 z-30 bg-orange-900 border-b border-stone-400 ">
+      <div
+        className="items-center justify-between w-full md:flex md:w-auto md:order-1"
+        id="navbar-sticky"
+      >
+        <ul className="nav nav-tabs flex flex-grow justify-center m-4">
+          <li className="m-1">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="m-1">
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+          <li className="m-1">
+            <NavLink
+              to="/signup"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg  bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Signup
+            </NavLink>
+          </li>
+          <li className="m-1">
+            <NavLink
+              to="/YourItems"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg  bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Your Items
+            </NavLink>
+          </li>
+          {/* <li className="m-1">
+            <NavLink
+              to="/category"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg  bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Category
+            </NavLink>
+          </li> */}
+          {/* <li className="m-1">
+            <NavLink
+              to="/freeItem"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg  bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Free Items
+            </NavLink>
+          </li> */}
+          <li className="m-1">
+            <NavLink
+              to="/browse"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Browse
+            </NavLink>
+          </li>
+          <li className="m-1">
+            <NavLink
+              to="/postItem"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Post Item
+            </NavLink>
+          </li>
+          {/* <li className="m-1">
+            <NavLink
+              to="/search"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Search
+            </NavLink>
+          </li> */}
+          <li className="m-1">
+            <NavLink
+              to="/offer"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-medium"
+                  : "nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-stone-900 text-xl font-medium"
+              }
+            >
+              Offer
+            </NavLink>
+          </li>
+              {!token ? null :  <div className="flex">
+
+          <button
+          className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+          onClick={handleLogout}
+          >
+            Logout
+          </button>
+          <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
+            Notifications: {offers}
+          </h3>
+            </div>
+  }
+        </ul>
+        </div>
+        </nav>
   );
 }
 

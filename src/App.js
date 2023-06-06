@@ -50,6 +50,10 @@ export default function App() {
             userAPI.getMessages(token).then((data) => {
               setMessages(data.length);
             });
+            userAPI.getOffers(token).then((data) => {
+              console.log("data:", data)
+              setOffers(data.msg ? 0:data.length)
+            })
           }
         });
       }
