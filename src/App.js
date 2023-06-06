@@ -35,6 +35,7 @@ export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
   const [socket, setSocket] = useState()
+  const [offers, setOffers]= useState(0)
 
   
   useEffect(() => {
@@ -78,7 +79,7 @@ export default function App() {
     <section className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
     style={{ backgroundImage: `url(${backgroundImage})` }}> 
       <BrowserRouter>
-        <NavBar username={username} logout={logout} messages={messages} socket={socket} />
+        <NavBar username={username} logout={logout} messages={messages} socket={socket} token={token} setOffers={setOffers} offers={offers} />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route
