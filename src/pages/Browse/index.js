@@ -35,6 +35,7 @@ export default function Browse() {
               category={item.category}
               condition={item.condition}
               description={item.description}
+              seller_id={item.seller_id}
             />
           </li>
         ))}
