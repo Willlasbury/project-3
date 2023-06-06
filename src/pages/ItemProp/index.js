@@ -6,9 +6,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 export default function Items({ id, picture, title, category, condition }) {
-  console.log("title", title);
   const itemId = id;
-  console.log("id:", id);
   const responsive = {
     0: { items: 1 },
     568: { items: 4 },
@@ -32,7 +30,10 @@ export default function Items({ id, picture, title, category, condition }) {
       <h3 className="item-title text-black">{title}</h3>
       <p className="item-category text-black"> Category: {category}</p>
       <p className="text-black">Condition: {condition}</p>
-      <Link to={`/item/${id}`} className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
+      <Link
+        to={`/items/${id}`}
+        className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+      >
         View Item
       </Link>
     </div>
