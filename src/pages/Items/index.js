@@ -4,12 +4,13 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 
-export default function Item({socket, token}) {
+export default function Item({ socket, token }) {
   const [item, setItem] = useState({
     Photos: [{}],
   });
 
   const itemId = window.location.pathname.replace("/items/", "");
+  console.log("itemId:", itemId);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -25,15 +26,14 @@ export default function Item({socket, token}) {
   }, []);
 
   const handleOffer = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const data = {
       token: token,
       item: item,
-      data: 'offer',
-    }
-    socket.emit('offer', data)
-  }
-
+      data: "offer",
+    };
+    socket.emit("offer", data);
+  };
 
   return (
     <div className="flex flex-col items-center mt-20">

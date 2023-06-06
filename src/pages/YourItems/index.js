@@ -29,7 +29,6 @@ export default function Browse({ userId, token }) {
 
     fetchItems();
   }, []);
-  console.log("items.length:", items);
 
   if (!items) {
     return (
