@@ -3,7 +3,6 @@ import Item from "../ItemProp";
 import itemsAPI from "../../utils/API/items";
 import "../../index.css";
 
-
 export default function Browse() {
   const [items, setItems] = useState([]);
 
@@ -11,9 +10,7 @@ export default function Browse() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const fetchedItems = await itemsAPI.getItems();
-        console.log("Fetched items:", fetchedItems);
-        console.log("picture:", fetchedItems[0].Photos[0].url);
+        const fetchedItems = await itemsAPI.getItemsBrowse();
         setItems(fetchedItems);
       } catch (error) {
         console.log("Error fetching items:", error);
@@ -38,6 +35,7 @@ export default function Browse() {
               category={item.category}
               condition={item.condition}
               description={item.description}
+              seller_id={item.seller_id}
             />
           </li>
         ))}
