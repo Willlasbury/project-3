@@ -85,6 +85,7 @@ export default function App() {
             path="/login"
             element={
               <Login
+                socket={socket}
                 setUserId={setUserId}
                 setUsername={setUsername}
                 setToken={setToken}

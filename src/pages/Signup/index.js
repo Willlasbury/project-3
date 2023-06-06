@@ -6,12 +6,11 @@ import usersAPI from "../../utils/API/users";
 import "../../index.css";
 
 export default function Signup(props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -36,14 +35,13 @@ export default function Signup(props) {
         setName("");
         setPassword("");
         setConfirmPassword("");
-        navigate('/')
+        navigate("/");
       }
 
       setEmail("");
       setName("");
       setPassword("");
       setConfirmPassword("");
-  
     }
   };
 
@@ -55,7 +53,7 @@ export default function Signup(props) {
           placeholder="Name"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          />
+        />
       </div>
       <div className="mb-3">
           <label for="Email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
@@ -63,7 +61,7 @@ export default function Signup(props) {
           placeholder="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          />
+        />
       </div>
       <div className="mb-3">
           <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
@@ -71,7 +69,7 @@ export default function Signup(props) {
           placeholder="Password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          />
+        />
       </div>
       <div className="mb-3">
           <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
@@ -79,12 +77,16 @@ export default function Signup(props) {
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
-          />
+        />
       </div>
-            
-            <button onClick={handleSubmit} className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">Signup</button>
-            
-          </form>
+
+      <button
+        onClick={handleSubmit}
+        className="px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium"
+      >
+        Signup
+      </button>
+    </form>
   );
 }
 
