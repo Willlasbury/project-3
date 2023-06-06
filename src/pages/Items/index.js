@@ -4,61 +4,50 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 
-export default function Item() {
-  // console.log("id:", id);
-  const [items, setItems] = useState({
+export default function Item({socket, token}) {
+  const [item, setItem] = useState({
     Photos: [{}],
   });
 
-  const style = {
-    alignItems: "center",
-  };
-
-  // console.log(
-  //   "window.location.pathname:",
-  //   window.location.pathname.replace("/item/", "")
-
-  const itemId = window.location.pathname.replace("/item/", "");
-  console.log("itemId:", itemId);
+  const itemId = window.location.pathname.replace("/items/", "");
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchItem = async () => {
       try {
-        const fetchedItems = await itemsAPI.getItemId(itemId);
-        console.log("Fetched items:", fetchedItems);
-        console.log("fetchedItems.title:", fetchedItems.title);
-        console.log("fetchedItems.Photos:", fetchedItems.Photos);
-        setItems(fetchedItems);
+        const fetchedItem = await itemsAPI.getItemId(itemId);
+        setItem(fetchedItem);
       } catch (error) {
         console.log("Error fetching items:", error);
       }
     };
 
-    fetchItems();
+    fetchItem();
   }, []);
 
+  const handleOffer = (event) => {
+    event.preventDefault()
+    const data = {
+      token: token,
+      item: item,
+      data: 'offer',
+    }
+    socket.emit('offer', data)
+  }
+
+
   return (
-    <div className="flex flex-col mt-20">
-      <form className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold text-xl font-medium">
-        <h1>Individual Item</h1>
-        <AliceCarousel
-          mouseTracking
-          infinite
-          controlsStrategy={"default"}
-          autoPlayStrategy="all"
-          autoPlayInterval={1000}
-          disableDotsControls
-          disableButtonsControls
-          keyboardNavigation
-        >
-          {items.Photos.map((photo, index) => (
-            <img key={index} src={photo.url} className="sliderimg" />
-          ))}
-        </AliceCarousel>
-        <h2>Title:{items.title}</h2>
-        <h2>Condition:{items.condition}</h2>
-        <h2>Minimum Trade Value:{items.minimum_trade}</h2>
-        <h2>Description:{items.description}</h2>
+    <div className="flex flex-col items-center mt-20">
+      <form className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
+      <h1>Individual Item</h1>
+      <AliceCarousel>
+        {item.Photos.map((photo, index) => (
+          <img key={index} src={photo.url} className="sliderimg" />
+        ))}
+      </AliceCarousel>
+      <h2>Title:{item.title}</h2>
+      <h2>Condition:{item.condition}</h2>
+      <h2>minimum_trade:{item.minimum_trade}</h2>
+      <button onClick={handleOffer}>Submit Offer</button>
       </form>
     </div>
   );

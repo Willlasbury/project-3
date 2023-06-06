@@ -116,7 +116,7 @@ const UploadWidget = () => {
           <option value="Decent">Decent</option>
           <option value="Rough">Rough</option>
         </select>
-        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium"
+        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
           onClick={(e) => {
             e.preventDefault();
             widgetRef.current.open();
@@ -124,7 +124,7 @@ const UploadWidget = () => {
         >
           Upload
         </button>
-        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium" onClick={handleFormSubmit}>Create Posting</button>
+        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium" onClick={handleFormSubmit}>Create Posting</button>
       </form>
     </div>
   );
