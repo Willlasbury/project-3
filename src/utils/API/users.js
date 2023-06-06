@@ -93,6 +93,10 @@ const userAPI = {
     const res = await fetch(`${URL_PREFIX}/api/messages/${token}`);
     return res.json();
   },
+  getOffer: async (token) => {
+    const res = await fetch(`${URL_PREFIX}/api/offer/${token}`);
+    return res.json();
+  }
 };
 
 export default userAPI;

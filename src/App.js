@@ -67,18 +67,18 @@ export default function App() {
     setUserId(0);
   };
 
-  
-
   useEffect(()=>{
     const socket = socketConnect(token);
      setSocket(socket)
-  },[])
+    },[])
+
+
 
   return (
     <section className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
     style={{ backgroundImage: `url(${backgroundImage})` }}> 
       <BrowserRouter>
-        <NavBar username={username} logout={logout} messages={messages} />
+        <NavBar username={username} logout={logout} messages={messages} socket={socket} />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route

@@ -1,8 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import "../../index.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export default function NavBar({ username, logout, messages }) {
+export default function NavBar({ username, logout, messages, socket }) {
   const navigate = useNavigate();
 
 
@@ -10,6 +11,15 @@ export default function NavBar({ username, logout, messages }) {
     logout();
     navigate("/login");
   }
+
+
+  useEffect(() => {
+    if(socket){
+
+      socket.on('new_offer', data => console.log("fdsafdsafdsafds:", data))
+    }
+
+  }, [socket]);
 
   return (
     
