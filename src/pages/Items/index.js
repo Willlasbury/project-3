@@ -34,7 +34,7 @@ export default function Item() {
 
   return (
     <div className="flex flex-col items-center mt-20">
-      <form className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
+      <form className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
       <h1>Individual Item</h1>
       <AliceCarousel>
         {items.Photos.map((photo, index) => (
