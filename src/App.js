@@ -109,11 +109,11 @@ export default function App() {
             path="/yourItems"
             element={<YourItems userId={userId} token={token} />}
           />
-          <Route path="/category" element={<Category />} />
-          <Route path="/freeitem" element={<FreeItem />} />
-          <Route path="/lookingfor" element={<LookingFor />} />
-          <Route path="/postitem" element={<PostItem />} />
-          <Route path="/browse" element={<Browse />} />
+          <Route path="/category" element={<Category token={token}/>} />
+          <Route path="/freeitem" element={<FreeItem token={token}/>} />
+          <Route path="/lookingfor" element={<LookingFor token={token}/>} />
+          <Route path="/postitem" element={<PostItem token={token}/>} />
+          <Route path="/browse" element={<Browse token={token}/>} />
           <Route
             path="/items/:id"
             element={<Items socket={socket} token={token} userId={userId} />}
@@ -122,11 +122,11 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
-          <Route path="/offer" element={<Offer />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/items" element={<Items />} />
-          <Route path="/flip" element={<Flip />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/offer" element={<Offer token={token}/>} />
+          <Route path="/search" element={<Search token={token}/>} />
+          <Route path="/items" element={<Items token={token}/>} />
+          <Route path="/flip" element={<Flip token={token}/>} />
+          <Route path="/*" element={<NotFound token={token}/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

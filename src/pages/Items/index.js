@@ -1,10 +1,18 @@
 import React, { useState, useEffect, useLocation } from "react";
 import itemsAPI from "../../utils/API/items";
 import AliceCarousel from "react-alice-carousel";
+import { useNavigate } from "react-router-dom";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 
 export default function Item({ socket, token, userId }) {
+   const navigate = useNavigate();
+  useEffect(()=>{
+    if (!token){
+      navigate('/login')
+    }
+
+  },[])
   const [item, setItem] = useState({
     Photos: [{}],
   });

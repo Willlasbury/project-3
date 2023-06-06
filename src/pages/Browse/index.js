@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import Item from "../ItemProp";
 import itemsAPI from "../../utils/API/items";
 import "../../index.css";
+import { useNavigate } from "react-router-dom";
 
-export default function Browse() {
+export default function Browse({token}) {
   const [items, setItems] = useState([]);
-
+  const navigate = useNavigate()
   // Fetch items data and update the items state
   useEffect(() => {
+    if (!token){
+      navigate('/login')
+    }
     const fetchItems = async () => {
       try {
         const fetchedItems = await itemsAPI.getItemsBrowse();
