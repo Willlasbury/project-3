@@ -26,10 +26,49 @@ const itemsAPI = {
       throw new Error(`Error fetching items: ${error.message}`);
     }
   },
+  getItemsBrowse: async () => {
+    try {
+      const response = await fetch(`${URL_PREFIX}/api/items/browse`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched data:", data);
+        return data;
+      } else {
+        throw new Error(
+          `Error fetching items: ${response.status} ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.log("Error:", error);
+      throw new Error(`Error fetching items: ${error.message}`);
+    }
+  },
 
   getItemId: async (itemId) => {
     try {
       const data = await fetch(`${URL_PREFIX}/api/items/${itemId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (data.ok) {
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
+    }
+  },
+  getItemsSellerId: async (userId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/items/seller/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
