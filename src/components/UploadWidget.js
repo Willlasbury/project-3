@@ -83,13 +83,13 @@ const UploadWidget = () => {
     <div className="flex flex-col items-center">
       
       <form className="form">
-        <input type="text"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+        <input type="text" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={title}
           name="title"
           onChange={handleInputChange}
           placeholder="Item"
         />
-        <input type="number"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+        <input type="number" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={minimum_trade}
           name="minimum_trade"
           onChange={handleInputChange}
