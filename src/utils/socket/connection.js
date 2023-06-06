@@ -18,8 +18,9 @@ export default function socketConnect  (token)  {
   socket.on("connect_error", () => {
     setTimeout(() => socket.connect(), 10 * 1000);
   });
-  
-  socket.emit('add_user', token)
+  if (token) {
+    socket.emit('add_user', token)
+  }
   // send out socket to use in other funcitons
   return socket
 };
