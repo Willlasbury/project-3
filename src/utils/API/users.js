@@ -94,8 +94,13 @@ const userAPI = {
     return res.json();
   },
   getOffers: async (token) => {
-    const res = await fetch(`${URL_PREFIX}/api/offers/${token}`);
-    return res.json();
+    if (token){
+
+      const res = await fetch(`${URL_PREFIX}/api/offers/${token}`);
+      return res.json();
+    } else {
+      return []
+    }
   }
 };
 
