@@ -48,9 +48,9 @@ export default function Signup(props) {
   };
 
   return (
-    <form className="flex flex-col items-center">
+    <form className="flex flex-col items-center mt-20">
       <div className="mb-3">
-          <label for="Name" className="block mb-2 text-sm font-bold text-orange-900 dark:text-white">Name</label>
+          <label for="Name" className="block mb-2 text-sm font-bold text-orange-900 dark:text-white"></label>
           <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Name"
           value={name}
@@ -58,7 +58,7 @@ export default function Signup(props) {
           />
       </div>
       <div className="mb-3">
-          <label for="Email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+          <label for="Email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
           <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="email"
           value={email}
@@ -66,7 +66,7 @@ export default function Signup(props) {
           />
       </div>
       <div className="mb-3">
-          <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+          <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
           <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Password"
           value={password}
@@ -74,7 +74,7 @@ export default function Signup(props) {
           />
       </div>
       <div className="mb-3">
-          <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+          <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
           <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Confirm Password"
           value={confirmPassword}

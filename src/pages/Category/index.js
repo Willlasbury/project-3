@@ -10,9 +10,9 @@ export default function Category() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">Category</h1>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
+    <div className="flex flex-col items-center mt-20">
+      <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">Category</h1>
+      <select className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" value={selectedCategory} onChange={handleCategoryChange}>
         <option value="">Select a category</option>
         <option value="sporting goods">Sporting Goods</option>
         <option value="home furnishings">Home Furnishings</option>
@@ -22,7 +22,7 @@ export default function Category() {
         <option value="free">Free</option>
       </select>
       {selectedCategory && (
-        <Link to={`/items?category=${selectedCategory}`}>
+        <Link className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" to={`/items?category=${selectedCategory}`}>
           View Items in {selectedCategory}
         </Link>
       )}

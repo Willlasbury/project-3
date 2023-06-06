@@ -99,11 +99,13 @@ const UploadWidget = () => {
           <option value="" disabled selected>
             Select a category
           </option>
-          <option value="electronics">Electronics</option>
-          <option value="automotive">automotive</option>
-          <option value="Home Appliances">Home Appliances</option>
-          <option value="Food">Food</option>
-        </select>
+          <option value="sporting goods">Sporting Goods</option>
+        <option value="home furnishings">Home Furnishings</option>
+        <option value="auto">Auto</option>
+        <option value="electronics">Electronics</option>
+        <option value="pet gear">Pet Gear</option>
+        <option value="free">Free</option>
+      </select>
         <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" name="condition" onChange={handleInputChange}>
           <option value="" disabled selected>
             Select a Condition
