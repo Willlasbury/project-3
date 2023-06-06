@@ -65,7 +65,7 @@ export default function Signup(props) {
       </div>
       <div className="mb-3">
           <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          <input type="password" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
@@ -73,7 +73,7 @@ export default function Signup(props) {
       </div>
       <div className="mb-3">
           <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          <input type="password" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
