@@ -13,7 +13,6 @@ const userAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data.json());
       if (data.ok) {
         return await data.json();
       }
@@ -30,7 +29,6 @@ const userAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data);
       if (data.ok) {
         return await data.json();
       }

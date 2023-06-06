@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import sendMessage from "../../../utils/socket/sendMessage";
+import sendMessage from "../../../utils/socket/emit/sendMessage";
 const ChatFooter = ({ socket, token }) => {
   const [message, setMessage] = useState("");
 

@@ -35,7 +35,6 @@ const itemsAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data);
       if (data.ok) {
         return await data.json();
       }
