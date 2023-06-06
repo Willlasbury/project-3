@@ -82,7 +82,7 @@ export default function Signup(props) {
 
       <button
         onClick={handleSubmit}
-        className="px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium"
+        className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
       >
         Signup
       </button>

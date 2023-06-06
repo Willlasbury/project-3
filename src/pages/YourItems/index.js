@@ -18,7 +18,7 @@ export default function Browse() {
 
   return (
     <div className="browse flex flex-col items-center mt-20">
-      <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">Your Items</h1>
+      <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">Your Items</h1>
       <ul className="item-list">
         {items.map((item) => (
           <li key={item.id}>
