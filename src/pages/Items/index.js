@@ -28,7 +28,8 @@ export default function Item({socket, token}) {
     fetchItems();
   }, []);
 
-  const handleOffer = () => {
+  const handleOffer = (event) => {
+    event.preventDefault()
     const data = {
       token: token,
       data: 'offer',
