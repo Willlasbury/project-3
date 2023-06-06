@@ -19,8 +19,6 @@ export default function Login(props) {
       props.setToken(res.token);
 
       localStorage.setItem("token", res.token);
-      localStorage.setItem("tokenId", res.user.id);
-
       props.socket.emit("add_user", res.token);
 
       navigate("/");
