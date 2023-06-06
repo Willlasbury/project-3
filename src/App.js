@@ -35,6 +35,7 @@ export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
   const [socket, setSocket] = useState();
+  const [offers, setOffers] = useState(0);
 
   useEffect(() => {
     try {
@@ -49,6 +50,10 @@ export default function App() {
             userAPI.getMessages(token).then((data) => {
               setMessages(data.length);
             });
+            userAPI.getOffers(token).then((data) => {
+              console.log("data:", data)
+              setOffers(data.msg ? 0:data.length)
+            })
           }
         });
       }
@@ -64,6 +69,7 @@ export default function App() {
     setToken(null);
     setUsername(null);
     setUserId(0);
+    setOffers(0);
   };
 
   useEffect(() => {
@@ -77,7 +83,15 @@ export default function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <BrowserRouter>
-        <NavBar username={username} logout={logout} messages={messages} />
+        <NavBar
+          username={username}
+          logout={logout}
+          messages={messages}
+          socket={socket}
+          token={token}
+          setOffers={setOffers}
+          offers={offers}
+        />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route

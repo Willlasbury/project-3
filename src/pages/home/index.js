@@ -14,9 +14,8 @@ export default function Home({ socket, token }) {
     if (!token){
       navigate('/login')
     }
-
   },[])
-
+  
   return (
     <div>
       
