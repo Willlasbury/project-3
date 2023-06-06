@@ -75,10 +75,8 @@ export default function App() {
   },[])
 
   return (
-    <section className="flex flex-col min-h-screen mt-20 mb-12 bg-cover bg-center h-screen"
-    style={{ backgroundImage: `url(${backgroundImage})` }}>
-       {/* bg-gradient-to-r from-cyan-500 to-amber-800 to-amber-100 */}
-      
+    <section className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
+    style={{ backgroundImage: `url(${backgroundImage})` }}> 
       <BrowserRouter>
         <NavBar username={username} logout={logout} messages={messages} />
         <Routes>

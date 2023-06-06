@@ -24,8 +24,8 @@ export default function Browse() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-3xl border-3 mb-2 border-4 border-blue-950 rounded-lg shadow-lg bg-amber-100">
+    <div className="flex flex-col items-center mt-20">
+      <h1 className="text-3xl border-3  border-4 border-blue-950 rounded-lg shadow-lg bg-amber-100">
         Browse Items
       </h1>
       <ul className="item-list">

@@ -33,7 +33,8 @@ export default function Item() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-20">
+      <form className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold text-xl font-medium">
       <h1>Individual Item</h1>
       <AliceCarousel>
         {items.Photos.map((photo, index) => (
@@ -43,6 +44,7 @@ export default function Item() {
       <h2>Title:{items.title}</h2>
       <h2>Condition:{items.condition}</h2>
       <h2>minimum_trade:{items.minimum_trade}</h2>
+      </form>
     </div>
   );
 }
