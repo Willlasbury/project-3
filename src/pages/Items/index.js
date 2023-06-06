@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLocation } from "react";
 import itemsAPI from "../../utils/API/items";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import "./style.css";
 
 export default function Item({socket, token}) {
   const [item, setItem] = useState({

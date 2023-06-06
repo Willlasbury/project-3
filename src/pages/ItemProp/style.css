@@ -1,5 +1,5 @@
 .sliderimg{
 width: 30%;
 height: 150x;
-object-fit: cover
+object-fit: scale-down
 }

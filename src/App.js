@@ -34,9 +34,8 @@ export default function App() {
   const [username, setUsername] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
-  const [socket, setSocket] = useState()
+  const [socket, setSocket] = useState();
 
-  
   useEffect(() => {
     try {
       if (token) {
@@ -59,7 +58,7 @@ export default function App() {
       logout();
     }
   }, [userId]);
-  
+
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -67,16 +66,16 @@ export default function App() {
     setUserId(0);
   };
 
-  
-
-  useEffect(()=>{
+  useEffect(() => {
     const socket = socketConnect(token);
-     setSocket(socket)
-  },[])
+    setSocket(socket);
+  }, []);
 
   return (
-    <section className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
-    style={{ backgroundImage: `url(${backgroundImage})` }}> 
+    <section
+      className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <BrowserRouter>
         <NavBar username={username} logout={logout} messages={messages} />
         <Routes>
@@ -106,7 +105,10 @@ export default function App() {
               />
             }
           />
-          <Route path="/yourItems" element={<YourItems />} />
+          <Route
+            path="/yourItems"
+            element={<YourItems userId={userId} token={token} />}
+          />
           <Route path="/category" element={<Category />} />
           <Route path="/freeitem" element={<FreeItem />} />
           <Route path="/lookingfor" element={<LookingFor />} />
@@ -117,7 +119,7 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
-          <Route path = "/offer" element = {<Offer/>}/>
+          <Route path="/offer" element={<Offer />} />
           <Route path="/search" element={<Search />} />
           <Route path="/items" element={<Items />} />
           <Route path="/flip" element={<Flip />} />
