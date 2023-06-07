@@ -46,7 +46,7 @@ export default function Signup(props) {
   };
 
   return (
-    <form className="flex flex-col items-center mt-20">
+    <form className="flex flex-col items-center mt-40">
       <div className="mb-3">
           <label htmlFor="Name" className="block mb-2 text-sm font-bold text-orange-900 dark:text-white"></label>
           <input type="text" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
