@@ -182,27 +182,3 @@ export default function NavBar({
     </nav>
   );
 }
-<<<<<<< HEAD
-=======
-
-// className="fixed top-0 left-0 right-0 bg-gray-800 text-white p-4"
-// main class flex-grow    should make it fit in between but doesn't
-{
-  /* <nav className="flex flex-grow justify-center px-5 m-4">
-      <ul>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/YourItems">Your Items</NavLink>
-        <NavLink to="/category">Category</NavLink>
-        <NavLink to="/freeitem">FreeItem</NavLink>
-        <NavLink to="/browse">Browse</NavLink>
-        <NavLink to="/postitem">PostItem</NavLink>
-        <NavLink to="/search">Search</NavLink>
-        <NavLink to="/login">login</NavLink>
-        <NavLink to="/signup">signup</NavLink>
-        <button onClick={handleLogout}>Logout</button>
-      </ul>
-
-      <h3>Hello: {userName}</h3>
-    </nav> */
-}
->>>>>>> dev
