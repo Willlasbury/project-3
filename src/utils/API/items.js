@@ -85,6 +85,7 @@ const itemsAPI = {
     title,
     category,
     minimum_trade,
+    description,
     imageArr,
     condition,
     sold_status,
@@ -95,6 +96,7 @@ const itemsAPI = {
         title: title,
         minimum_trade: minimum_trade,
         category: category,
+        description: description,
         url: imageArr,
         condition: condition,
         sold_status: sold_status,
@@ -115,6 +117,23 @@ const itemsAPI = {
     } catch (error) {
       console.log("error:", error);
       throw new Error(error);
+    }
+  },
+  deleteItemId: async (itemId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/items/${itemId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (data.ok) {
+        console.log("item was sucessfully deleted");
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
     }
   },
 };
