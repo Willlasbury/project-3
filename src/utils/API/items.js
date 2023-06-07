@@ -119,6 +119,23 @@ const itemsAPI = {
       throw new Error(error);
     }
   },
+  deleteItemId: async (itemId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/items/${itemId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (data.ok) {
+        console.log("item was sucessfully deleted");
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
+    }
+  },
 };
 
 export default itemsAPI;

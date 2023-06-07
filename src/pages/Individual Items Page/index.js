@@ -6,13 +6,12 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 
 export default function Item({ socket, token, userId }) {
-   const navigate = useNavigate();
-  useEffect(()=>{
-    if (!token){
-      navigate('/login')
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
     }
-
-  },[])
+  }, []);
   const [item, setItem] = useState({
     Photos: [{}],
   });
@@ -32,6 +31,12 @@ export default function Item({ socket, token, userId }) {
 
     fetchItem();
   }, []);
+
+  const deleteItem = (event) => {
+    event.preventDefault();
+    itemsAPI.deleteItemId(item.id);
+    navigate("/YourItems");
+  };
 
   const handleOffer = (event) => {
     event.preventDefault();
@@ -58,7 +63,7 @@ export default function Item({ socket, token, userId }) {
           <h2>minimum_trade:{item.minimum_trade}</h2>
           <button onClick={handleOffer}>Submit Offer</button>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={deleteItem}>Delete</button>
         </form>
       </div>
     );
