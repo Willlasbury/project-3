@@ -1,5 +1,5 @@
-export default function joinRoom ({id, username, room, socket}) {
-    const user = {id, username, room}
+export default function joinRoom ({id, userName, room, socket}) {
+    const user = {id, userName, room}
 
     users.push(user)
 

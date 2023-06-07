@@ -28,7 +28,7 @@ export default function Signup(props) {
       } else {
         alert("Thank you for your submission");
         props.setUserId(res.user.id);
-        props.setUsername(res.user.username);
+        props.setUserName(res.user.userName);
         props.setToken(res.token);
         localStorage.setItem("token", res.token);
         setEmail("");

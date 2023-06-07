@@ -31,7 +31,7 @@ export default function App() {
   // create socket connection at root level and pass it to all pages
   // you will call functions from utils/socket in pages to use the socket prop
   const [userId, setUserId] = useState(-1);
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
   const [socket, setSocket] = useState();
@@ -46,7 +46,7 @@ export default function App() {
             setToken(null);
           } else {
             setUserId(data.id);
-            setUsername(data.username);
+            setUserName(data.userName);
             userAPI.getMessages(token).then((data) => {
               setMessages(data.length);
             });
@@ -66,7 +66,7 @@ export default function App() {
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
-    setUsername(null);
+    setUserName(null);
     setUserId(0);
     setOffers(0);
   };
@@ -83,7 +83,7 @@ export default function App() {
     >
       <BrowserRouter>
         <NavBar
-          username={username}
+          userName={userName}
           logout={logout}
           messages={messages}
           socket={socket}
@@ -99,10 +99,10 @@ export default function App() {
               <Login
                 socket={socket}
                 setUserId={setUserId}
-                setUsername={setUsername}
+                setUserName={setUserName}
                 setToken={setToken}
                 userId={userId}
-                username={username}
+                userName={userName}
               />
             }
           />
@@ -111,10 +111,10 @@ export default function App() {
             element={
               <Signup
                 setUserId={setUserId}
-                setUsername={setUsername}
+                setUserName={setUserName}
                 setToken={setToken}
                 userId={userId}
-                username={username}
+                userName={userName}
               />
             }
           />

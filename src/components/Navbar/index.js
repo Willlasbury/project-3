@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import userAPI from "../../utils/API/users";
 
 export default function NavBar({
-  username,
+  userName,
   logout,
   messages,
   setOffers,
@@ -202,6 +202,6 @@ export default function NavBar({
         <button onClick={handleLogout}>Logout</button>
       </ul>
 
-      <h3>Hello: {username}</h3>
+      <h3>Hello: {userName}</h3>
     </nav> */
 }
