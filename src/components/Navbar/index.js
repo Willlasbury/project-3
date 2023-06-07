@@ -36,12 +36,10 @@ export default function NavBar({
   // userAPI.getOffers(token)
 
   return (
-    // not active: hover:font-bold hover:bg-amber-500 hover:text-stone-900
-    // active: nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium
-
+    
     <nav className="fixed w-full top-0 z-30 bg-amber-950 border-b border-stone-400 ">
       <div
-        className="items-center  justify-between w-full md:flex md:w-auto md:order-1"
+        className="items-center justify-between w-full md:flex md:w-auto md:order-1"
         id="navbar-sticky"
       >
         <ul className="nav nav-tabs flex flex-grow justify-center m-4">
@@ -93,7 +91,7 @@ export default function NavBar({
               Your Items
             </NavLink>
           </li>
-          <li className="m-1">
+          {/* <li className="m-1">
             <NavLink
               to="/category"
               className={({ isActive }) =>
@@ -104,8 +102,8 @@ export default function NavBar({
             >
               Category
             </NavLink>
-          </li>
-          <li className="m-1">
+          </li> */}
+          {/* <li className="m-1">
             <NavLink
               to="/freeItem"
               className={({ isActive }) =>
@@ -116,7 +114,7 @@ export default function NavBar({
             >
               Free Items
             </NavLink>
-          </li>
+          </li> */}
           <li className="m-1">
             <NavLink
               to="/browse"
@@ -141,7 +139,7 @@ export default function NavBar({
               Post Item
             </NavLink>
           </li>
-          <li className="m-1">
+          {/* <li className="m-1">
             <NavLink
               to="/search"
               className={({ isActive }) =>
@@ -152,7 +150,7 @@ export default function NavBar({
             >
               Search
             </NavLink>
-          </li>
+          </li> */}
           <li className="m-1">
             <NavLink
               to="/offer"
@@ -169,12 +167,12 @@ export default function NavBar({
           {!token ? null : (
             <div className="flex">
               <button
-                className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+                className="px-3 ml-1 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
                 onClick={handleLogout}
               >
                 Logout
               </button>
-              <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
+              <h3 className="px-3 ml-2 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold">
                 Notifications: {offers}
               </h3>
             </div>
@@ -183,25 +181,4 @@ export default function NavBar({
       </div>
     </nav>
   );
-}
-
-// className="fixed top-0 left-0 right-0 bg-gray-800 text-white p-4"
-// main class flex-grow    should make it fit in between but doesn't
-{
-  /* <nav className="flex flex-grow justify-center px-5 m-4">
-      <ul>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/YourItems">Your Items</NavLink>
-        <NavLink to="/category">Category</NavLink>
-        <NavLink to="/freeitem">FreeItem</NavLink>
-        <NavLink to="/browse">Browse</NavLink>
-        <NavLink to="/postitem">PostItem</NavLink>
-        <NavLink to="/search">Search</NavLink>
-        <NavLink to="/login">login</NavLink>
-        <NavLink to="/signup">signup</NavLink>
-        <button onClick={handleLogout}>Logout</button>
-      </ul>
-
-      <h3>Hello: {username}</h3>
-    </nav> */
 }

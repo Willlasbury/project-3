@@ -80,22 +80,23 @@ const UploadWidget = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className=" m-2 flex flex-col items-center">
       
-      <form className="form">
-        <input type="text"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+      <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
+        <div className="flex flex-col space-y-4">
+        <input type="text"id="default-input"className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={title}
           name="title"
           onChange={handleInputChange}
           placeholder="Item"
         />
-        <input type="number"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+        <input type="number"id="default-input"className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={minimum_trade}
           name="minimum_trade"
           onChange={handleInputChange}
           placeholder="Minimum trade value"
         />
-        <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"name="category" onChange={handleInputChange}>
+        <select className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"name="category" onChange={handleInputChange}>
           <option value="" disabled selected>
             Select a category
           </option>
@@ -106,7 +107,7 @@ const UploadWidget = () => {
         <option value="pet gear">Pet Gear</option>
         <option value="free">Free</option>
       </select>
-        <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" name="condition" onChange={handleInputChange}>
+        <select className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" name="condition" onChange={handleInputChange}>
           <option value="" disabled selected>
             Select a Condition
           </option>
@@ -125,7 +126,8 @@ const UploadWidget = () => {
           Upload
         </button>
         <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium" onClick={handleFormSubmit}>Create Posting</button>
-      </form>
+        </div>
+      </div>
     </div>
   );
 };
