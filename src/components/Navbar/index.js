@@ -39,10 +39,10 @@ export default function NavBar({
     
     <nav className="fixed w-full top-0 z-30 bg-amber-950 border-b border-stone-400 ">
       <div
-        className="items-center justify-between w-full md:flex md:w-auto md:order-1"
+        className="flex flex-col items-center justify-center md:justify-between md:w-auto md:order-1"
         id="navbar-sticky"
       >
-        <ul className="nav nav-tabs flex flex-grow justify-center m-4">
+        <ul className="nav nav-tabs flex flex-wrap justify-center m-4">
           <li className="m-1">
             <NavLink
               to="/"

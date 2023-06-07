@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import headsImage from "./heads.jpg";
-import tailsImage from "./tails.jpg";
+import headsImage from "./heads.png";
+import tailsImage from "./tails.png";
 
 const Flip = () => {
   const [result, setResult] = useState("");
@@ -19,7 +19,7 @@ const Flip = () => {
   };
 
   return (
-    <div className=" mt-20 flex flex-col items-center font-sans">
+    <div className="mt-40 flex flex-col items-center font-sans">
       <button
         id="flip-btn"
         className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
