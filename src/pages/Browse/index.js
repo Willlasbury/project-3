@@ -26,12 +26,15 @@ export default function Browse({token}) {
 
   return (
     <div className="flex flex-col items-center mt-20">
-      <h1 className="text-3xl border-3  border-4 border-blue-950 rounded-lg shadow-lg bg-amber-100">
+      <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         Browse Items
       </h1>
-      <ul className="item-list">
+      <div className="item-list">
         {items.map((item) => (
-          <li key={item.id}>
+          <div
+            key={item.id}
+            className="card mx-auto my-4 p-4 max-w-sm bg-amber-100 rounded-lg shadow-lg text-center"
+          >
             <Item
               id={item.id}
               picture={item.Photos}
@@ -41,9 +44,33 @@ export default function Browse({token}) {
               description={item.description}
               seller_id={item.seller_id}
             />
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
+
+//   return (
+//     <div className="flex flex-col items-center mt-20">
+//       <h1 className="text-3xl border-3  border-4 border-blue-950 rounded-lg shadow-lg bg-amber-100">
+//         Browse Items
+//       </h1>
+//       <ul className="item-list">
+//         {items.map((item) => (
+//           <li key={item.id}>
+//             <Item
+//               id={item.id}
+//               picture={item.Photos}
+//               title={item.title}
+//               category={item.category}
+//               condition={item.condition}
+//               description={item.description}
+//               seller_id={item.seller_id}
+//             />
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }

@@ -14,7 +14,7 @@ import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
 import Item from "./pages/ItemProp";
 import Browse from "./pages/Browse";
-import Items from "./pages/Items";
+import Items from "./pages/Individual Items Page";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
