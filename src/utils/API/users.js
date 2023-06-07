@@ -94,14 +94,23 @@ const userAPI = {
     return res.json();
   },
   getOffers: async (token) => {
-    if (token){
-
-      const res = await fetch(`${URL_PREFIX}/api/offers/${token}`);
-      return res.json();
-    } else {
-      return []
+    try {
+      if (token) {
+        const res = await fetch(`${URL_PREFIX}/api/offers/${token}`);
+        const data = await res.json()
+        if (data.msg) {
+          return [];
+        } else {
+          return data;
+        }
+      } else {
+        return [];
+      }
+    } catch (error) {
+      console.log("error:", error)
     }
-  }
+    
+  },
 };
 
 export default userAPI;
