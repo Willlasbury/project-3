@@ -37,7 +37,7 @@ export default function NavBar({
 
   return (
     
-    <nav className="w-full bg-amber-950 border-b border-stone-400 ">
+    <nav className="w-full sticky top-0 bg-amber-950 border-b border-stone-400 ">
       <div
         className="flex flex-col items-center justify-center md:justify-between md:w-auto md:order-1"
         id="navbar-sticky"
