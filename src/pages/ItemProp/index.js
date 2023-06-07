@@ -21,7 +21,7 @@ export default function Items({ id, picture, title, category, condition }) {
         controlsStrategy={"default"}
         autoPlayStrategy="all"
         autoPlayInterval={1000}
-        autoHeight
+        autoWidth
       >
         {picture.map((photo, index) => (
           <img key={index} src={photo.url} className="sliderimg " />
