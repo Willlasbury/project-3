@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import "../../index.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import userAPI from "../../utils/API/users";
+import offerAPI from "../../utils/API/offer";
 
 export default function NavBar({
   userName,
@@ -24,20 +24,20 @@ export default function NavBar({
   useEffect(() => {
     if (socket) {
       socket.on("new_offer", async () => {
-        const offers = await userAPI.getOffers(token);
-        setOffers(offers.length);
+        const offers = await offerAPI.getRecievedOffers(token);
+        setOffers(offers);
       });
     } else {
-      userAPI.getOffers(token).then((offers) => {
-        setOffers(offers.length);
+      offerAPI.getRecievedOffers(token).then((offers) => {
+        setOffers(offers);
       });
     }
   }, [socket]);
-  // userAPI.getOffers(token)
+  // offerAPI.getRecievedOffers(token)
 
   return (
     
-    <nav className="fixed w-full top-0 z-30 bg-amber-950 border-b border-stone-400 ">
+    <nav className="w-full bg-amber-950 border-b border-stone-400 ">
       <div
         className="flex flex-col items-center justify-center md:justify-between md:w-auto md:order-1"
         id="navbar-sticky"
@@ -172,9 +172,22 @@ export default function NavBar({
               >
                 Logout
               </button>
-              <h3 className="px-3 ml-2 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold">
+
+              <li className="m-1">
+            <NavLink
+              to="/notification"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+              }
+            >
+              Notifications: {offers.length}
+            </NavLink>
+          </li>
+              {/* <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
                 Notifications: {offers}
-              </h3>
+              </h3> */}
             </div>
           )}
         </ul>
