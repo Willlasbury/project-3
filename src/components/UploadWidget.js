@@ -80,31 +80,24 @@ const UploadWidget = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <form className="form">
-        <input
-          type="text"
-          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+    <div className=" m-2 flex flex-col items-center">
+      
+      <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
+        <div className="flex flex-col space-y-4">
+        <input type="text"id="default-input"className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={title}
           name="title"
           onChange={handleInputChange}
           placeholder="Item"
         />
-        <input
-          type="number"
-          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+        <input type="number"id="default-input"className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={minimum_trade}
           name="minimum_trade"
           onChange={handleInputChange}
           placeholder="Minimum trade value"
         />
-        <select
-          defaultValue='select a category'
-          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-          name="category"
-          onChange={handleInputChange}
-        >
-          {/* <option value="" disabled selected>
+        <select className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"name="category" onChange={handleInputChange}>
+          <option value="" disabled selected>
             Select a category
           </option> */}
           <option value="sporting goods">Sporting Goods</option>
@@ -138,13 +131,9 @@ const UploadWidget = () => {
         >
           Upload
         </button>
-        <button
-          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
-          onClick={handleFormSubmit}
-        >
-          Create Posting
-        </button>
-      </form>
+        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium" onClick={handleFormSubmit}>Create Posting</button>
+        </div>
+      </div>
     </div>
   );
 };
