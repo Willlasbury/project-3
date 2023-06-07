@@ -81,42 +81,56 @@ const UploadWidget = () => {
 
   return (
     <div className="flex flex-col items-center">
-      
       <form className="form">
-        <input type="text"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+        <input
+          type="text"
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={title}
           name="title"
           onChange={handleInputChange}
           placeholder="Item"
         />
-        <input type="number"id="default-input"className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+        <input
+          type="number"
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           value={minimum_trade}
           name="minimum_trade"
           onChange={handleInputChange}
           placeholder="Minimum trade value"
         />
-        <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"name="category" onChange={handleInputChange}>
-          <option value="" disabled selected>
+        <select
+          defaultValue='select a category'
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          name="category"
+          onChange={handleInputChange}
+        >
+          {/* <option value="" disabled selected>
             Select a category
-          </option>
+          </option> */}
           <option value="sporting goods">Sporting Goods</option>
-        <option value="home furnishings">Home Furnishings</option>
-        <option value="auto">Auto</option>
-        <option value="electronics">Electronics</option>
-        <option value="pet gear">Pet Gear</option>
-        <option value="free">Free</option>
-      </select>
-        <select className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" name="condition" onChange={handleInputChange}>
-          <option value="" disabled selected>
+          <option value="home furnishings">Home Furnishings</option>
+          <option value="auto">Auto</option>
+          <option value="electronics">Electronics</option>
+          <option value="pet gear">Pet Gear</option>
+          <option value="free">Free</option>
+        </select>
+        <select
+          defaultValue = 'Select a Condition'
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          name="condition"
+          onChange={handleInputChange}
+        >
+          {/* <option value="" disabled selected>
             Select a Condition
-          </option>
+          </option> */}
           <option value="Like New">Like New</option>
           <option value="Slightly Used">Slightly Used</option>
           <option value="Used">Used</option>
           <option value="Decent">Decent</option>
           <option value="Rough">Rough</option>
         </select>
-        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+        <button
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
           onClick={(e) => {
             e.preventDefault();
             widgetRef.current.open();
@@ -124,7 +138,12 @@ const UploadWidget = () => {
         >
           Upload
         </button>
-        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium" onClick={handleFormSubmit}>Create Posting</button>
+        <button
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+          onClick={handleFormSubmit}
+        >
+          Create Posting
+        </button>
       </form>
     </div>
   );

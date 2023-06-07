@@ -14,7 +14,6 @@ const categoriesAPI = {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Fetched data:", data);
         return data;
       } else {
         throw new Error(
