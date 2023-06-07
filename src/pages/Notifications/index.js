@@ -1,23 +1,25 @@
 import React, { useEffect } from "react";
 import "../../index.css";
 import Offer from "../../components/Offer";
-import userAPI from "../../utils/API/users";
+import YourOffers from "../../components/YourOffers";
+import offerAPI from "../../utils/API/offer";
 
-export default function Notification({ token, setOffers, offers, socket }) {
+export default function Notification({ token, yourOffers, offers, socket }) {
 
-    return (
-      <main className="flex flex-col justify-center items-center">
-        <section>
-            <h2>Recieved Offers</h2>
+  return (
+    <main className="flex flex-row justify-center items-start">
+      <section className="flex flex-col border-2 border-black m-2">
+        <h2>Recieved Offers</h2>
         {offers.map((offer) => {
-            console.log("offer:", offer)
-         return <Offer key={offer.id} offer={offer} socket={socket} />
+          return <Offer key={offer.id} offer={offer} socket={socket} />;
         })}
-        </section>
-        <section>
-            <h2>Your Offers</h2>
-
-        </section>
-      </main>
-    );
+      </section>
+      <section className="flex flex-col border-2 border-black m-2">
+        <h2>Your Offers</h2>
+            {yourOffers.map((offer) => {
+          return <YourOffers key={offer.id} offer={offer} socket={socket} />;
+        })}
+      </section>
+    </main>
+  );
 }

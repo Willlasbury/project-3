@@ -106,10 +106,10 @@ const UploadWidget = () => {
             name="category"
             onChange={handleInputChange}
           >
-            <option value="" disabled selected>
+            {/* <option value="" disabled selected>
               Select a category
-            </option>{" "}
-            */}
+            </option>{" "} */}
+         
             <option value="sporting goods">Sporting Goods</option>
             <option value="home furnishings">Home Furnishings</option>
             <option value="auto">Auto</option>

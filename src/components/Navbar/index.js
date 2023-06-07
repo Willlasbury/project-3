@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import "../../index.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import userAPI from "../../utils/API/users";
+import offerAPI from "../../utils/API/offer";
 
 export default function NavBar({
   userName,
@@ -24,16 +24,16 @@ export default function NavBar({
   useEffect(() => {
     if (socket) {
       socket.on("new_offer", async () => {
-        const offers = await userAPI.getOffers(token);
+        const offers = await offerAPI.getRecievedOffers(token);
         setOffers(offers);
       });
     } else {
-      userAPI.getOffers(token).then((offers) => {
+      offerAPI.getRecievedOffers(token).then((offers) => {
         setOffers(offers);
       });
     }
   }, [socket]);
-  // userAPI.getOffers(token)
+  // offerAPI.getRecievedOffers(token)
 
   return (
     

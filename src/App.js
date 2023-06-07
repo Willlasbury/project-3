@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
+import offerAPI from "./utils/API/offer"
 import backgroundImage from "./utils/images/background.jpg";
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -25,6 +26,7 @@ import YourItems from "./pages/YourItems";
 import Offer from "./pages/Offer";
 import Notification from "./pages/Notifications";
 import "./index.css";
+import offer from "./utils/API/offer";
 
 // const socket = socketConnect();
 
@@ -37,6 +39,8 @@ export default function App() {
   const [messages, setMessages] = useState();
   const [socket, setSocket] = useState();
   const [offers, setOffers] = useState([]);
+  const [yourOffers, setYourOffers] = useState([]);
+  
 
   useEffect(() => {
     try {
@@ -51,8 +55,11 @@ export default function App() {
             userAPI.getMessages(token).then((data) => {
               setMessages(data.length);
             });
-            userAPI.getOffers(token).then((data) => {
+            offerAPI.getRecievedOffers(token).then((data) => {
               setOffers(data.msg ? [] : data);
+            });
+            offerAPI.getSentOffers(token).then((data) => {
+              setYourOffers(data);
             });
           }
         });
@@ -146,8 +153,8 @@ export default function App() {
               <Notification
                 socket={socket}
                 token={token}
-                setOffers={setOffers}
                 offers={offers}
+                yourOffers={yourOffers}
               />
             }
           />

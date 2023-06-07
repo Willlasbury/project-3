@@ -18,7 +18,6 @@ export default function Item({ socket, token, userId }) {
   });
 
   const itemId = window.location.pathname.replace("/items/", "");
-  console.log("itemId:", itemId);
 
   useEffect(() => {
     const fetchItem = async () => {

@@ -10,7 +10,6 @@ export default function Browse({ userId, token }) {
   // Fetch items data and update the items state
   //TODO:add token user id once that is up and running
   const navigate = useNavigate();
-  console.log("items:", items);
 
   useEffect(() => {
     if (!token) {
