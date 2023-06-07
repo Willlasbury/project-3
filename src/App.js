@@ -23,6 +23,7 @@ import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
 import Offer from "./pages/Offer";
+import Notification from "./pages/Notifications";
 import "./index.css";
 
 // const socket = socketConnect();
@@ -35,7 +36,7 @@ export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
   const [socket, setSocket] = useState();
-  const [offers, setOffers] = useState(0);
+  const [offers, setOffers] = useState( []);
 
   useEffect(() => {
     try {
@@ -51,7 +52,7 @@ export default function App() {
               setMessages(data.length);
             });
             userAPI.getOffers(token).then((data) => {
-              setOffers(data.msg ? 0:data.length)
+              setOffers(data.msg ? []:data)
             })
           }
         });
@@ -61,14 +62,14 @@ export default function App() {
       console.log(err);
       logout();
     }
-  }, [userId]);
+  }, [token]);
 
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
     setUserName(null);
     setUserId(0);
-    setOffers(0);
+    setOffers([]);
   };
 
   useEffect(() => {
@@ -82,7 +83,7 @@ export default function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <BrowserRouter>
-        <NavBar
+        {/* <NavBar
           userName={userName}
           logout={logout}
           messages={messages}
@@ -90,7 +91,7 @@ export default function App() {
           token={token}
           setOffers={setOffers}
           offers={offers}
-        />
+        /> */}
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route
@@ -136,9 +137,10 @@ export default function App() {
             element={<Chat socket={socket} token={token} />}
           />
           <Route path="/offer" element={<Offer token={token}/>} />
-          <Route path="/search" element={<Search token={token}/>} />
+          <Route path="/search" element={<Search token={token}/>} /> 
           <Route path="/items" element={<Items token={token}/>} />
           <Route path="/flip" element={<Flip token={token}/>} />
+          <Route path="/notification" element={<Notification token={token} setOffers={setOffers} offers={offers}/>} />
           <Route path="/*" element={<NotFound token={token}/>} />
         </Routes>
         <Footer />

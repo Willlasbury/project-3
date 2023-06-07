@@ -25,11 +25,11 @@ export default function NavBar({
     if (socket) {
       socket.on("new_offer", async () => {
         const offers = await userAPI.getOffers(token);
-        setOffers(offers.length);
+        setOffers(offers);
       });
     } else {
       userAPI.getOffers(token).then((offers) => {
-        setOffers(offers.length);
+        setOffers(offers);
       });
     }
   }, [socket]);
@@ -174,9 +174,22 @@ export default function NavBar({
               >
                 Logout
               </button>
-              <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
+
+              <li className="m-1">
+            <NavLink
+              to="/notification"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+              }
+            >
+              Notifications: {offers.length}
+            </NavLink>
+          </li>
+              {/* <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
                 Notifications: {offers}
-              </h3>
+              </h3> */}
             </div>
           )}
         </ul>
