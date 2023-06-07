@@ -25,7 +25,7 @@ export default function Browse({token}) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-20">
+    <div className="flex flex-col items-center mt-40 mb-10">
       <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         Browse Items
       </h1>
@@ -35,7 +35,7 @@ export default function Browse({token}) {
             key={item.id}
             className="card mx-auto my-4 p-4 max-w-sm bg-amber-100 rounded-lg shadow-lg text-center"
           >
-            <Item
+            <Item 
               id={item.id}
               picture={item.Photos}
               title={item.title}

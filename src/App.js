@@ -25,6 +25,7 @@ import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
 import Offer from "./pages/Offer";
 import Notification from "./pages/Notifications";
+import EditItem from "./pages/edit item";
 import "./index.css";
 import offer from "./utils/API/offer";
 
@@ -129,6 +130,10 @@ export default function App() {
           <Route
             path="/yourItems"
             element={<YourItems userId={userId} token={token} />}
+          />
+          <Route
+            path="/items/:id/editItem"
+            element={<EditItem userId={userId} token={token} />}
           />
           <Route path="/category" element={<Category token={token} />} />
           <Route path="/freeitem" element={<FreeItem token={token} />} />

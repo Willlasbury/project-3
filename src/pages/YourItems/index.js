@@ -33,8 +33,8 @@ export default function Browse({ userId, token }) {
 
   if (!items) {
     return (
-      <div className="browse flex flex-col items-center mt-20">
-        <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">
+      <div className="browse flex flex-col items-center mt-40">
+        <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
           Your Items
         </h1>
         <h2>You do not have any items yet!</h2>
@@ -42,11 +42,11 @@ export default function Browse({ userId, token }) {
     );
   } else {
     return (
-      <div className="browse flex flex-col items-center mt-20">
-        <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium">
+      <div className="flex flex-col items-center mb-10 mt-40">
+        <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
           Your Items
         </h1>
-        <ul className="item-list">
+        <ul className="item-list card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
           {items.map((item) => (
             <li key={item.id}>
               <Item

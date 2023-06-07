@@ -80,7 +80,7 @@ const UploadWidget = () => {
   };
 
   return (
-    <div className=" m-2 flex flex-col items-center">
+    <div className="m-2 flex flex-col items-center">
       <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
         <div className="flex flex-col space-y-4">
           <input
@@ -156,6 +156,7 @@ const UploadWidget = () => {
           >
             Create Posting
           </button>
+      
         </div>
       </div>
     </div>

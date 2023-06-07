@@ -5,7 +5,14 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-export default function Items({ id, picture, title, category, condition }) {
+export default function Items({
+  id,
+  picture,
+  title,
+  category,
+  condition,
+  description,
+}) {
   const itemId = id;
   const responsive = {
     0: { items: 1 },
@@ -27,9 +34,9 @@ export default function Items({ id, picture, title, category, condition }) {
           <img key={index} src={photo.url} className="sliderimg " />
         ))}
       </AliceCarousel>
-      <h3 className="item-title text-black">{title}</h3>
-      <p className="item-category text-black"> Category: {category}</p>
-      <p className="text-black">Condition: {condition}</p>
+      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black">{title}</h3>
+      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-category text-black"> Category: {category}</p>
+      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-black">Condition: {condition}</p>
       <Link
         to={`/items/${id}`}
         className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
