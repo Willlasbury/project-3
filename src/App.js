@@ -61,6 +61,9 @@ export default function App() {
             offerAPI.getSentOffers(token).then((data) => {
               setYourOffers(data);
             });
+            if (socket){
+              socket.emit('add_user', token)
+            }
           }
         });
       }
