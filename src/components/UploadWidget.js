@@ -99,25 +99,31 @@ const UploadWidget = () => {
         <select className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"name="category" onChange={handleInputChange}>
           <option value="" disabled selected>
             Select a category
-          </option>
+          </option> */}
           <option value="sporting goods">Sporting Goods</option>
-        <option value="home furnishings">Home Furnishings</option>
-        <option value="auto">Auto</option>
-        <option value="electronics">Electronics</option>
-        <option value="pet gear">Pet Gear</option>
-        <option value="free">Free</option>
-      </select>
-        <select className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium" name="condition" onChange={handleInputChange}>
-          <option value="" disabled selected>
+          <option value="home furnishings">Home Furnishings</option>
+          <option value="auto">Auto</option>
+          <option value="electronics">Electronics</option>
+          <option value="pet gear">Pet Gear</option>
+          <option value="free">Free</option>
+        </select>
+        <select
+          defaultValue = 'Select a Condition'
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          name="condition"
+          onChange={handleInputChange}
+        >
+          {/* <option value="" disabled selected>
             Select a Condition
-          </option>
+          </option> */}
           <option value="Like New">Like New</option>
           <option value="Slightly Used">Slightly Used</option>
           <option value="Used">Used</option>
           <option value="Decent">Decent</option>
           <option value="Rough">Rough</option>
         </select>
-        <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+        <button
+          className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
           onClick={(e) => {
             e.preventDefault();
             widgetRef.current.open();

@@ -14,7 +14,6 @@ const itemsAPI = {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Fetched data:", data);
         return data;
       } else {
         throw new Error(
@@ -37,7 +36,6 @@ const itemsAPI = {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Fetched data:", data);
         return data;
       } else {
         throw new Error(
@@ -74,7 +72,6 @@ const itemsAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data);
       if (data.ok) {
         return await data.json();
       }
