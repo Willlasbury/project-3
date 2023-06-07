@@ -27,7 +27,6 @@ import Offer from "./pages/Offer";
 import Notification from "./pages/Notifications";
 import EditItem from "./pages/edit item";
 import "./index.css";
-import offer from "./utils/API/offer";
 
 // const socket = socketConnect();
 
