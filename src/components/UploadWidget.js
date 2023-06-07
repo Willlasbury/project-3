@@ -125,7 +125,7 @@ const UploadWidget = () => {
           >
             {/* <option value="" disabled selected>
             Select a Condition
-          </option> */}
+          </option>*/}
             <option value="Like New">Like New</option>
             <option value="Slightly Used">Slightly Used</option>
             <option value="Used">Used</option>
