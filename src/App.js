@@ -23,6 +23,7 @@ import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
 import Offer from "./pages/Offer";
+import EditItem from "./pages/edit item";
 import "./index.css";
 
 // const socket = socketConnect();
@@ -51,8 +52,8 @@ export default function App() {
               setMessages(data.length);
             });
             userAPI.getOffers(token).then((data) => {
-              setOffers(data.msg ? 0:data.length)
-            })
+              setOffers(data.msg ? 0 : data.length);
+            });
           }
         });
       }
@@ -122,11 +123,15 @@ export default function App() {
             path="/yourItems"
             element={<YourItems userId={userId} token={token} />}
           />
-          <Route path="/category" element={<Category token={token}/>} />
-          <Route path="/freeitem" element={<FreeItem token={token}/>} />
-          <Route path="/lookingfor" element={<LookingFor token={token}/>} />
-          <Route path="/postitem" element={<PostItem token={token}/>} />
-          <Route path="/browse" element={<Browse token={token}/>} />
+          <Route
+            path="/items/:id/editItem"
+            element={<EditItem userId={userId} token={token} />}
+          />
+          <Route path="/category" element={<Category token={token} />} />
+          <Route path="/freeitem" element={<FreeItem token={token} />} />
+          <Route path="/lookingfor" element={<LookingFor token={token} />} />
+          <Route path="/postitem" element={<PostItem token={token} />} />
+          <Route path="/browse" element={<Browse token={token} />} />
           <Route
             path="/items/:id"
             element={<Items socket={socket} token={token} userId={userId} />}
@@ -135,11 +140,11 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
-          <Route path="/offer" element={<Offer token={token}/>} />
-          <Route path="/search" element={<Search token={token}/>} />
-          <Route path="/items" element={<Items token={token}/>} />
-          <Route path="/flip" element={<Flip token={token}/>} />
-          <Route path="/*" element={<NotFound token={token}/>} />
+          <Route path="/offer" element={<Offer token={token} />} />
+          <Route path="/search" element={<Search token={token} />} />
+          <Route path="/items" element={<Items token={token} />} />
+          <Route path="/flip" element={<Flip token={token} />} />
+          <Route path="/*" element={<NotFound token={token} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

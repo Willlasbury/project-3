@@ -5,7 +5,14 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-export default function Items({ id, picture, title, category, condition }) {
+export default function Items({
+  id,
+  picture,
+  title,
+  category,
+  condition,
+  description,
+}) {
   const itemId = id;
   const responsive = {
     0: { items: 1 },
