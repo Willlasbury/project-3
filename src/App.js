@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
-import offerAPI from "./utils/API/offer"
+import offerAPI from "./utils/API/offer";
+import categoriesAPI from "./utils/API/categories";
 import backgroundImage from "./utils/images/background.jpg";
+
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
@@ -40,7 +42,7 @@ export default function App() {
   const [socket, setSocket] = useState();
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
-  
+  const [categoryOptions, setCategoryOptions] = useState();
 
   useEffect(() => {
     try {
@@ -61,8 +63,12 @@ export default function App() {
             offerAPI.getSentOffers(token).then((data) => {
               setYourOffers(data);
             });
-            if (socket){
-              socket.emit('add_user', token)
+            categoriesAPI
+              .getCategories()
+              .then((data) => setCategoryOptions(data));
+
+            if (socket) {
+              socket.emit("add_user", token);
             }
           }
         });
@@ -73,7 +79,6 @@ export default function App() {
       logout();
     }
   }, [token]);
-
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -140,7 +145,12 @@ export default function App() {
           <Route path="/category" element={<Category token={token} />} />
           <Route path="/freeitem" element={<FreeItem token={token} />} />
           <Route path="/lookingfor" element={<LookingFor token={token} />} />
-          <Route path="/postitem" element={<PostItem token={token} />} />
+          <Route
+            path="/postitem"
+            element={
+              <PostItem token={token} categoryOptions={categoryOptions} />
+            }
+          />
           <Route path="/browse" element={<Browse token={token} />} />
           <Route
             path="/items/:id"

@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import itemsAPI from "../utils/API/items";
 
-const UploadWidget = () => {
+import CategoryOptions from "./CategoryOptions";
+
+const UploadWidget = ({categoryOptions}) => {
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -79,6 +81,7 @@ const UploadWidget = () => {
     setDescription("");
   };
 
+
   return (
     <div className="m-2 flex flex-col items-center">
       <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
@@ -110,12 +113,10 @@ const UploadWidget = () => {
               Select a category
             </option>{" "} */}
          
-            <option value="sporting goods">Sporting Goods</option>
-            <option value="home furnishings">Home Furnishings</option>
-            <option value="auto">Auto</option>
-            <option value="electronics">Electronics</option>
-            <option value="pet gear">Pet Gear</option>
-            <option value="free">Free</option>
+            {categoryOptions && categoryOptions.map((value) => {
+              // console.log("value:", value)
+               return (<CategoryOptions key={value.id} category={value.name} />)
+            })}
           </select>
           <select
             defaultValue="Select a Condition"
