@@ -13,6 +13,7 @@ export default function NavBar({
   offers,
   socket,
   token,
+  userId,
 }) {
   const navigate = useNavigate();
 
@@ -36,7 +37,6 @@ export default function NavBar({
   // offerAPI.getRecievedOffers(token)
 
   return (
-    
     <nav className="w-full sticky top-0 z-10 bg-amber-950 border-b border-stone-400 ">
       <div
         className="flex flex-col items-center justify-center md:justify-between md:w-auto md:order-1"
@@ -57,31 +57,31 @@ export default function NavBar({
           </li>
           {token ? null : (
             <div className="flex">
-          <li className="m-1">
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Login
-            </NavLink>
-          </li>
-          <li className="m-1">
-            <NavLink
-              to="/signup"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Signup
-            </NavLink>
-          </li>
-          </div>
+              <li className="m-1">
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                      : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+                  }
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li className="m-1">
+                <NavLink
+                  to="/signup"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                      : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+                  }
+                >
+                  Signup
+                </NavLink>
+              </li>
+            </div>
           )}
           <li className="m-1">
             <NavLink
@@ -121,7 +121,7 @@ export default function NavBar({
           </li> */}
           <li className="m-1">
             <NavLink
-              to="/browse"
+              to={`browse/${userId}`}
               className={({ isActive }) =>
                 isActive
                   ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
@@ -178,17 +178,17 @@ export default function NavBar({
               </button>
 
               <li className="m-1">
-            <NavLink
-              to="/notification"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Notifications: {offers.length}
-            </NavLink>
-          </li>
+                <NavLink
+                  to="/notification"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                      : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+                  }
+                >
+                  Notifications: {offers.length}
+                </NavLink>
+              </li>
               {/* <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">
                 Notifications: {offers}
               </h3> */}
