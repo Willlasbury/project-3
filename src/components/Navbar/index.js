@@ -55,6 +55,8 @@ export default function NavBar({
               Home
             </NavLink>
           </li>
+          {token ? null : (
+            <div className="flex">
           <li className="m-1">
             <NavLink
               to="/login"
@@ -79,6 +81,8 @@ export default function NavBar({
               Signup
             </NavLink>
           </li>
+          </div>
+          )}
           <li className="m-1">
             <NavLink
               to="/YourItems"
