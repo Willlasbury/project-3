@@ -4,10 +4,7 @@ import { useEffect, useState } from "react";
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
 import offerAPI from "./utils/API/offer";
-<<<<<<< HEAD
-=======
 import categoriesAPI from "./utils/API/categories";
->>>>>>> dev
 import backgroundImage from "./utils/images/background.jpg";
 
 import Home from "./pages/home";
@@ -45,10 +42,7 @@ export default function App() {
   const [socket, setSocket] = useState();
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
-<<<<<<< HEAD
-=======
   const [categoryOptions, setCategoryOptions] = useState();
->>>>>>> dev
 
   useEffect(() => {
     try {
@@ -69,13 +63,10 @@ export default function App() {
             offerAPI.getSentOffers(token).then((data) => {
               setYourOffers(data);
             });
-<<<<<<< HEAD
-=======
             categoriesAPI
               .getCategories()
               .then((data) => setCategoryOptions(data));
 
->>>>>>> dev
             if (socket) {
               socket.emit("add_user", token);
             }
