@@ -25,7 +25,7 @@ export default function Browse({token}) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-40 mb-10">
+    <div className="flex flex-col items-center mt-5 mb-5">
       <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         Browse Items
       </h1>

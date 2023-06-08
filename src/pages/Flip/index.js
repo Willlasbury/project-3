@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-
+import css from "./style.css";
 import headsImage from "./heads.png";
 import tailsImage from "./tails.png";
+
 
 const Flip = () => {
   const [result, setResult] = useState("");
@@ -11,7 +12,7 @@ const Flip = () => {
     setFlip("");
     if (Math.random() < 0.5) {
       setResult("heads");
-      console.log("heads")
+      console.log("heads");
     } else {
       setResult("tails");
       console.log("tails");
@@ -19,10 +20,10 @@ const Flip = () => {
   };
 
   return (
-    <div className="mt-40 flex flex-col items-center font-sans">
+    <div className="mt-5 flex flex-col items-center font-sans">
       <button
         id="flip-btn"
-        className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+        className="nav-item m-4 px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
         onClick={coinToss}
       >
         Flip For It
@@ -44,27 +45,4 @@ const Flip = () => {
 };
 
 export default Flip;
-//   return (
-//     <div className="Flip">
-//       <button id="flip-btn" onClick={coinToss}>
-//         Flip For It
-//       </button>
-//       <div id="coin" className={result} key={+new Date()}>
-//         <div className="side-a">
-//           <img
-//             src={result === "heads" ? headsImage : tailsImage}
-//             alt={result}
-//           />
-//         </div>
-//         <div className="side-b">
-//           <img
-//             src={result === "heads" ? headsImage : tailsImage}
-//             alt={result}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
-// export default Flip;

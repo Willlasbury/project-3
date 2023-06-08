@@ -33,7 +33,7 @@ export default function Browse({ userId, token }) {
 
   if (!items) {
     return (
-      <div className="browse flex flex-col items-center mt-40">
+      <div className="browse flex flex-col items-center mt-5">
         <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
           Your Items
         </h1>

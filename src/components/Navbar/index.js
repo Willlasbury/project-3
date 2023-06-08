@@ -37,7 +37,7 @@ export default function NavBar({
 
   return (
     
-    <nav className="w-full sticky top-0 bg-amber-950 border-b border-stone-400 ">
+    <nav className="w-full sticky top-0 z-10 bg-amber-950 border-b border-stone-400 ">
       <div
         className="flex flex-col items-center justify-center md:justify-between md:w-auto md:order-1"
         id="navbar-sticky"
@@ -55,6 +55,8 @@ export default function NavBar({
               Home
             </NavLink>
           </li>
+          {token ? null : (
+            <div className="flex">
           <li className="m-1">
             <NavLink
               to="/login"
@@ -79,6 +81,8 @@ export default function NavBar({
               Signup
             </NavLink>
           </li>
+          </div>
+          )}
           <li className="m-1">
             <NavLink
               to="/YourItems"
@@ -151,7 +155,7 @@ export default function NavBar({
               Search
             </NavLink>
           </li> */}
-          <li className="m-1">
+          {/* <li className="m-1">
             <NavLink
               to="/offer"
               className={({ isActive }) =>
@@ -162,7 +166,7 @@ export default function NavBar({
             >
               Offer
             </NavLink>
-          </li>
+          </li> */}
 
           {!token ? null : (
             <div className="flex">
