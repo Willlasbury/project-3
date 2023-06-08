@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
-import offerAPI from "./utils/API/offer"
+import offerAPI from "./utils/API/offer";
 import backgroundImage from "./utils/images/background.jpg";
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -40,7 +40,6 @@ export default function App() {
   const [socket, setSocket] = useState();
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
-  
 
   useEffect(() => {
     try {
@@ -61,8 +60,8 @@ export default function App() {
             offerAPI.getSentOffers(token).then((data) => {
               setYourOffers(data);
             });
-            if (socket){
-              socket.emit('add_user', token)
+            if (socket) {
+              socket.emit("add_user", token);
             }
           }
         });
@@ -150,7 +149,10 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
-          <Route path="/offer" element={<Offer token={token} />} />
+          <Route
+            path="/offer/:id"
+            element={<Offer token={token} socket={socket} userId={userId} />}
+          />
           <Route path="/search" element={<Search token={token} />} />
           <Route path="/items" element={<Items token={token} />} />
           <Route path="/flip" element={<Flip token={token} />} />
