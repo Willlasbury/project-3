@@ -4,7 +4,7 @@ import itemsAPI from "../utils/API/items";
 
 import CategoryOptions from "./CategoryOptions";
 
-const UploadWidget = ({categoryOptions}) => {
+const UploadWidget = ({categoryOptions, token}) => {
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -71,8 +71,7 @@ const UploadWidget = ({categoryOptions}) => {
       description,
       imageArr,
       condition,
-      false,
-      localStorage.getItem("token")
+      token
     );
     setTitle("");
     setMinimum_trade("");
@@ -114,8 +113,7 @@ const UploadWidget = ({categoryOptions}) => {
             </option>{" "} */}
          
             {categoryOptions && categoryOptions.map((value) => {
-              // console.log("value:", value)
-               return (<CategoryOptions key={value.id} category={value.name} />)
+               return (<CategoryOptions key={value.id} value={value.id} category={value.name} />)
             })}
           </select>
           <select
