@@ -100,6 +100,7 @@ const itemsAPI = {
         condition: condition,
         token: token,
       };
+      console.log("newItem:", newItem)
       const data = await fetch(`${URL_PREFIX}/api/items`, {
         method: "POST",
         body: JSON.stringify(newItem),
