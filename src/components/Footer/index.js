@@ -5,8 +5,8 @@ export default function Footer () {
     return(
         <footer>
 
-<div className="fixed w-full bottom-0 h-12 z-30 bg-orange-900">
-    <h1 className="h-full flex flex-grow justify-center text-3xl text-amber-100 border-3 border-4 border-gray-700 rounded-lg">TraderzPost</h1>
+<div className="fixed w-full justify-center flex flex-grow  bottom-0 h-14 z-30 bg-amber-950">
+    <h1 className="px-3 m-2 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold">TraderzPost</h1>
 </div>
 
         </footer>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import socketConnect from "./utils/socket/connection";
 import userAPI from "./utils/API/users";
+import offerAPI from "./utils/API/offer"
 import backgroundImage from "./utils/images/background.jpg";
 import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -14,7 +15,7 @@ import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
 import Item from "./pages/ItemProp";
 import Browse from "./pages/Browse";
-import Items from "./pages/Items";
+import Items from "./pages/Individual Items Page";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
@@ -23,6 +24,8 @@ import Search from "./pages/Search";
 import Flip from "./pages/Flip";
 import YourItems from "./pages/YourItems";
 import Offer from "./pages/Offer";
+import Notification from "./pages/Notifications";
+import EditItem from "./pages/edit item";
 import "./index.css";
 
 // const socket = socketConnect();
@@ -31,12 +34,14 @@ export default function App() {
   // create socket connection at root level and pass it to all pages
   // you will call functions from utils/socket in pages to use the socket prop
   const [userId, setUserId] = useState(-1);
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
-  const [socket, setSocket] = useState()
-
+  const [socket, setSocket] = useState();
+  const [offers, setOffers] = useState([]);
+  const [yourOffers, setYourOffers] = useState([]);
   
+
   useEffect(() => {
     try {
       if (token) {
@@ -46,10 +51,19 @@ export default function App() {
             setToken(null);
           } else {
             setUserId(data.id);
-            setUsername(data.username);
+            setUserName(data.userName);
             userAPI.getMessages(token).then((data) => {
               setMessages(data.length);
             });
+            offerAPI.getRecievedOffers(token).then((data) => {
+              setOffers(data.msg ? [] : data);
+            });
+            offerAPI.getSentOffers(token).then((data) => {
+              setYourOffers(data);
+            });
+            if (socket){
+              socket.emit('add_user', token)
+            }
           }
         });
       }
@@ -58,27 +72,36 @@ export default function App() {
       console.log(err);
       logout();
     }
-  }, [userId]);
-  
+  }, [token]);
+
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
-    setUsername(null);
+    setUserName(null);
     setUserId(0);
+    setOffers([]);
   };
 
-  
-
-  useEffect(()=>{
+  useEffect(() => {
     const socket = socketConnect(token);
-     setSocket(socket)
-  },[])
+    setSocket(socket);
+  }, []);
 
   return (
-    <section className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
-    style={{ backgroundImage: `url(${backgroundImage})` }}> 
+    <section
+      className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <BrowserRouter>
-        <NavBar username={username} logout={logout} messages={messages} />
+        <NavBar
+          userName={userName}
+          logout={logout}
+          messages={messages}
+          socket={socket}
+          token={token}
+          setOffers={setOffers}
+          offers={offers}
+        />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
           <Route
@@ -87,10 +110,10 @@ export default function App() {
               <Login
                 socket={socket}
                 setUserId={setUserId}
-                setUsername={setUsername}
+                setUserName={setUserName}
                 setToken={setToken}
                 userId={userId}
-                username={username}
+                userName={userName}
               />
             }
           />
@@ -99,29 +122,50 @@ export default function App() {
             element={
               <Signup
                 setUserId={setUserId}
-                setUsername={setUsername}
+                setUserName={setUserName}
                 setToken={setToken}
                 userId={userId}
-                username={username}
+                userName={userName}
               />
             }
           />
-          <Route path="/yourItems" element={<YourItems />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/freeitem" element={<FreeItem />} />
-          <Route path="/lookingfor" element={<LookingFor />} />
-          <Route path="/postitem" element={<PostItem />} />
-          <Route path="/browse" element={<Browse />} />
-          <Route path="/item/:id" element={<Items />} />
+          <Route
+            path="/yourItems"
+            element={<YourItems userId={userId} token={token} />}
+          />
+          <Route
+            path="/items/:id/editItem"
+            element={<EditItem userId={userId} token={token} />}
+          />
+          <Route path="/category" element={<Category token={token} />} />
+          <Route path="/freeitem" element={<FreeItem token={token} />} />
+          <Route path="/lookingfor" element={<LookingFor token={token} />} />
+          <Route path="/postitem" element={<PostItem token={token} />} />
+          <Route path="/browse" element={<Browse token={token} />} />
+          <Route
+            path="/items/:id"
+            element={<Items socket={socket} token={token} userId={userId} />}
+          />
           <Route
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
-          <Route path = "/offer" element = {<Offer/>}/>
-          <Route path="/search" element={<Search />} />
-          <Route path="/items" element={<Items />} />
-          <Route path="/flip" element={<Flip />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/offer" element={<Offer token={token} />} />
+          <Route path="/search" element={<Search token={token} />} />
+          <Route path="/items" element={<Items token={token} />} />
+          <Route path="/flip" element={<Flip token={token} />} />
+          <Route
+            path="/notification"
+            element={
+              <Notification
+                socket={socket}
+                token={token}
+                offers={offers}
+                yourOffers={yourOffers}
+              />
+            }
+          />
+          <Route path="/*" element={<NotFound token={token} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

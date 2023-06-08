@@ -14,7 +14,28 @@ const itemsAPI = {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Fetched data:", data);
+        return data;
+      } else {
+        throw new Error(
+          `Error fetching items: ${response.status} ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.log("Error:", error);
+      throw new Error(`Error fetching items: ${error.message}`);
+    }
+  },
+  getItemsBrowse: async () => {
+    try {
+      const response = await fetch(`${URL_PREFIX}/api/items/browse`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
         return data;
       } else {
         throw new Error(
@@ -35,7 +56,22 @@ const itemsAPI = {
           "Content-Type": "application/json",
         },
       });
-      console.log(" f data:", data);
+      if (data.ok) {
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
+    }
+  },
+  getItemsSellerId: async (userId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/items/seller/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       if (data.ok) {
         return await data.json();
       }
@@ -49,6 +85,7 @@ const itemsAPI = {
     title,
     category,
     minimum_trade,
+    description,
     imageArr,
     condition,
     sold_status,
@@ -59,6 +96,7 @@ const itemsAPI = {
         title: title,
         minimum_trade: minimum_trade,
         category: category,
+        description: description,
         url: imageArr,
         condition: condition,
         sold_status: sold_status,
@@ -79,6 +117,63 @@ const itemsAPI = {
     } catch (error) {
       console.log("error:", error);
       throw new Error(error);
+    }
+  },
+  editItem: async (
+    title,
+    category,
+    minimum_trade,
+    description,
+    imageArr,
+    condition,
+    sold_status,
+    token,
+    itemId
+  ) => {
+    try {
+      const updatedItem = {
+        title: title,
+        minimum_trade: minimum_trade,
+        category: category,
+        description: description,
+        url: imageArr,
+        condition: condition,
+        sold_status: sold_status,
+        token: token,
+        itemId: itemId,
+      };
+      const data = await fetch(`${URL_PREFIX}/api/items/${itemId}`, {
+        method: "Put",
+        body: JSON.stringify(updatedItem),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (data.ok) {
+        console.log("data:", data);
+        return data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      throw new Error(error);
+    }
+  },
+  deleteItemId: async (itemId) => {
+    try {
+      const data = await fetch(`${URL_PREFIX}/api/items/${itemId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (data.ok) {
+        console.log("item was sucessfully deleted");
+        return await data.json();
+      }
+    } catch (error) {
+      console.log("error:", error);
+      // throw new Error(error);
     }
   },
 };

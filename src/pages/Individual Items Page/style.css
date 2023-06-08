@@ -1,0 +1,41 @@
+.sliderimg{
+    width: 500px;
+    height: 500px;
+    /* object-fit: scale-down; */
+    /* padding: 0px;
+    margin:0px */
+    }
+
+    /* .alice-carousel {
+        position: relative;
+        width: 100%;
+        margin: auto;
+        direction: ltr;
+        text-align: center;
+    } */
+
+    .alice-carousel {
+        &__wrapper {
+          & .alice-carousel__stage {
+            &-item {
+              z-index: 0 !important;
+              & .shownImage {
+                opacity: 0.5;
+                margin: 0 auto;
+                grid-area: image;
+                display: block;
+                border: 2px solid;
+                border-radius: 50%;
+                height: 20rem !important;
+                width: 20rem !important;
+              }
+              &.__target {
+                z-index: 1 !important;
+                .focusedImage {
+                  opacity: 1 !important;
+                }
+              }
+            }
+          }
+        }
+      }

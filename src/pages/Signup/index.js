@@ -28,7 +28,7 @@ export default function Signup(props) {
       } else {
         alert("Thank you for your submission");
         props.setUserId(res.user.id);
-        props.setUsername(res.user.username);
+        props.setUserName(res.user.userName);
         props.setToken(res.token);
         localStorage.setItem("token", res.token);
         setEmail("");
@@ -46,34 +46,34 @@ export default function Signup(props) {
   };
 
   return (
-    <form className="flex flex-col items-center mt-20">
+    <form className="flex flex-col items-center mt-40">
       <div className="mb-3">
-          <label for="Name" className="block mb-2 text-sm font-bold text-orange-900 dark:text-white"></label>
-          <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          <label htmlFor="Name" className="block mb-2 text-sm font-bold text-orange-900 dark:text-white"></label>
+          <input type="text" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Name"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
       </div>
       <div className="mb-3">
-          <label for="Email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          <label htmlFor="Email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+          <input type="text" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
       </div>
       <div className="mb-3">
-          <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          <label htmlFor="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+          <input type="password" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
       <div className="mb-3">
-          <label for="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <input type="text" id="default-input" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+          <label htmlFor="Password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+          <input type="password" className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
@@ -82,7 +82,7 @@ export default function Signup(props) {
 
       <button
         onClick={handleSubmit}
-        className="px-3 border-4 border-blue-950 rounded-lg shadow-lg bg-stone-300 hover:font-bold hover:bg-orange-200 text-xl font-medium"
+        className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
       >
         Signup
       </button>

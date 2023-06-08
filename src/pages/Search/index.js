@@ -15,7 +15,7 @@ export default function Search () {
                 />
                 <br />
                 <button
-                className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-cyan-500 text-xl font-medium"
+                className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
                 type="submit"
                 >
                 Search</button>
