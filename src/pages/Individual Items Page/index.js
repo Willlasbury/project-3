@@ -36,19 +36,14 @@ export default function Item({ socket, token, userId }) {
     itemsAPI.deleteItemId(item.id);
     navigate("/YourItems");
   };
-
-  const handleOffer = (event) => {
+  //TODO: nav to offer page
+  const offerPage = (event) => {
     event.preventDefault();
-    const data = {
-      token: token,
-      item: item,
-      data: "offer",
-    };
-    socket.emit("offer", data);
+    navigate(`/offer/${itemId}`);
   };
 
   return (
-    <div className="flex flex-col items-center mt-40">
+    <div className="flex flex-col items-center mt-5">
       <div className="card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
         <form className="text-xl font-medium">
           <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
@@ -78,7 +73,7 @@ export default function Item({ socket, token, userId }) {
           {userId === item.seller_id ? (
             <>
               <button
-                onClick={handleOffer}
+                onClick={offerPage}
                 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
               >
                 Submit Offer
@@ -99,8 +94,9 @@ export default function Item({ socket, token, userId }) {
               </button>
             </>
           ) : (
+            //offer should nav to offer page
             <button
-              onClick={handleOffer}
+              onClick={offerPage}
               className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
             >
               Submit Offer

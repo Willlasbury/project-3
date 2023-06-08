@@ -160,7 +160,10 @@ export default function App() {
             path="/chat"
             element={<Chat socket={socket} token={token} />}
           />
-          <Route path="/offer" element={<Offer token={token} />} />
+          <Route
+            path="/offer/:id"
+            element={<Offer token={token} socket={socket} userId={userId} />}
+          />
           <Route path="/search" element={<Search token={token} />} />
           <Route path="/items" element={<Items token={token} />} />
           <Route path="/flip" element={<Flip token={token} />} />
