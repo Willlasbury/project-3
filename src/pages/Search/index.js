@@ -5,7 +5,7 @@ import "./style.css";
 
 export default function Search () {
     return (
-        <form className="flex flex-col items-center mt-20">
+        <form className="flex flex-col items-center mt-5">
             <div>
                 <label type="search"></label>
                 <input 

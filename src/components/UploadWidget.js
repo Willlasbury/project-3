@@ -3,7 +3,9 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import itemsAPI from "../utils/API/items";
 
-const UploadWidget = () => {
+import CategoryOptions from "./CategoryOptions";
+
+const UploadWidget = ({categoryOptions, token}) => {
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -70,8 +72,7 @@ const UploadWidget = () => {
       description,
       imageArr,
       condition,
-      false,
-      localStorage.getItem("token")
+      token
     );
     setTitle("");
     setMinimum_trade("");
@@ -87,6 +88,7 @@ const UploadWidget = () => {
     }
    
 }
+
 
   return (
     <>
@@ -124,12 +126,9 @@ const UploadWidget = () => {
               Select a category
             </option>{" "} */}
          
-            <option value="sporting goods">Sporting Goods</option>
-            <option value="home furnishings">Home Furnishings</option>
-            <option value="auto">Auto</option>
-            <option value="electronics">Electronics</option>
-            <option value="pet gear">Pet Gear</option>
-            <option value="free">Free</option>
+            {categoryOptions && categoryOptions.map((value) => {
+               return (<CategoryOptions key={value.id} value={value.id} category={value.name} />)
+            })}
           </select>
           <select
             defaultValue="Select a Condition"

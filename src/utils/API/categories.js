@@ -3,7 +3,7 @@ const URL_PREFIX = "http://localhost:3001";
 // TODO: add deployed url option
 
 const categoriesAPI = {
-  getItems: async () => {
+  getCategories: async () => {
     try {
       const response = await fetch(`${URL_PREFIX}/api/categories`, {
         method: "GET",
