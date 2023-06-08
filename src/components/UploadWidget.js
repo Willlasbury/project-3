@@ -4,7 +4,7 @@ import itemsAPI from "../utils/API/items";
 
 import CategoryOptions from "./CategoryOptions";
 
-const UploadWidget = ({categoryOptions}) => {
+const UploadWidget = ({ categoryOptions }) => {
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -51,6 +51,7 @@ const UploadWidget = ({categoryOptions}) => {
         console.log("result secure url?:", result.info.secure_url);
         imageArr.push(result.info.secure_url);
         console.log("result:", result);
+        console.log("immageArr:", imageArr);
         // uploadedImage = result.info.secure_url;
         //TODO: add post route here
       }
@@ -80,7 +81,6 @@ const UploadWidget = ({categoryOptions}) => {
     setCondition("");
     setDescription("");
   };
-
 
   return (
     <div className="m-2 flex flex-col items-center">
@@ -112,11 +112,12 @@ const UploadWidget = ({categoryOptions}) => {
             {/* <option value="" disabled selected>
               Select a category
             </option>{" "} */}
-         
-            {categoryOptions && categoryOptions.map((value) => {
-              // console.log("value:", value)
-               return (<CategoryOptions key={value.id} category={value.name} />)
-            })}
+
+            {categoryOptions &&
+              categoryOptions.map((value) => {
+                // console.log("value:", value)
+                return <CategoryOptions key={value.id} category={value.name} />;
+              })}
           </select>
           <select
             defaultValue="Select a Condition"
@@ -157,7 +158,6 @@ const UploadWidget = ({categoryOptions}) => {
           >
             Create Posting
           </button>
-      
         </div>
       </div>
     </div>
