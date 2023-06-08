@@ -73,12 +73,6 @@ export default function Item({ socket, token, userId }) {
           {userId === item.seller_id ? (
             <>
               <button
-                onClick={offerPage}
-                className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              >
-                Submit Offer
-              </button>
-              <button
                 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
                 onClick={() => {
                   navigate(`editItem`);
