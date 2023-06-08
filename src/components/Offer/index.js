@@ -9,7 +9,10 @@ export default function Offer({ offer, socket }) {
     event.preventDefault();
     socket.emit("decline_offer", { offer });
   };
-  socket.on("decline_res" || 'accept_res', (data) => {
+  socket.on( 'accept_res', (data) => {
+    window.location.reload();
+  });
+  socket.on( "decline_res", (data) => {
     window.location.reload();
   });
   return (
