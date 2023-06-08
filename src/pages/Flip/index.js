@@ -20,7 +20,7 @@ const Flip = () => {
   };
 
   return (
-    <div className="mt-40 flex flex-col items-center font-sans">
+    <div className="mt-5 flex flex-col items-center font-sans">
       <button
         id="flip-btn"
         className="nav-item m-4 px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"

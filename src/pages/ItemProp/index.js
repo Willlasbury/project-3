@@ -29,6 +29,7 @@ export default function Items({
         autoPlayStrategy="all"
         autoPlayInterval={1000}
         autoWidth
+
       >
         {picture.map((photo, index) => (
           <img key={index} src={photo.url} className="sliderimg " />

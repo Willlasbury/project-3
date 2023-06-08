@@ -151,7 +151,7 @@ export default function NavBar({
               Search
             </NavLink>
           </li> */}
-          <li className="m-1">
+          {/* <li className="m-1">
             <NavLink
               to="/offer"
               className={({ isActive }) =>
@@ -162,7 +162,7 @@ export default function NavBar({
             >
               Offer
             </NavLink>
-          </li>
+          </li> */}
 
           {!token ? null : (
             <div className="flex">
