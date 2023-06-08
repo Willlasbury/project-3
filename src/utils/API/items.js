@@ -88,7 +88,6 @@ const itemsAPI = {
     description,
     imageArr,
     condition,
-    sold_status,
     token
   ) => {
     try {
@@ -99,7 +98,6 @@ const itemsAPI = {
         description: description,
         url: imageArr,
         condition: condition,
-        sold_status: sold_status,
         token: token,
       };
       const data = await fetch(`${URL_PREFIX}/api/items`, {
