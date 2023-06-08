@@ -1,3 +1,4 @@
+import { isFocusable } from "@testing-library/user-event/dist/utils";
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import itemsAPI from "../utils/API/items";
@@ -9,6 +10,7 @@ const UploadWidget = () => {
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
   const [description, setDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   let uploadedImage = "";
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +62,6 @@ const UploadWidget = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("description:", description);
 
     itemsAPI.createItems(
       title,
@@ -78,12 +79,25 @@ const UploadWidget = () => {
     setCondition("");
     setDescription("");
   };
+  const fieldRequired = (e)=>{
+    if(!e.target.value){
+      setErrorMessage(`${e.target.name} field is required`)
+    }else{
+      setErrorMessage('');
+    }
+   
+}
 
   return (
+    <>
+   {
+    errorMessage
+   }
     <div className="m-2 flex flex-col items-center">
       <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
         <div className="flex flex-col space-y-4">
-          <input
+          <input 
+          onBlur = {fieldRequired}
             type="text"
             id="default-input"
             className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
@@ -92,7 +106,7 @@ const UploadWidget = () => {
             onChange={handleInputChange}
             placeholder="Item"
           />
-          <input
+          <input onBlur={fieldRequired}
             type="number"
             id="default-input"
             className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
@@ -101,7 +115,7 @@ const UploadWidget = () => {
             onChange={handleInputChange}
             placeholder="Minimum trade value"
           />
-          <select
+          <select 
             className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
             name="category"
             onChange={handleInputChange}
@@ -132,7 +146,8 @@ const UploadWidget = () => {
             <option value="Decent">Decent</option>
             <option value="Rough">Rough</option>
           </select>
-          <input
+          <input 
+            onBlur={fieldRequired}
             type="text"
             id="default-input"
             className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
@@ -146,7 +161,9 @@ const UploadWidget = () => {
             onClick={(e) => {
               e.preventDefault();
               widgetRef.current.open();
-            }}
+              console.log(widgetRef);
+              }
+            }
           >
             Upload
           </button>
@@ -160,7 +177,7 @@ const UploadWidget = () => {
         </div>
       </div>
     </div>
-  );
-};
+    </>
+  )};
 
 export default UploadWidget;
