@@ -12,7 +12,13 @@ export default function Notification({ token, yourOffers, offers, socket }) {
           Recieved Offers
         </h2>
         {offers.map((offer) => {
-          return <Offer key={offer.id} offer={offer} socket={socket} />;
+          return (
+            <Offer
+              key={offer.id}
+              offer={offer}
+              socket={socket}
+            />
+          );
         })}
       </section>
       <section className="flex flex-col border-2 border-black card mx-auto p-4 max-w-sm border-stone-950 bg-amber-400 rounded-lg shadow-lg text-center">
