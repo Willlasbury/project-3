@@ -34,12 +34,12 @@ export default function Offer({ offer, socket }) {
   console.log("offer:", offer);
   return (
     <article className="flex flex-col my-3 border-4 border-black bg-amber-100">
-      <h2 className="text-xl font-medium">Offer for: {offer.Item.title}</h2>
-      <h2 className="text-xl font-medium">Offer from: {offerer.userName}</h2>
+      <h2 className="text-xl font-medium">Offer For: {offer.Item.title}</h2>
+      <h2 className="text-xl font-medium">Offer From: {offerer.userName}</h2>
       <h2 className="text-xl font-medium">
         Proposed Trade Item: {offer.offerItem}
       </h2>
-      <p className="underline">Offer Text:</p>
+      <p className="underline">Proposed Offer Text:</p>
       <p>{offer.offerText}</p>
       <button
         className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium m-1"
