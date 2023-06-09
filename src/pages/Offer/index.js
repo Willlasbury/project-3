@@ -18,7 +18,6 @@ export default function Offer({ token, socket, userId }) {
   let imageArr = [];
   const [offerText, setOfferText] = useState("");
   const [offerItem, setOfferItemValue] = useState("");
-  
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   cloudinaryRef.current = window.cloudinary;
@@ -71,7 +70,6 @@ export default function Offer({ token, socket, userId }) {
     if (name === "offerItem") {
       return setOfferItemValue(value);
     }
-
   };
 
   const handleOffer = (e) => {
@@ -91,49 +89,53 @@ export default function Offer({ token, socket, userId }) {
   };
   console.log("item.seller_id:", item.seller_id);
   console.log("userId:", userId);
-  
-  return (
-    //TODO: add individual item and offer form. Add handle offer
-    <>
-      <Item
-        id={item.id}
-        picture={item.Photos}
-        title={item.title}
-        category={item.category}
-        condition={item.condition}
-        description={item.description}
-        seller_id={item.seller_id}
-      />
-      <div className="flex flex-col items-center mb-5 mt-5">
-        <div className="card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
-          <form>
-            <input
-              type="text"
-              id="default-input"
-              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              value={offerItem}
-              name="offerItem"
-              onChange={handleInputChange}
-              placeholder="Offer Item"
-            />
-            <input
-              type="text"
-              id="default-input"
-              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              value={offerText}
-              name="OfferText"
-              onChange={handleInputChange}
-              placeholder="What would you like to offer?"
-            />
-            <button
-              className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
-              onClick={handleOffer}
-            >
-              Submit Offer
-            </button>
-          </form>
+  if (userId === item.seller_id) {
+    return <h2>You cannot make an offer on an item you posted</h2>;
+  } else {
+    return (
+      //TODO: add individual item and offer form. Add handle offer
+      <>
+        <Item
+          id={item.id}
+          picture={item.Photos}
+          title={item.title}
+          category={item.category}
+          condition={item.condition}
+          description={item.description}
+          seller_id={item.seller_id}
+        />
+
+        <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
+          <div className="flex flex-col space-y-4">
+            <form>
+              <input
+                type="text"
+                id="default-input"
+                className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+                value={offerItem}
+                name="offerItem"
+                onChange={handleInputChange}
+                placeholder="Offer Item"
+              />
+              <input
+                type="text"
+                id="default-input"
+                className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+                value={offerText}
+                name="OfferText"
+                onChange={handleInputChange}
+                placeholder="What would you like to offer?"
+              />
+              <button
+                className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+                onClick={handleOffer}
+              >
+                Submit Offer
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-  </>
-  );
+      </>
+    );
+  }
 }

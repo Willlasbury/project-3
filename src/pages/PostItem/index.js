@@ -19,7 +19,7 @@ export default function PostItem({token, categoryOptions}) {
     <div className="flex flex-col items-center mt-5">
       <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">Post Item</h1>
       
-      <UploadWidget categoryOptions={categoryOptions} />
+      <UploadWidget token={token} categoryOptions={categoryOptions} />
     </div>
   );
 }
