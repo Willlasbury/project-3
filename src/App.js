@@ -43,6 +43,8 @@ export default function App() {
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState();
+  // const [imageArr, setImageArr] = useState([1,2])
+  // console.log("imageArr:", imageArr)
 
   useEffect(() => {
     try {
@@ -149,7 +151,7 @@ export default function App() {
           <Route
             path="/postitem"
             element={
-              <PostItem token={token} categoryOptions={categoryOptions} />
+              <PostItem token={token} categoryOptions={categoryOptions}/>
             }
           />
           <Route
