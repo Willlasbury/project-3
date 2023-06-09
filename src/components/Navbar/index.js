@@ -185,7 +185,7 @@ export default function NavBar({
 
               <li className="m-1">
                 <NavLink
-                  to="/notification"
+                  to="/notifications"
                   className={({ isActive }) =>
                     isActive
                       ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
