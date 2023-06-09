@@ -1,5 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import userAPI from "../../utils/API/users";
 export default function Offer({ offer, socket }) {
+  const [offerer, setOfferer] = useState([]);
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const fetchedUser = await userAPI.getUserId(offer.offerer_id);
+        setOfferer(fetchedUser);
+        console.log("fetchedUser:", fetchedUser);
+      } catch (error) {
+        console.log("Error fetching items:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   const handleAccept = (event) => {
     event.preventDefault();
     socket.emit("accept_offer", { offer });
@@ -19,6 +35,7 @@ export default function Offer({ offer, socket }) {
   return (
     <article className="flex flex-col my-3 border-4 border-black bg-amber-100">
       <h2 className="text-xl font-medium">Offer for: {offer.Item.title}</h2>
+      <h2 className="text-xl font-medium">Offer from: {offerer.userName}</h2>
       <h2 className="text-xl font-medium">
         Proposed Trade Item: {offer.offerItem}
       </h2>
