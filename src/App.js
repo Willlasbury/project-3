@@ -180,7 +180,7 @@ export default function App() {
           <Route path="/items" element={<Items token={token} />} />
           <Route path="/flip" element={<Flip token={token} />} />
           <Route
-            path="/notification"
+            path="/notifications"
             element={
               <Notification
                 socket={socket}

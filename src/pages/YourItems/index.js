@@ -31,6 +31,8 @@ export default function Browse({ userId, token }) {
     fetchItems();
   }, []);
 
+  console.log("items:", items);
+
   if (!items) {
     return (
       <div className="browse flex flex-col items-center mt-5">
