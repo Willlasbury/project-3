@@ -1,5 +1,4 @@
-const URL_PREFIX = "http://localhost:3001";
-
+const URL_PREFIX = process.env.REACT_APP_SERVER_URL;
 // TODO: add deployed url option
 
 const itemsAPI = {
@@ -25,9 +24,9 @@ const itemsAPI = {
       throw new Error(`Error fetching items: ${error.message}`);
     }
   },
-  getItemsBrowse: async () => {
+  getItemsBrowse: async (userId) => {
     try {
-      const response = await fetch(`${URL_PREFIX}/api/items/browse`, {
+      const response = await fetch(`${URL_PREFIX}/api/items/browse/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -100,6 +99,7 @@ const itemsAPI = {
         condition: condition,
         token: token,
       };
+      console.log("newItem:", newItem)
       const data = await fetch(`${URL_PREFIX}/api/items`, {
         method: "POST",
         body: JSON.stringify(newItem),

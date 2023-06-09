@@ -43,6 +43,8 @@ export default function App() {
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState();
+  // const [imageArr, setImageArr] = useState([1,2])
+  // console.log("imageArr:", imageArr)
 
   useEffect(() => {
     try {
@@ -106,6 +108,7 @@ export default function App() {
           token={token}
           setOffers={setOffers}
           offers={offers}
+          userId={userId}
         />
         <Routes>
           <Route path="/" element={<Home token={token} />} />
@@ -148,10 +151,13 @@ export default function App() {
           <Route
             path="/postitem"
             element={
-              <PostItem token={token} categoryOptions={categoryOptions} />
+              <PostItem token={token} categoryOptions={categoryOptions}/>
             }
           />
-          <Route path="/browse" element={<Browse token={token} />} />
+          <Route
+            path="/browse/:id"
+            element={<Browse token={token} userId={userId} />}
+          />
           <Route
             path="/items/:id"
             element={<Items socket={socket} token={token} userId={userId} />}
