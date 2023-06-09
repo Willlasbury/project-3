@@ -38,6 +38,7 @@ export default function Items({
           fetchedItem.CategoryId
         );
         setCategory(fetchedCategory);
+
         const fetchedUser = await userAPI.getUserId(fetchedItem.seller_id);
         setSeller(fetchedUser);
       } catch (error) {}
