@@ -111,7 +111,7 @@ export default function App() {
           userId={userId}
         />
         <Routes>
-          <Route path="/" element={<Home token={token} />} />
+          <Route path="/" element={<Browse token={token} userId={userId} />} />
           <Route
             path="/login"
             element={

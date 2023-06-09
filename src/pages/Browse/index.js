@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "../ItemProp";
 import itemsAPI from "../../utils/API/items";
+import categoryAPI from "../../utils/API/categories";
 import "../../index.css";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +25,7 @@ export default function Browse({ token, userId }) {
 
     fetchItems();
   }, []);
+  console.log("items:", items);
 
   return (
     <div className="flex flex-col items-center mt-5 mb-5">
@@ -40,7 +42,7 @@ export default function Browse({ token, userId }) {
               id={item.id}
               picture={item.Photos}
               title={item.title}
-              category={item.category}
+              categoryId={item.CategoryId}
               condition={item.condition}
               description={item.description}
               seller_id={item.seller_id}
@@ -52,26 +54,3 @@ export default function Browse({ token, userId }) {
   );
 }
 
-//   return (
-//     <div className="flex flex-col items-center mt-20">
-//       <h1 className="text-3xl border-3  border-4 border-blue-950 rounded-lg shadow-lg bg-amber-100">
-//         Browse Items
-//       </h1>
-//       <ul className="item-list">
-//         {items.map((item) => (
-//           <li key={item.id}>
-//             <Item
-//               id={item.id}
-//               picture={item.Photos}
-//               title={item.title}
-//               category={item.category}
-//               condition={item.condition}
-//               description={item.description}
-//               seller_id={item.seller_id}
-//             />
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
