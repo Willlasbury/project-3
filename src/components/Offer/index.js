@@ -7,7 +7,6 @@ export default function Offer({ offer, socket }) {
       try {
         const fetchedUser = await userAPI.getUserId(offer.offerer_id);
         setOfferer(fetchedUser);
-        console.log("fetchedUser:", fetchedUser);
       } catch (error) {
         console.log("Error fetching items:", error);
       }
