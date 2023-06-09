@@ -57,8 +57,11 @@ const UploadWidget = ({ categoryOptions, token }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("description:", description);
-    if (imageArr.length === 0) {
-      alert("You must input at least 1 photo to post an item.");
+    console.log("title:", title);
+    console.log("minimum_trade:", minimum_trade);
+    console.log("condition:", condition);
+    if (imageArr.length === 0 || !title || !condition ||!category||!minimum_trade || !description) {
+      alert("You must input at least 1 photo and fill in all fields to post an item.");
     } else {
       itemsAPI.createItems(
         title,
@@ -157,15 +160,3 @@ const UploadWidget = ({ categoryOptions, token }) => {
   );
 };
 export default UploadWidget;
-
-
-
-
-
-
-
-
-
-
-
-
