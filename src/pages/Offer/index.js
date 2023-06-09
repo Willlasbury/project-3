@@ -93,6 +93,7 @@ export default function Offer({ token, socket, userId }) {
       data: newOffer,
     };
     socket.emit("offer", data);
+    navigate('/notifications');
   };
   console.log("item.seller_id:", item.seller_id);
   console.log("userId:", userId);
