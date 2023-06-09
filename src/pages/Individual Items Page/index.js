@@ -55,31 +55,7 @@ export default function Item({ socket, token, userId }) {
     event.preventDefault();
     navigate(`/offer/${itemId}`);
   };
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //
-  //     } catch (error) {
-  //       console.log("Error fetching items:", error);
-  //     }
-  //   };
 
-  //   fetchCategories();
-  // });
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     try {
-  //       const fetchedUser = await userAPI.getUserId(item.seller_id);
-  //       setSeller(fetchedUser);
-  //       console.log("fetchedUser:", fetchedUser);
-  //     } catch (error) {
-  //       console.log("Error fetching items:", error);
-  //     }
-  //   };
-
-  //   fetchUser();
-  // });
 
   return (
     <div className="flex flex-col items-center mt-5">
