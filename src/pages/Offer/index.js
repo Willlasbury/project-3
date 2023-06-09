@@ -95,7 +95,9 @@ export default function Offer({ token, socket, userId }) {
     return (
       //TODO: add individual item and offer form. Add handle offer
       <div className="m-2 flex flex-col items-center">
+        <article className="card mx-auto my-4 p-4 max-w-sm bg-amber-100 rounded-lg shadow-lg text-center">
         <Item
+          className="w-auto"
           id={item.id}
           picture={item.Photos}
           title={item.title}
@@ -104,9 +106,10 @@ export default function Offer({ token, socket, userId }) {
           description={item.description}
           seller_id={item.seller_id}
         />
-        <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg items-center ">
+        </article>
+        <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
           <div className="flex flex-col space-y-4">
-            <form>
+            
               <input
                 type="text"
                 id="default-input"
@@ -131,10 +134,9 @@ export default function Offer({ token, socket, userId }) {
               >
                 Submit Offer
               </button>
-            </form>
-          </div>
+            </div>
+          </div>        
         </div>
-      </div>
     );
   }
 }
