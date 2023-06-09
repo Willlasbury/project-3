@@ -5,7 +5,7 @@ export default function socketConnect  (token)  {
 
   // change this to match your server location
   // local server
-  const SERVER = "http://localhost:3001"
+  const SERVER = process.env.REACT_APP_SERVER_URL
   
   // deployed server
   // const SERVER = "https://traderz-post.herokuapp.com"

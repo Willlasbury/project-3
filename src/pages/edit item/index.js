@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import itemsAPI from "../../utils/API/items";
 
-const EditItem = () => {
+const EditItem = ({token}) => {
   const [item, setItem] = useState({
     Photos: [{}],
   });
@@ -84,7 +84,7 @@ const EditItem = () => {
       imageArr,
       condition,
       false,
-      localStorage.getItem("token"),
+      token,
       itemId
     );
     redirect(`items/${itemId}`);
