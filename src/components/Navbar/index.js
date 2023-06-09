@@ -119,7 +119,7 @@ export default function NavBar({
               Free Items
             </NavLink>
           </li> */}
-          <li className="m-1">
+          {/* <li className="m-1">
             <NavLink
               to={`browse/${userId}`}
               className={({ isActive }) =>
@@ -130,7 +130,7 @@ export default function NavBar({
             >
               Browse
             </NavLink>
-          </li>
+          </li> */}
           <li className="m-1">
             <NavLink
               to="/postItem"

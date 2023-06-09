@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
 import itemsAPI from "../../utils/API/items";
 
-const EditItem = () => {
+const EditItem = ({token}) => {
   const [item, setItem] = useState({
     Photos: [{}],
   });
@@ -83,16 +84,16 @@ const EditItem = () => {
       imageArr,
       condition,
       false,
-      localStorage.getItem("token"),
+      token,
       itemId
     );
+    redirect(`items/${itemId}`);
   };
 
   return (
-    <div className=" m-2 mt-20 flex flex-col items-center">
+    <div className=" m-2 mt-5 flex flex-col items-center">
       <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
         <div className="flex flex-col space-y-4">
-          <form>
             <input
               type="text"
               id="default-input"
@@ -103,7 +104,28 @@ const EditItem = () => {
               defaultValue={item.title}
               placeholder={item.title}
             />
-            <input
+            <select
+            type="number"
+            id="default-input"
+            className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+            defaultValue={item.minimum_trade}
+            value={minimum_trade}
+            name="minimum_trade"
+            onChange={handleInputChange}
+            placeholder="Minimum trade value"
+          >
+            {/* <option value="" disabled selected>
+            Select a Condition
+          </option>*/}
+            <option value="0">Free</option>
+            <option value="1">$1-$50</option>
+            <option value="2">$50+</option>
+            <option value="3">$100+</option>
+            <option value="4">$200+</option>
+            <option value="5">$500+</option>
+          </select>
+
+            {/* <input
               type="number"
               id="default-input"
               className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
@@ -112,7 +134,7 @@ const EditItem = () => {
               onChange={handleInputChange}
               defaultValue={item.minimum_trade}
               placeholder={item.minimum_trade}
-            />
+            /> */}
             <select
               className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
               name="category"
@@ -163,7 +185,6 @@ const EditItem = () => {
             >
               Edit Posting
             </button>
-          </form>
         </div>
       </div>
     </div>

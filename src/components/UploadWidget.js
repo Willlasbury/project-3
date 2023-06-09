@@ -57,8 +57,11 @@ const UploadWidget = ({ categoryOptions, token }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("description:", description);
-    if (imageArr.length === 0) {
-      alert("You must input at least 1 photo to post an item.");
+    console.log("title:", title);
+    console.log("minimum_trade:", minimum_trade);
+    console.log("condition:", condition);
+    if (imageArr.length === 0 || !title || !condition ||!category||!minimum_trade || !description) {
+      alert("You must input at least 1 photo and fill in all fields to post an item.");
     } else {
       itemsAPI.createItems(
         title,
@@ -89,7 +92,26 @@ const UploadWidget = ({ categoryOptions, token }) => {
             onChange={handleInputChange}
             placeholder="Item"
           />
-          <input
+          <select
+            type="number"
+            id="default-input"
+            className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
+            value={minimum_trade}
+            name="minimum_trade"
+            onChange={handleInputChange}
+            placeholder="Minimum trade value"
+          >
+            {/* <option value="" disabled selected>
+            Select a Condition
+          </option>*/}
+            <option value="0">Free</option>
+            <option value="1">$1-$50</option>
+            <option value="2">$50+</option>
+            <option value="3">$100+</option>
+            <option value="4">$200+</option>
+            <option value="5">$500+</option>
+          </select>
+          {/* <input
             type="number"
             id="default-input"
             className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
@@ -97,7 +119,7 @@ const UploadWidget = ({ categoryOptions, token }) => {
             name="minimum_trade"
             onChange={handleInputChange}
             placeholder="Minimum trade value"
-          />
+          /> */}
           <select
             className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
             name="category"
@@ -157,15 +179,3 @@ const UploadWidget = ({ categoryOptions, token }) => {
   );
 };
 export default UploadWidget;
-
-
-
-
-
-
-
-
-
-
-
-
