@@ -1,6 +1,6 @@
 import React from "react";
 // url for working in the local host
-const URL_PREFIX = "http://localhost:3001";
+const URL_PREFIX = process.env.REACT_APP_SERVER_URL;
 
 // TODO: add deployed url option
 
