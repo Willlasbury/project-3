@@ -46,6 +46,8 @@ export default function App() {
   // const [imageArr, setImageArr] = useState([1,2])
   // console.log("imageArr:", imageArr)
 
+  
+
   useEffect(() => {
     try {
       if (token) {
@@ -69,6 +71,9 @@ export default function App() {
               .getCategories()
               .then((data) => setCategoryOptions(data));
 
+            const socket = socketConnect(token);
+            setSocket(socket);
+            console.log("socket:", socket)
             if (socket) {
               socket.emit("add_user", token);
             }
@@ -80,7 +85,8 @@ export default function App() {
       console.log(err);
       logout();
     }
-  }, [token]);
+  }, []);
+
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -89,10 +95,10 @@ export default function App() {
     setOffers([]);
   };
 
-  useEffect(() => {
-    const socket = socketConnect(token);
-    setSocket(socket);
-  }, []);
+  // useEffect(() => {
+  //   const socket = socketConnect(token);
+  //   setSocket(socket);
+  // }, []);
 
   return (
     <section

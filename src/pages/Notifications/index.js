@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../../index.css";
-import Offer from "../../components/Offer";
+import Offer from "../../components/RecievedOffers";
 import YourOffers from "../../components/YourOffers";
 import offerAPI from "../../utils/API/offer";
 

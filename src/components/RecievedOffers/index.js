@@ -1,5 +1,6 @@
 import React from "react";
 export default function Offer({ offer, socket }) {
+
   const handleAccept = (event) => {
     event.preventDefault();
     socket.emit("accept_offer", { offer });
@@ -9,13 +10,15 @@ export default function Offer({ offer, socket }) {
     event.preventDefault();
     socket.emit("decline_offer", { offer });
   };
+
+
   socket.on("accept_res", (data) => {
     window.location.reload();
   });
+  
   socket.on("decline_res", (data) => {
     window.location.reload();
   });
-  console.log("offer:", offer);
   return (
     <article className="flex flex-col my-3 border-4 border-black bg-amber-100">
       <h2 className="text-xl font-medium">Offer for: {offer.Item.title}</h2>
