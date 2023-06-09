@@ -42,6 +42,12 @@ export default function NavBar({
         className="flex flex-col items-center justify-center md:justify-between md:w-auto md:order-1"
         id="navbar-sticky"
       >
+        {token && (
+        <h1 className="px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold m-2">
+          Hello, {userName}
+        </h1>
+      )}
+
         <ul className="nav nav-tabs flex flex-wrap justify-center m-4">
           <li className="m-1">
             <NavLink
