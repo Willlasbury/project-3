@@ -18,7 +18,6 @@ export default function Offer({ token, socket, userId }) {
   let imageArr = [];
   const [offerText, setOfferText] = useState("");
   const [offerItem, setOfferItemValue] = useState("");
-
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   cloudinaryRef.current = window.cloudinary;
