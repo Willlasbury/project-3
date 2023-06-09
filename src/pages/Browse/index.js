@@ -53,4 +53,3 @@ export default function Browse({ token, userId }) {
     </div>
   );
 }
-

@@ -1,8 +1,10 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import itemsAPI from "../utils/API/items";
 import CategoryOptions from "./CategoryOptions";
 const UploadWidget = ({ categoryOptions, token }) => {
+  const navigate = useNavigate();
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -77,6 +79,8 @@ const UploadWidget = ({ categoryOptions, token }) => {
       setCategory("");
       setCondition("");
       setDescription("");
+      navigate('/YourItems')
+      
     }
   };
   return (
