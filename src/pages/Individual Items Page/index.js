@@ -1,28 +1,42 @@
 import React, { useState, useEffect, useLocation } from "react";
 import itemsAPI from "../../utils/API/items";
+import userAPI from "../../utils/API/users";
+import categoriesAPI from "../../utils/API/categories";
 import AliceCarousel from "react-alice-carousel";
 import { useNavigate } from "react-router-dom";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 
 export default function Item({ socket, token, userId }) {
+  const [category, setCategory] = useState([]);
+  const [seller, setSeller] = useState([]);
+  const [item, setItem] = useState({
+    Photos: [{}],
+  });
   const navigate = useNavigate();
   useEffect(() => {
     if (!token) {
       navigate("/login");
     }
   }, []);
-  const [item, setItem] = useState({
-    Photos: [{}],
-  });
 
   const itemId = window.location.pathname.replace("/items/", "");
-
+  console.log("itemId:", itemId);
   useEffect(() => {
     const fetchItem = async () => {
       try {
         const fetchedItem = await itemsAPI.getItemId(itemId);
         setItem(fetchedItem);
+        console.log("fetchedItem:", fetchedItem);
+        console.log("fetchedItem.categoryId:", fetchedItem.categoryId);
+        const fetchedCategory = await categoriesAPI.getCategoriesById(
+          fetchedItem.CategoryId
+        );
+        setCategory(fetchedCategory);
+        console.log("fetchedCategory:", fetchedCategory);
+        const fetchedUser = await userAPI.getUserId(fetchedItem.seller_id);
+        setSeller(fetchedUser);
+        console.log("fetchedUser:", fetchedUser);
       } catch (error) {
         console.log("Error fetching items:", error);
       }
@@ -41,6 +55,31 @@ export default function Item({ socket, token, userId }) {
     event.preventDefault();
     navigate(`/offer/${itemId}`);
   };
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //
+  //     } catch (error) {
+  //       console.log("Error fetching items:", error);
+  //     }
+  //   };
+
+  //   fetchCategories();
+  // });
+
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const fetchedUser = await userAPI.getUserId(item.seller_id);
+  //       setSeller(fetchedUser);
+  //       console.log("fetchedUser:", fetchedUser);
+  //     } catch (error) {
+  //       console.log("Error fetching items:", error);
+  //     }
+  //   };
+
+  //   fetchUser();
+  // });
 
   return (
     <div className="flex flex-col items-center mt-5">
@@ -58,10 +97,13 @@ export default function Item({ socket, token, userId }) {
             Title: {item.title}
           </h2>
           <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
+            Seller: {seller.userName}
+          </h2>
+          <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
             Condition: {item.condition}
           </h2>
           <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
-            Category: {item.category}
+            Category: {category.name}
           </h2>
           <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
             Minimum Trade: {item.minimum_trade}
