@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import itemsAPI from "../../utils/API/items";
-
 const EditItem = ({token}) => {
   const navigate = useNavigate();
   const [item, setItem] = useState({
@@ -88,7 +87,7 @@ const EditItem = ({token}) => {
       token,
       itemId
     );
-    redirect(`items/${itemId}`);
+    navigate(`/YourItems`);
   };
 
   return (
