@@ -5,6 +5,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./style.css";
 import { Link } from "react-router-dom";
 import categoriesAPI from "../../utils/API/categories";
+import userAPI from "../../utils/API/users";
 
 export default function Items({
   id,
@@ -13,8 +14,10 @@ export default function Items({
   categoryId,
   condition,
   description,
+  seller_id,
 }) {
   const [category, setCategory] = useState([]);
+  const [seller, setSeller] = useState([]);
   const itemId = id;
   const responsive = {
     0: { items: 1 },
@@ -36,6 +39,21 @@ export default function Items({
 
     fetchCategories();
   }, []);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const fetchedUser = await userAPI.getUserId(seller_id);
+        setSeller(fetchedUser);
+        console.log("fetchedUser:", fetchedUser);
+      } catch (error) {
+        console.log("Error fetching items:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <div className="flex flex-col items-center m-3 px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
       <AliceCarousel>
@@ -43,8 +61,11 @@ export default function Items({
           <img key={index} src={photo.url} className="sliderimg " />
         ))}
       </AliceCarousel>
-      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black">
+      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black font-bold text-xl">
         {title}
+      </h3>
+      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black">
+        Seller: {seller.userName}
       </h3>
       <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-category text-black">
         {" "}
