@@ -4,6 +4,7 @@ import { redirect, useNavigate } from "react-router-dom";
 import itemsAPI from "../../utils/API/items";
 
 const EditItem = () => {
+  const navigate = useNavigate();
   const [item, setItem] = useState({
     Photos: [{}],
   });
