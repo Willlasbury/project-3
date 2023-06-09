@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "../ItemProp";
 import itemsAPI from "../../utils/API/items";
+import categoryAPI from "../../utils/API/categories";
 import "../../index.css";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +25,7 @@ export default function Browse({ token, userId }) {
 
     fetchItems();
   }, []);
+  console.log("items:", items);
 
   return (
     <div className="flex flex-col items-center mt-5 mb-5">
@@ -40,7 +42,7 @@ export default function Browse({ token, userId }) {
               id={item.id}
               picture={item.Photos}
               title={item.title}
-              category={item.category}
+              categoryId={item.CategoryId}
               condition={item.condition}
               description={item.description}
               seller_id={item.seller_id}
