@@ -1,10 +1,8 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import itemsAPI from "../utils/API/items";
-
 import CategoryOptions from "./CategoryOptions";
-
-const UploadWidget = ({categoryOptions}) => {
+const UploadWidget = ({ categoryOptions, token }) => {
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -14,28 +12,23 @@ const UploadWidget = ({categoryOptions}) => {
   let uploadedImage = "";
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
     if (name === "title") {
       return setTitle(value);
     }
     if (name === "minimum_trade") {
       return setMinimum_trade(value);
     }
-
     if (name === "category") {
       return setCategory(value);
     }
-
     if (name === "condition") {
       return setCondition(value);
     }
     if (name === "description") {
       return setDescription(value);
     }
-
     // return name === "title" ? setTitle(value) : setMinimum_trade(value);
   };
-
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   // useEffect(() => {
@@ -47,10 +40,12 @@ const UploadWidget = ({categoryOptions}) => {
       uploadPreset: "zoosknbg",
     },
     function (error, result) {
+      console.log("result.event:", result.event);
       if (result.event === "success") {
         console.log("result secure url?:", result.info.secure_url);
         imageArr.push(result.info.secure_url);
         console.log("result:", result);
+        console.log("immageArr:", imageArr);
         // uploadedImage = result.info.secure_url;
         //TODO: add post route here
       }
@@ -59,29 +54,31 @@ const UploadWidget = ({categoryOptions}) => {
     }
   );
   // }, []);
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("description:", description);
-
-    itemsAPI.createItems(
-      title,
-      category,
-      minimum_trade,
-      description,
-      imageArr,
-      condition,
-      false,
-      localStorage.getItem("token")
-    );
-    setTitle("");
-    setMinimum_trade("");
-    setCategory("");
-    setCondition("");
-    setDescription("");
+    console.log("title:", title);
+    console.log("minimum_trade:", minimum_trade);
+    console.log("condition:", condition);
+    if (imageArr.length === 0 || !title || !condition ||!category||!minimum_trade || !description) {
+      alert("You must input at least 1 photo and fill in all fields to post an item.");
+    } else {
+      itemsAPI.createItems(
+        title,
+        category,
+        minimum_trade,
+        description,
+        imageArr,
+        condition,
+        token
+      );
+      setTitle("");
+      setMinimum_trade("");
+      setCategory("");
+      setCondition("");
+      setDescription("");
+    }
   };
-
-
   return (
     <div className="m-2 flex flex-col items-center">
       <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
@@ -112,11 +109,11 @@ const UploadWidget = ({categoryOptions}) => {
             {/* <option value="" disabled selected>
               Select a category
             </option>{" "} */}
-         
-            {categoryOptions && categoryOptions.map((value) => {
-              // console.log("value:", value)
-               return (<CategoryOptions key={value.id} category={value.name} />)
-            })}
+            {categoryOptions &&
+              categoryOptions.map((value) => {
+                // console.log("value:", value)
+                return <CategoryOptions key={value.id} category={value.name} />;
+              })}
           </select>
           <select
             defaultValue="Select a Condition"
@@ -157,11 +154,9 @@ const UploadWidget = ({categoryOptions}) => {
           >
             Create Posting
           </button>
-      
         </div>
       </div>
     </div>
   );
 };
-
 export default UploadWidget;

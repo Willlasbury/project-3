@@ -13,26 +13,12 @@ export default function Offer({ token, socket, userId }) {
     if (!token) {
       navigate("/login");
     }
-<<<<<<< HEAD
-  },[])
-    return (
-    <div className="flex flex-col items-center mt-5">
-    <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"> Click on the Item that you would like to make an offer on</h1>
-    <Link to={`/items`} className="item-link text-black">
-      </Link>
-    </div>
-    );
-}
-=======
   }, []);
 
   let imageArr = [];
   const [offerText, setOfferText] = useState("");
   const [offerItem, setOfferItemValue] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [condition, setCondition] = useState("");
-  // const [description, setDescription] = useState("");
-
+  
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   cloudinaryRef.current = window.cloudinary;
@@ -86,15 +72,6 @@ export default function Offer({ token, socket, userId }) {
       return setOfferItemValue(value);
     }
 
-    // if (name === "category") {
-    //   return setCategory(value);
-    // }
-
-    // if (name === "condition") {
-    //   return setCondition(value);
-    // }
-    // if (name === "description") {
-    //   return setDescription(value);
   };
 
   const handleOffer = (e) => {
@@ -114,9 +91,7 @@ export default function Offer({ token, socket, userId }) {
   };
   console.log("item.seller_id:", item.seller_id);
   console.log("userId:", userId);
-  // if (userId === item.seller_id) {
-  //   return <h2>You cannot make an offer on an item you posted</h2>;
-  // } else {
+  
   return (
     //TODO: add individual item and offer form. Add handle offer
     <>
@@ -129,9 +104,8 @@ export default function Offer({ token, socket, userId }) {
         description={item.description}
         seller_id={item.seller_id}
       />
-
-      <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
-        <div className="flex flex-col space-y-4">
+      <div className="flex flex-col items-center mb-5 mt-5">
+        <div className="card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
           <form>
             <input
               type="text"
@@ -151,50 +125,6 @@ export default function Offer({ token, socket, userId }) {
               onChange={handleInputChange}
               placeholder="What would you like to offer?"
             />
-
-            {/*
-            <select
-              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              name="category"
-              onChange={handleInputChange}
-            >
-              <option value="sporting goods">Sporting Goods</option>
-              <option value="home furnishings">Home Furnishings</option>
-              <option value="auto">Auto</option>
-              <option value="electronics">Electronics</option>
-              <option value="pet gear">Pet Gear</option>
-              <option value="free">Free</option>
-            </select>
-            <select
-              defaultValue="Select a Condition"
-              className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              name="condition"
-              onChange={handleInputChange}
-            >
-              <option value="Like New">Like New</option>
-              <option value="Slightly Used">Slightly Used</option>
-              <option value="Used">Used</option>
-              <option value="Decent">Decent</option>
-              <option value="Rough">Rough</option>
-            </select>
-            <input
-              type="text"
-              id="default-input"
-              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              value={description}
-              name="description"
-              onChange={handleInputChange}
-              placeholder="description"
-            />
-            <button
-              className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
-              onClick={(e) => {
-                e.preventDefault();
-                widgetRef.current.open();
-              }}
-            >
-              Upload
-            </button> */}
             <button
               className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
               onClick={handleOffer}
@@ -204,7 +134,6 @@ export default function Offer({ token, socket, userId }) {
           </form>
         </div>
       </div>
-    </>
+  </>
   );
 }
->>>>>>> dev

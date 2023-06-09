@@ -21,22 +21,21 @@ export default function Items({
   };
   return (
     <div className="flex flex-col items-center m-3 px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
-      <AliceCarousel
-        mouseTracking
-        infinite
-        responsive={responsive}
-        controlsStrategy={"default"}
-        autoPlayStrategy="all"
-        autoPlayInterval={1000}
-        autoWidth
-      >
+      <AliceCarousel>
         {picture.map((photo, index) => (
           <img key={index} src={photo.url} className="sliderimg " />
         ))}
       </AliceCarousel>
-      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black">{title}</h3>
-      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-category text-black"> Category: {category}</p>
-      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-black">Condition: {condition}</p>
+      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black">
+        {title}
+      </h3>
+      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-category text-black">
+        {" "}
+        Category: {category}
+      </p>
+      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-black">
+        Condition: {condition}
+      </p>
       <Link
         to={`/items/${id}`}
         className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
