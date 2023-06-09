@@ -6,6 +6,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import categoriesAPI from "../../utils/API/categories";
 import userAPI from "../../utils/API/users";
+import itemsAPI from "../../utils/API/items";
 
 export default function Items({
   id,
@@ -18,40 +19,31 @@ export default function Items({
 }) {
   const [category, setCategory] = useState([]);
   const [seller, setSeller] = useState([]);
+  const [item, setItem] = useState({
+    Photos: [{}],
+  });
   const itemId = id;
   const responsive = {
     0: { items: 1 },
     568: { items: 4 },
     1024: { items: 6 },
   };
+
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchItem = async () => {
       try {
+        const fetchedItem = await itemsAPI.getItemId(itemId);
+        setItem(fetchedItem);
         const fetchedCategory = await categoriesAPI.getCategoriesById(
-          categoryId
+          fetchedItem.CategoryId
         );
         setCategory(fetchedCategory);
-        console.log("fetchedCategory:", fetchedCategory);
-      } catch (error) {
-        console.log("Error fetching items:", error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const fetchedUser = await userAPI.getUserId(seller_id);
+        const fetchedUser = await userAPI.getUserId(fetchedItem.seller_id);
         setSeller(fetchedUser);
-        console.log("fetchedUser:", fetchedUser);
-      } catch (error) {
-        console.log("Error fetching items:", error);
-      }
+      } catch (error) {}
     };
 
-    fetchUser();
+    fetchItem();
   }, []);
 
   return (
