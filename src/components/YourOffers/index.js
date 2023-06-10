@@ -26,9 +26,9 @@ export default function YourOffer({ offer, socket }) {
   console.log("your Offer:", offer);
   return (
     <article className="flex flex-col my-3 border-4 border-black bg-amber-100">
-      <h2 className="text-xl font-medium">Offer For: {offer.Item.title}</h2>
-      <h2 className="text-xl font-medium">Offer Sent To: {seller.userName}</h2>
-      <h2 className="text-xl font-medium">
+      <h2 className="px-3 border-2 m-1 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Offer For: {offer.Item.title}</h2>
+      <h2 className="px-3 border-2 m-1 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Offer Sent To: {seller.userName}</h2>
+      <h2 className="px-3 border-2 m-1 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         Proposed Trade Item: {offer.offerItem}
       </h2>
       <p className="underline">Offer Text:</p>
