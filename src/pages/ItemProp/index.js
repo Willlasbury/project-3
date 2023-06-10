@@ -48,28 +48,28 @@ export default function Items({
   }, []);
 
   return (
-    <div className="flex flex-col items-center m-3 px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
+    <div className="flex flex-col items-center m-3 mx-auto p-4 max-w-sm border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
       <AliceCarousel>
         {picture.map((photo, index) => (
           <img key={index} src={photo.url} className="sliderimg " />
         ))}
       </AliceCarousel>
-      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black font-bold text-xl">
+      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black font-bold text-xl m-1">
         {title}
       </h3>
-      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black">
+      <h3 className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black m-1">
         Seller: {seller.userName}
       </h3>
-      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-category text-black">
+      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-category text-black m-1">
         {" "}
         Category: {category.name}
       </p>
-      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-black">
+      <p className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-black m-1">
         Condition: {condition}
       </p>
       <Link
         to={`/items/${id}`}
-        className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium"
+        className="item-link px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium m-1"
       >
         View Item
       </Link>
