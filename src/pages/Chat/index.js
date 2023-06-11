@@ -7,22 +7,22 @@ import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 
 const ChatPage = ({ socket, token }) => {
   const [messages, setMessages] = useState([]);
-  
-  useEffect(() => {
+  if (socket) {
+
     socket.on("messageResponse", (data) => {
       setMessages([...messages, data]);
     });
-  }, [socket, messages]);
-
-  useEffect(() => {
-    socket.emit("join-room", { id: "id", username:'hello', room: "room" });
-  }, []);
-
-  socket.on('joined', (data) => {console.log("joined data:", data)})
+    
+    socket.emit("join-room", { id: "id", username: "hello", room: "room" });
+    
+    socket.on("joined", (data) => {
+      console.log("joined data:", data);
+    });
+  }
   return (
     <>
       <ChatBody messages={messages} />
-      <ChatFooter socket={socket} token={token}/>
+      <ChatFooter socket={socket} token={token} />
     </>
   );
 };
