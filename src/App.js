@@ -59,7 +59,7 @@ export default function App() {
             setUserId(data.id);
             setUserName(data.userName);
             userAPI.getMessages(token).then((data) => {
-              setMessages(data.length);
+              setMessages(data);
             });
             offerAPI.getRecievedOffers(token).then((data) => {
               setOffers(data.msg ? [] : data);
@@ -95,10 +95,10 @@ export default function App() {
     setOffers([]);
   };
 
-  // useEffect(() => {
-  //   const socket = socketConnect(token);
-  //   setSocket(socket);
-  // }, []);
+  useEffect(() => {
+    const socket = socketConnect(token);
+    setSocket(socket);
+  }, []);
 
   return (
     <section
@@ -187,6 +187,7 @@ export default function App() {
                 token={token}
                 offers={offers}
                 yourOffers={yourOffers}
+                messages={messages}
               />
             }
           />
