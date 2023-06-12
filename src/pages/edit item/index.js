@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import itemsAPI from "../../utils/API/items";
-
 const EditItem = ({token}) => {
+  const navigate = useNavigate();
   const [item, setItem] = useState({
     Photos: [{}],
   });
@@ -87,7 +87,7 @@ const EditItem = ({token}) => {
       token,
       itemId
     );
-    redirect(`items/${itemId}`);
+    navigate(`/YourItems`);
   };
 
   return (
@@ -124,17 +124,6 @@ const EditItem = ({token}) => {
             <option value="4">$200+</option>
             <option value="5">$500+</option>
           </select>
-
-            {/* <input
-              type="number"
-              id="default-input"
-              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
-              value={minimum_trade}
-              name="minimum_trade"
-              onChange={handleInputChange}
-              defaultValue={item.minimum_trade}
-              placeholder={item.minimum_trade}
-            /> */}
             <select
               className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium"
               name="category"

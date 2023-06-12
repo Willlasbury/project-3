@@ -46,23 +46,23 @@ return (
   <div className="flex flex-col items-center mt-5">
     <div className="card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
       <form className="text-xl font-medium">
-        <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Individual Item</h1>
+        <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Individual Item</h1>
         <AliceCarousel>
           {item.Photos.map((photo, index) => (
             <img key={index} src={photo.url} className="sliderimg" />
           ))}
         </AliceCarousel>
-        <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Title: {item.title}</h2>
-        <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Condition: {item.condition}</h2>
-        <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Minimum Trade: {item.minimum_trade}</h2>
+        <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Title: {item.title}</h2>
+        <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Condition: {item.condition}</h2>
+        <h2 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Minimum Trade: {item.minimum_trade}</h2>
         {userId === item.seller_id ? (
           <>
-            <button onClick={handleOffer} className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Submit Offer</button>
-            <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Edit</button>
-            <button onClick={deleteItem}className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Delete</button>
+            <button onClick={handleOffer} className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Submit Offer</button>
+            <button className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Edit</button>
+            <button onClick={deleteItem}className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Delete</button>
           </>
         ) : (
-          <button onClick={handleOffer} className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">Submit Offer</button>
+          <button onClick={handleOffer} className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-2">Submit Offer</button>
         )}
       </form>
     </div>

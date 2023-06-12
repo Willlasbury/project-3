@@ -24,9 +24,9 @@ const itemsAPI = {
       throw new Error(`Error fetching items: ${error.message}`);
     }
   },
-  getItemsBrowse: async (userId) => {
+  getItemsBrowse: async (token) => {
     try {
-      const response = await fetch(`${URL_PREFIX}/api/items/browse/${userId}`, {
+      const response = await fetch(`${URL_PREFIX}/api/items/browse/${token}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

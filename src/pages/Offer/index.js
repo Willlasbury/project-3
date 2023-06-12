@@ -2,6 +2,8 @@ import React from "react";
 import "../../index.css";
 import { Link, useNavigate } from "react-router-dom";
 import itemsAPI from "../../utils/API/items";
+import categoriesAPI from "../../utils/API/categories";
+import userAPI from "../../utils/API/users";
 import { useEffect, useState, useLocation, useRef } from "react";
 import "./style.css";
 import Item from "../ItemProp/index";
@@ -39,6 +41,8 @@ export default function Offer({ token, socket, userId }) {
   const [item, setItem] = useState({
     Photos: [{}],
   });
+  const [category, setCategory] = useState([]);
+  const [seller, setSeller] = useState([]);
 
   //submit's offer to socketIO
 
@@ -52,10 +56,13 @@ export default function Offer({ token, socket, userId }) {
       try {
         const fetchedItem = await itemsAPI.getItemId(itemId);
         setItem(fetchedItem);
-        console.log("fetchedItem:", fetchedItem);
-      } catch (error) {
-        console.log("Error fetching items:", error);
-      }
+        const fetchedCategory = await categoriesAPI.getCategoriesById(
+          fetchedItem.CategoryId
+        );
+        setCategory(fetchedCategory);
+        const fetchedUser = await userAPI.getUserId(fetchedItem.seller_id);
+        setSeller(fetchedUser);
+      } catch (error) {}
     };
 
     fetchItem();
@@ -86,6 +93,7 @@ export default function Offer({ token, socket, userId }) {
       data: newOffer,
     };
     socket.emit("offer", data);
+    navigate('/notifications');
   };
   console.log("item.seller_id:", item.seller_id);
   console.log("userId:", userId);
@@ -96,47 +104,46 @@ export default function Offer({ token, socket, userId }) {
       //TODO: add individual item and offer form. Add handle offer
       <div className="m-2 flex flex-col items-center">
         <article className="card mx-auto my-4 p-4 max-w-sm bg-amber-100 rounded-lg shadow-lg text-center">
-        <Item
-          className="w-auto"
-          id={item.id}
-          picture={item.Photos}
-          title={item.title}
-          category={item.category}
-          condition={item.condition}
-          description={item.description}
-          seller_id={item.seller_id}
-        />
+          <Item
+            className="w-auto"
+            id={itemId}
+            picture={item.Photos}
+            title={item.title}
+            category={item.category}
+            condition={item.condition}
+            description={item.description}
+            seller_id={item.seller_id}
+          />
         </article>
         <div className="card px-3 py-4 bg-amber-100 border-4 border-stone-950 rounded-lg shadow-lg">
           <div className="flex flex-col space-y-4">
-            
-              <input
-                type="text"
-                id="default-input"
-                className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-1"
-                value={offerItem}
-                name="offerItem"
-                onChange={handleInputChange}
-                placeholder="Offer Item"
-              />
-              <input
-                type="text"
-                id="default-input"
-                className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-1"
-                value={offerText}
-                name="OfferText"
-                onChange={handleInputChange}
-                placeholder="What would you like to offer?"
-              />
-              <button
-                className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium m-1"
-                onClick={handleOffer}
-              >
-                Submit Offer
-              </button>
-            </div>
-          </div>        
+            <input
+              type="text"
+              id="default-input"
+              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-1"
+              value={offerItem}
+              name="offerItem"
+              onChange={handleInputChange}
+              placeholder="Offer Item"
+            />
+            <input
+              type="text"
+              id="default-input"
+              className="input-field px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium m-1"
+              value={offerText}
+              name="OfferText"
+              onChange={handleInputChange}
+              placeholder="What would you like to offer?"
+            />
+            <button
+              className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium m-1"
+              onClick={handleOffer}
+            >
+              Submit Offer
+            </button>
+          </div>
         </div>
+      </div>
     );
   }
 }
