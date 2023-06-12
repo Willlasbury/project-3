@@ -42,20 +42,13 @@ const UploadWidget = ({ categoryOptions, token }) => {
       uploadPreset: "zoosknbg",
     },
     function (error, result) {
-      console.log("result.event:", result.event);
       if (result.event === "success") {
-        console.log("result secure url?:", result.info.secure_url);
         imageArr.push(result.info.secure_url);
-        console.log("result:", result);
-        console.log("immageArr:", imageArr);
-        // uploadedImage = result.info.secure_url;
-        //TODO: add post route here
+
       }
-      // return uploadedImage;
-      // return imageArr;
+
     }
   );
-  // }, []);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("description:", description);
