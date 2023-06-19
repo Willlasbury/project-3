@@ -51,11 +51,9 @@ const UploadWidget = ({ categoryOptions, token }) => {
         // uploadedImage = result.info.secure_url;
         //TODO: add post route here
       }
-      // return uploadedImage;
-      // return imageArr;
+
     }
   );
-  // }, []);
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
