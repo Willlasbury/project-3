@@ -25,7 +25,6 @@ export default function Browse({ token }) {
 
     fetchItems();
   }, []);
-  console.log("items:", items);
 
   return (
     <div className="flex flex-col items-center mt-5 mb-5">

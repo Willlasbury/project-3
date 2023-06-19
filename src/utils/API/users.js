@@ -80,18 +80,29 @@ const userAPI = {
     }
   },
   verifyToken: async (token) => {
-    const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
+    try{
 
-    const data = await res.json();
-    return data;
+      const res = await fetch(`${URL_PREFIX}/api/users/verifytoken`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      console.log("err:", err)
+      return {err}
+    }
   },
   getMessages: async (token) => {
-    const res = await fetch(`${URL_PREFIX}/api/messages/${token}`);
-    return res.json();
+    try{
+
+      const res = await fetch(`${URL_PREFIX}/api/messages/${token}`);
+      return res.json();
+    } catch (err){
+      return {err}
+    }
   },
 };
 

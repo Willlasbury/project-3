@@ -12,10 +12,8 @@ const Flip = () => {
     setFlip("");
     if (Math.random() < 0.5) {
       setResult("heads");
-      console.log("heads");
     } else {
       setResult("tails");
-      console.log("tails");
     }
   };
 

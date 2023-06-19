@@ -22,7 +22,6 @@ export default function Browse({ userId, token }) {
       try {
         const fetchedItems = await itemsAPI.getItemsSellerId(userId);
         setItems(fetchedItems);
-        console.log("fetchedItems:", fetchedItems);
       } catch (error) {
         console.log("Error fetching items:", error);
       }
@@ -30,8 +29,6 @@ export default function Browse({ userId, token }) {
 
     fetchItems();
   }, []);
-
-  console.log("items:", items);
 
   if (!items) {
     return (

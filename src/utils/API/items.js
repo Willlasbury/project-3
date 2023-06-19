@@ -149,7 +149,6 @@ const itemsAPI = {
       });
 
       if (data.ok) {
-        console.log("data:", data);
         return data.json();
       }
     } catch (error) {
@@ -166,7 +165,6 @@ const itemsAPI = {
         },
       });
       if (data.ok) {
-        console.log("item was sucessfully deleted");
         return await data.json();
       }
     } catch (error) {

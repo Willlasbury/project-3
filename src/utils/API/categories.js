@@ -42,13 +42,12 @@ const categoriesAPI = {
         const data = await response.json();
         return data;
       } else {
-        throw new Error(
-          `Error fetching items: ${response.status} ${response.statusText}`
-        );
+        return response
       }
-    } catch (error) {
-      console.log("Error:", error);
-      throw new Error(`Error fetching items: ${error.message}`);
+    } catch (err) {
+      console.log("Error:", err);
+
+      return {err}
     }
   },
 };

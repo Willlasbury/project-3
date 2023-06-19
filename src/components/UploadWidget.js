@@ -42,19 +42,21 @@ const UploadWidget = ({ categoryOptions, token }) => {
       uploadPreset: "zoosknbg",
     },
     function (error, result) {
+   
       if (result.event === "success") {
+     
         imageArr.push(result.info.secure_url);
 
+
+        // uploadedImage = result.info.secure_url;
+        //TODO: add post route here
       }
 
     }
   );
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("description:", description);
-    console.log("title:", title);
-    console.log("minimum_trade:", minimum_trade);
-    console.log("condition:", condition);
+
     if (imageArr.length === 0 || !title || !condition ||!category||!minimum_trade || !description) {
       alert("You must input at least 1 photo and fill in all fields to post an item.");
     } else {

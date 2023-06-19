@@ -10,7 +10,7 @@ const EditItem = ({token}) => {
   const itemId = window.location.pathname
     .replace("/items/", "")
     .replace("/editItem", "");
-  console.log("itemId:", itemId);
+
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -23,7 +23,7 @@ const EditItem = ({token}) => {
     };
     fetchItem();
   }, []);
-  console.log("item:", item);
+
   let imageArr = [];
   const [title, setTitle] = useState("");
   const [minimum_trade, setMinimum_trade] = useState("");
@@ -63,9 +63,8 @@ const EditItem = ({token}) => {
     },
     function (error, result) {
       if (result.event === "success") {
-        console.log("result secure url?:", result.info.secure_url);
         imageArr.push(result.info.secure_url);
-        console.log("result:", result);
+;
       } else {
         console.log("error:", error);
       }
@@ -74,7 +73,6 @@ const EditItem = ({token}) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("description:", description);
 
     itemsAPI.editItem(
       title,

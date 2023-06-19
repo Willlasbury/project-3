@@ -23,7 +23,8 @@ export default function Login(props) {
 
       navigate("/");
     } catch (err) {
-      console.log(err);
+      alert('could not login')
+      console.log('err:', err);
       localStorage.removeItem("token");
     }
   };
