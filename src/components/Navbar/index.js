@@ -13,7 +13,6 @@ export default function NavBar({
   offers,
   socket,
   token,
-  userId,
 }) {
   const navigate = useNavigate();
 
@@ -101,42 +100,6 @@ export default function NavBar({
               Your Items
             </NavLink>
           </li>
-          {/* <li className="m-1">
-            <NavLink
-              to="/category"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Category
-            </NavLink>
-          </li> */}
-          {/* <li className="m-1">
-            <NavLink
-              to="/freeItem"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Free Items
-            </NavLink>
-          </li> */}
-          {/* <li className="m-1">
-            <NavLink
-              to={`browse/${userId}`}
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Browse
-            </NavLink>
-          </li> */}
           <li className="m-1">
             <NavLink
               to="/postItem"

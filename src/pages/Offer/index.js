@@ -8,7 +8,7 @@ import { useEffect, useState, useLocation, useRef } from "react";
 import "./style.css";
 import Item from "../../components/ItemProp/index";
 
-export default function Offer({ token, socket, userId }) {
+export default function Offer({ token, socket }) {
   //navigates back to home page
   const navigate = useNavigate();
   useEffect(() => {
@@ -92,9 +92,6 @@ export default function Offer({ token, socket, userId }) {
     socket.emit("offer", data);
     navigate('/notifications');
   };
-  if (userId === item.seller_id) {
-    return <h2>You cannot make an offer on an item you posted</h2>;
-  } else {
     return (
       //TODO: add individual item and offer form. Add handle offer
       <div className="m-2 flex flex-col items-center">
@@ -141,4 +138,4 @@ export default function Offer({ token, socket, userId }) {
       </div>
     );
   }
-}
+
