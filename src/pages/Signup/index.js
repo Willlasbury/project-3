@@ -27,7 +27,6 @@ export default function Signup(props) {
         alert("Error: " + res.msg);
       } else {
         alert("Thank you for your submission");
-        props.setUserId(res.user.id);
         props.setUserName(res.user.userName);
         props.setToken(res.token);
         localStorage.setItem("token", res.token);

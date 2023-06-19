@@ -33,9 +33,6 @@ import "./index.css";
 // const socket = socketConnect();
 
 export default function App() {
-  // create socket connection at root level and pass it to all pages
-  // you will call functions from utils/socket in pages to use the socket prop
-  const [userId, setUserId] = useState(-1);
   const [userName, setUserName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [messages, setMessages] = useState();
@@ -43,8 +40,6 @@ export default function App() {
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState();
-
-  
 
   useEffect(() => {
     try {
@@ -54,7 +49,6 @@ export default function App() {
             localStorage.removeItem("token");
             setToken(null);
           } else {
-            setUserId(data.id);
             setUserName(data.userName);
             // userAPI.getMessages(token).then((data) => {
             //   setMessages(data);
@@ -89,7 +83,6 @@ export default function App() {
     localStorage.removeItem("token");
     setToken(null);
     setUserName(null);
-    setUserId(0);
     setOffers([]);
   };
 
@@ -112,19 +105,16 @@ export default function App() {
           token={token}
           setOffers={setOffers}
           offers={offers}
-          userId={userId}
         />
         <Routes>
-          <Route path="/" element={<Browse token={token} userId={userId} />} />
+          <Route path="/" element={<Browse token={token} />} />
           <Route
             path="/login"
             element={
               <Login
                 socket={socket}
-                setUserId={setUserId}
                 setUserName={setUserName}
                 setToken={setToken}
-                userId={userId}
                 userName={userName}
               />
             }
@@ -133,21 +123,16 @@ export default function App() {
             path="/signup"
             element={
               <Signup
-                setUserId={setUserId}
                 setUserName={setUserName}
                 setToken={setToken}
-                userId={userId}
                 userName={userName}
               />
             }
           />
-          <Route
-            path="/yourItems"
-            element={<YourItems userId={userId} token={token} />}
-          />
+          <Route path="/yourItems" element={<YourItems token={token} />} />
           <Route
             path="/items/:id/editItem"
-            element={<EditItem userId={userId} token={token} />}
+            element={<EditItem token={token} />}
           />
           <Route path="/category" element={<Category token={token} />} />
           <Route path="/freeitem" element={<FreeItem token={token} />} />
@@ -155,16 +140,13 @@ export default function App() {
           <Route
             path="/postitem"
             element={
-              <PostItem token={token} categoryOptions={categoryOptions}/>
+              <PostItem token={token} categoryOptions={categoryOptions} />
             }
           />
-          <Route
-            path="/browse/:id"
-            element={<Browse token={token} userId={userId} />}
-          />
+          <Route path="/browse/:id" element={<Browse token={token} />} />
           <Route
             path="/items/:id"
-            element={<Items socket={socket} token={token} userId={userId} />}
+            element={<Items socket={socket} token={token} />}
           />
           <Route
             path="/chat"
@@ -172,7 +154,7 @@ export default function App() {
           />
           <Route
             path="/offer/:id"
-            element={<Offer token={token} socket={socket} userId={userId} />}
+            element={<Offer token={token} socket={socket} />}
           />
           <Route path="/search" element={<Search token={token} />} />
           <Route path="/items" element={<Items token={token} />} />

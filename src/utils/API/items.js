@@ -65,9 +65,9 @@ const itemsAPI = {
     }
   },
 
-  getItemsSellerId: async (userId) => {
+  getYourItems: async (token) => {
     try {
-      const data = await fetch(`${URL_PREFIX}/api/items/seller/${userId}`, {
+      const data = await fetch(`${URL_PREFIX}/api/items/seller/${token}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
