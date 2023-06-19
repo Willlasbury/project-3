@@ -192,7 +192,7 @@ export default function NavBar({
                       : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
                   }
                 >
-                  Notifications: {offers.length}
+                  Notifications
                 </NavLink>
               </li>
               {/* <h3 className="nav-item px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 hover:font-bold hover:bg-amber-500 hover:text-stone-900 text-xl font-medium">

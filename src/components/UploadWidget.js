@@ -42,12 +42,12 @@ const UploadWidget = ({ categoryOptions, token }) => {
       uploadPreset: "zoosknbg",
     },
     function (error, result) {
-      console.log("result.event:", result.event);
+   
       if (result.event === "success") {
-        console.log("result secure url?:", result.info.secure_url);
+     
         imageArr.push(result.info.secure_url);
-        console.log("result:", result);
-        console.log("immageArr:", imageArr);
+
+
         // uploadedImage = result.info.secure_url;
         //TODO: add post route here
       }
@@ -58,10 +58,7 @@ const UploadWidget = ({ categoryOptions, token }) => {
   // }, []);
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("description:", description);
-    console.log("title:", title);
-    console.log("minimum_trade:", minimum_trade);
-    console.log("condition:", condition);
+
     if (imageArr.length === 0 || !title || !condition ||!category||!minimum_trade || !description) {
       alert("You must input at least 1 photo and fill in all fields to post an item.");
     } else {

@@ -21,22 +21,17 @@ export default function Item({ socket, token, userId }) {
   }, []);
 
   const itemId = window.location.pathname.replace("/items/", "");
-  console.log("itemId:", itemId);
   useEffect(() => {
     const fetchItem = async () => {
       try {
         const fetchedItem = await itemsAPI.getItemId(itemId);
         setItem(fetchedItem);
-        console.log("fetchedItem:", fetchedItem);
-        console.log("fetchedItem.categoryId:", fetchedItem.categoryId);
         const fetchedCategory = await categoriesAPI.getCategoriesById(
           fetchedItem.CategoryId
         );
         setCategory(fetchedCategory);
-        console.log("fetchedCategory:", fetchedCategory);
         const fetchedUser = await userAPI.getUserId(fetchedItem.seller_id);
         setSeller(fetchedUser);
-        console.log("fetchedUser:", fetchedUser);
       } catch (error) {
         console.log("Error fetching items:", error);
       }

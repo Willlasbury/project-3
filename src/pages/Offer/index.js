@@ -30,9 +30,7 @@ export default function Offer({ token, socket, userId }) {
     },
     function (error, result) {
       if (result.event === "success") {
-        console.log("result secure url?:", result.info.secure_url);
         imageArr.push(result.info.secure_url);
-        console.log("result:", result);
       }
     }
   );
@@ -48,7 +46,6 @@ export default function Offer({ token, socket, userId }) {
 
   //gets item id from the parameters
   const itemId = window.location.pathname.replace("/offer/", "");
-  console.log("itemId:", itemId);
   //uses itemId to fetch the specific item
 
   useEffect(() => {
@@ -95,8 +92,6 @@ export default function Offer({ token, socket, userId }) {
     socket.emit("offer", data);
     navigate('/notifications');
   };
-  console.log("item.seller_id:", item.seller_id);
-  console.log("userId:", userId);
   if (userId === item.seller_id) {
     return <h2>You cannot make an offer on an item you posted</h2>;
   } else {

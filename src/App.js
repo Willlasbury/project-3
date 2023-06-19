@@ -43,8 +43,6 @@ export default function App() {
   const [offers, setOffers] = useState([]);
   const [yourOffers, setYourOffers] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState();
-  // const [imageArr, setImageArr] = useState([1,2])
-  // console.log("imageArr:", imageArr)
 
   
 
@@ -62,7 +60,7 @@ export default function App() {
               setMessages(data);
             });
             offerAPI.getRecievedOffers(token).then((data) => {
-              setOffers(data.msg ? [] : data);
+              // setOffers(data.msg ? [] : data);
             });
             offerAPI.getSentOffers(token).then((data) => {
               setYourOffers(data);
