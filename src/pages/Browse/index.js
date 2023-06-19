@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Item from "../ItemProp";
+import Item from "../../components/ItemProp";
 import itemsAPI from "../../utils/API/items";
 import categoryAPI from "../../utils/API/categories";
 import "../../index.css";
@@ -14,6 +14,7 @@ export default function Browse({ token }) {
     if (!token) {
       navigate("/login");
     }
+
     const fetchItems = async () => {
       try {
         const fetchedItems = await itemsAPI.getItemsBrowse(token);
@@ -31,24 +32,9 @@ export default function Browse({ token }) {
       <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         Browse Items
       </h1>
-      <div className="item-list">
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className="card mx-auto my-4 p-4 max-w-sm bg-amber-100 rounded-lg shadow-lg text-center"
-          >
-            <Item
-              id={item.id}
-              picture={item.Photos}
-              title={item.title}
-              categoryId={item.CategoryId}
-              condition={item.condition}
-              description={item.description}
-              seller_id={item.seller_id}
-            />
-          </div>
-        ))}
-      </div>
+      {items.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
     </div>
   );
 }

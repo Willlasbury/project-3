@@ -6,7 +6,7 @@ import categoriesAPI from "../../utils/API/categories";
 import userAPI from "../../utils/API/users";
 import { useEffect, useState, useLocation, useRef } from "react";
 import "./style.css";
-import Item from "../ItemProp/index";
+import Item from "../../components/ItemProp/index";
 
 export default function Offer({ token, socket, userId }) {
   //navigates back to home page

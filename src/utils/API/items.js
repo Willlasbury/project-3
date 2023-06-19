@@ -24,6 +24,7 @@ const itemsAPI = {
       throw new Error(`Error fetching items: ${error.message}`);
     }
   },
+
   getItemsBrowse: async (token) => {
     try {
       const response = await fetch(`${URL_PREFIX}/api/items/browse/${token}`, {
@@ -63,6 +64,7 @@ const itemsAPI = {
       // throw new Error(error);
     }
   },
+
   getItemsSellerId: async (userId) => {
     try {
       const data = await fetch(`${URL_PREFIX}/api/items/seller/${userId}`, {

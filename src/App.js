@@ -15,7 +15,7 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
-import Item from "./pages/ItemProp";
+import Item from "./components/ItemProp";
 import Browse from "./pages/Browse";
 import Items from "./pages/Individual Items Page";
 import NavBar from "./components/Navbar";
@@ -56,25 +56,25 @@ export default function App() {
           } else {
             setUserId(data.id);
             setUserName(data.userName);
-            userAPI.getMessages(token).then((data) => {
-              setMessages(data);
-            });
-            offerAPI.getRecievedOffers(token).then((data) => {
-              // setOffers(data.msg ? [] : data);
-            });
-            offerAPI.getSentOffers(token).then((data) => {
-              setYourOffers(data);
-            });
-            categoriesAPI
-              .getCategories()
-              .then((data) => setCategoryOptions(data));
+            // userAPI.getMessages(token).then((data) => {
+            //   setMessages(data);
+            // });
+            // offerAPI.getRecievedOffers(token).then((data) => {
+            //   // setOffers(data.msg ? [] : data);
+            // });
+            // offerAPI.getSentOffers(token).then((data) => {
+            //   setYourOffers(data);
+            // });
+            // categoriesAPI
+            //   .getCategories()
+            //   .then((data) => setCategoryOptions(data));
 
-            const socket = socketConnect(token);
-            setSocket(socket);
-            console.log("socket:", socket)
-            if (socket) {
-              socket.emit("add_user", token);
-            }
+            // const socket = socketConnect(token);
+            // setSocket(socket);
+            // console.log("socket:", socket)
+            // if (socket) {
+            //   socket.emit("add_user", token);
+            // }
           }
         });
       }
