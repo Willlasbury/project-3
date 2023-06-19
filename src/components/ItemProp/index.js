@@ -9,6 +9,8 @@ import userAPI from "../../utils/API/users";
 import itemsAPI from "../../utils/API/items";
 
 export default function Items({item}) {
+  
+
   return (
     <>
      <div className="flex flex-col w-1/2 items-center m-3 mx-auto p-4 max-w-sm border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">

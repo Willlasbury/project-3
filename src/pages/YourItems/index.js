@@ -4,11 +4,9 @@ import itemsAPI from "../../utils/API/items";
 import usersApi from "../../utils/API/users";
 import "../../index.css";
 import { useNavigate } from "react-router-dom";
-export default function Browse({ userId, token }) {
+export default function Browse({token}) {
   const [items, setItems] = useState([]);
 
-  // Fetch items data and update the items state
-  //TODO:add token user id once that is up and running
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +18,7 @@ export default function Browse({ userId, token }) {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const fetchedItems = await itemsAPI.getItemsSellerId(userId);
+        const fetchedItems = await itemsAPI.getItemsSellerId(token);
         setItems(fetchedItems);
       } catch (error) {
         console.log("Error fetching items:", error);
@@ -48,14 +46,7 @@ export default function Browse({ userId, token }) {
         <ul className="item-list card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
           {items.map((item) => (
             <li key={item.id}>
-              <Item
-                id={item.id}
-                picture={item.Photos}
-                title={item.title}
-                category={item.category}
-                condition={item.condition}
-                description={item.description}
-              />
+              <Item item={item}/>
             </li>
           ))}
         </ul>

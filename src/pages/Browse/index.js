@@ -32,9 +32,11 @@ export default function Browse({ token }) {
       <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         Browse Items
       </h1>
-      {items.map((item) => (
-        <Item key={item.id} item={item} />
-      ))}
+      <ul>
+        {items.map((item) => (
+          <Item key={item.id} item={item} />
+        ))}
+      </ul>
     </div>
   );
 }
