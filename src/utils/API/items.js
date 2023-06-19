@@ -65,7 +65,7 @@ const itemsAPI = {
     }
   },
 
-  getItemsSellerId: async (userId) => {
+  getYourItems: async (userId) => {
     try {
       const data = await fetch(`${URL_PREFIX}/api/items/seller/${userId}`, {
         method: "GET",

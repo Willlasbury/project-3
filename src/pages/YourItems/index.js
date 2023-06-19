@@ -18,7 +18,7 @@ export default function Browse({token}) {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const fetchedItems = await itemsAPI.getItemsSellerId(token);
+        const fetchedItems = await itemsAPI.getYourItems(token);
         setItems(fetchedItems);
       } catch (error) {
         console.log("Error fetching items:", error);
@@ -46,7 +46,7 @@ export default function Browse({token}) {
         <ul className="item-list card mx-auto p-4 max-w-sm border-stone-950 bg-amber-100 rounded-lg shadow-lg text-center">
           {items.map((item) => (
             <li key={item.id}>
-              <Item item={item}/>
+              <Item yourItem={true} item={item}/>
             </li>
           ))}
         </ul>
