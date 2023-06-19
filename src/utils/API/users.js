@@ -59,26 +59,32 @@ const userAPI = {
       throw new Error(error);
     }
   },
+
   login: async (userName, password) => {
-    const user = {
-      userName: userName,
-      password: password,
-    };
+    try{
 
-    const res = await fetch(`${URL_PREFIX}/api/users/login`, {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error("falied login");
+      const user = {
+        userName: userName,
+        password: password,
+      };
+      
+      const res = await fetch(`${URL_PREFIX}/api/users/login`, {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
+      if (res.ok) {
+        return res.json();
+      } else {
+        return {"err": res}
+      }
+    }catch (err){
+      return err
     }
-  },
+    },
   verifyToken: async (token) => {
     try{
 
