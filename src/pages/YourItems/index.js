@@ -30,8 +30,8 @@ export default function Browse({token}) {
 
   if (!items) {
     return (
-      <div className="browse flex flex-col items-center mt-5">
-        <h1 className="px-3 m-2 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
+      <div className="h-max">
+        <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
           Your Items
         </h1>
         <h2>You do not have any items yet!</h2>

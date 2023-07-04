@@ -18,7 +18,7 @@ export default function Item({ yourItem, item }) {
       <section className="flex flex-col w-1/2 items-center m-3 mx-auto p-4 max-w-sm border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
         <AliceCarousel>
           {item.Photos.map((photo, index) => (
-            <img key={index} src={photo.url} className="sliderimg " />
+            <img key={index} src={photo.url} className="sliderimg" />
           ))}
         </AliceCarousel>
         <h3 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 item-title text-black font-bold text-xl m-1">
