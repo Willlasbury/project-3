@@ -7,7 +7,6 @@ import offerAPI from "./utils/API/offer";
 import categoriesAPI from "./utils/API/categories";
 import backgroundImage from "./utils/images/background.jpg";
 
-import Home from "./pages/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -15,7 +14,6 @@ import Category from "./pages/Category";
 import FreeItem from "./pages/FreeItem";
 import LookingFor from "./pages/LookingFor";
 import PostItem from "./pages/PostItem";
-import Item from "./components/ItemProp";
 import Browse from "./pages/Browse";
 import Items from "./pages/Individual Items Page";
 import NavBar from "./components/Navbar";
@@ -92,20 +90,23 @@ export default function App() {
   }, []);
 
   return (
-    <section
-      className="flex flex-col min-h-screen mb-12 bg-cover bg-center h-full"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      <BrowserRouter>
-        <NavBar
-          userName={userName}
-          logout={logout}
-          messages={messages}
-          socket={socket}
-          token={token}
-          setOffers={setOffers}
-          offers={offers}
-        />
+    <BrowserRouter>
+      <NavBar
+        userName={userName}
+        logout={logout}
+        messages={messages}
+        socket={socket}
+        token={token}
+        setOffers={setOffers}
+        offers={offers}
+      />
+      <main
+        className="p-2"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundAttachment: "fixed",
+        }}
+      >
         <Routes>
           <Route path="/" element={<Browse token={token} />} />
           <Route
@@ -173,8 +174,8 @@ export default function App() {
           />
           <Route path="/*" element={<NotFound token={token} />} />
         </Routes>
-        <Footer />
-      </BrowserRouter>
-    </section>
+      </main>
+      <Footer />
+    </BrowserRouter>
   );
 }

@@ -28,15 +28,15 @@ export default function Browse({ token }) {
   }, []);
 
   return (
-    <main className="flex flex-col items-center mt-5 mb-5">
-      <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium">
+    <>
+      <h1 className="px-3 border-4 border-stone-950 rounded-lg shadow-lg bg-amber-100 text-xl font-medium text-center">
         Browse Items
       </h1>
-      <ul className="w-3/4">
+      <ul className="w-3/4 flex flex-col w-full">
         {items.map((item) => (
           <Item key={item.id} yourItem={false} item={item} />
         ))}
       </ul>
-    </main>
+    </>
   );
 }
