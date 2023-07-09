@@ -101,7 +101,7 @@ export default function App() {
         offers={offers}
       />
       <main
-        className="p-2"
+        className="p-2 h-full overflow-auto overscroll-auto"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundAttachment: "fixed",
