@@ -38,20 +38,8 @@ export default function NavBar({
   return (
     <nav className="flex justify-between w-full sticky top-0 z-10 bg-amber-950 border-stone-400 p-2">
       <ul className="nav nav-tabs flex flex-wrap justify-center">
-        <li className="m-1">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-            }
-          >
-            Home
-          </NavLink>
-        </li>
-        {token ? null : (
-          <div className="flex">
+        {!token ? (
+          <>
             <li className="m-1">
               <NavLink
                 to="/login"
@@ -76,83 +64,73 @@ export default function NavBar({
                 Signup
               </NavLink>
             </li>
-          </div>
-        )}
-        <li className="m-1">
-          <NavLink
-            to="/YourItems"
-            className={({ isActive }) =>
-              isActive
-                ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-            }
-          >
-            Your Items
-          </NavLink>
-        </li>
-        <li className="m-1">
-          <NavLink
-            to="/postItem"
-            className={({ isActive }) =>
-              isActive
-                ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-            }
-          >
-            Post Item
-          </NavLink>
-        </li>
-        {/* <li className="m-1">
-            <NavLink
-              to="/search"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Search
-            </NavLink>
-          </li> */}
-        {/* <li className="m-1">
-            <NavLink
-              to="/offer"
-              className={({ isActive }) =>
-                isActive
-                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
-                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              }
-            >
-              Offer
-            </NavLink>
-          </li> */}
-</ul>
-
-        {!token ? null : (
-          <ul className="flex">
-            <button
-              className="px-3 border-4 h-9 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
+          </>
+        ) : (
+          <>
             <li className="m-1">
               <NavLink
-                to="/notifications"
+                to="/"
                 className={({ isActive }) =>
                   isActive
                     ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
                     : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
                 }
               >
-                Notifications
+                Home
               </NavLink>
             </li>
-            <li className="m-1 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold">
-              Hello, {userName}
+            <li className="m-1">
+              <NavLink
+                to="/YourItems"
+                className={({ isActive }) =>
+                  isActive
+                    ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                    : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+                }
+              >
+                Your Items
+              </NavLink>
             </li>
-          </ul>
+            <li className="m-1">
+              <NavLink
+                to="/postItem"
+                className={({ isActive }) =>
+                  isActive
+                    ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                    : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+                }
+              >
+                Post Item
+              </NavLink>
+            </li>
+          </>
         )}
+      </ul>
+      {token && (
+        <ul className="flex">
+          <button
+            className="px-3 border-4 h-9 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+          <li className="m-1">
+            <NavLink
+              to="/notifications"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 border-4 border-black rounded-lg shadow-lg bg-amber-500 text-stone-900 text-xl font-bold"
+                  : "px-3 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold"
+              }
+            >
+              Notifications
+            </NavLink>
+          </li>
+          <li className="m-1 border-4 border-amber-500 rounded-lg shadow-lg bg-amber-100 text-amber-950 text-xl font-semibold">
+            Hello, {userName}
+          </li>
+        </ul>
+      )}
     </nav>
   );
 }
